@@ -1,0 +1,21 @@
+1. sudo apt-get install vim exuberant-ctags cscope
+2. Install below four VIM plugin in order:
+  taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) 
+  http://www.vim.org/scripts/script.php?script_id=273
+
+  The NERD tree : A tree explorer plugin for navigating the filesystem 
+  http://www.vim.org/scripts/script.php?script_id=1658
+
+  Source Explorer (SrcExpl) : The Source Explorer can work with 'Taglist' and 'NERD tree' very well. Both of them make (G)Vim looks like the "Source Insight" in Unix/Windows/Mac enviroment. 
+  http://www.vim.org/scripts/script.php?script_id=2179
+
+  Trinity : The Trinity plugin manages Source Explorer, Taglist and NERD Tree, and build them as a great IDE which works like the "Source Insignt". 
+  http://www.vim.org/scripts/script.php?script_id=2347
+
+3. References:
+  http://stenlyho.blogspot.tw/2010/03/vim-trinity-source-explorer-tag-list.html
+  http://yuanfarn.blogspot.tw/2013/02/srcexpl-vim-source-explorer.html
+  http://eeepage.info/tag-vim-source-insight/
+  http://www.cnblogs.com/coderkian/p/3823366.html
+
+
