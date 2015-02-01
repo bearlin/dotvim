@@ -65,3 +65,17 @@ nmap <F10>  :TrinityToggleTagList<CR>
 " Open and close the NERD_tree.vim separately 
 nmap <F11>  :TrinityToggleNERDTree<CR> 
 " //=================================Trinity====================================
+
+" //=================================sachet.com====================================
+set nocompatible
+
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+ 
+set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+filetype plugin indent on
+ 
+set background=dark
+colorscheme wombat
+" //=================================sachet.com====================================
