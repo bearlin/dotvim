@@ -1,3 +1,11 @@
+" //=============================General Settings===============================
+"http://blog.wu-boy.com/2010/08/vim-%E5%B0%87-tab-%E8%BD%89%E6%8F%9B%E6%88%90-space/
+:set tabstop=2
+:set shiftwidth=2
+:set expandtab
+
+" //=============================General Settings===============================
+
 " //==============================Source Explorer===============================
 " // The switch of the Source Explorer                                         " 
 " nmap <F8> :SrcExplToggle<CR> 
