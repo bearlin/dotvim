@@ -1,3 +1,4 @@
+===================================================================================
 1. sudo apt-get install vim exuberant-ctags cscope
 2. Install below four VIM plugin in order:
   taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) 
@@ -17,5 +18,23 @@
   http://yuanfarn.blogspot.tw/2013/02/srcexpl-vim-source-explorer.html
   http://eeepage.info/tag-vim-source-insight/
   http://www.cnblogs.com/coderkian/p/3823366.html
+
+===================================================================================
+
+4. Use auto generated vim settings from http://yoursachet.com/
+    a. goto yoursachet.com
+    b. choose your editor vim
+    c. page1: select everything except "Wrap long lines"
+    d. page2: I prefer "Wombat" style
+    e. page3: select everything except "Nerdtree" because we already installed in step 2
+    f. download your sachet.zip file
+    g. unzip sachet.zip
+    h. cp -r sachet/vim/* ~/.vim
+    i. cat sachet/vimrc >> ~/.vimrc
+    j. have fun ~
+
+
+http://blog.longwin.com.tw/2013/03/favorite-vim-vimrc-setup-2013/
+
 
 
