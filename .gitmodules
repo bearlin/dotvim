@@ -4,3 +4,9 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/srcexpl"]
+	path = bundle/srcexpl
+	url = https://github.com/wesleyche/SrcExpl.git
+[submodule "bundle/trinity"]
+	path = bundle/trinity
+	url = https://github.com/wesleyche/Trinity.git
