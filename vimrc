@@ -7,7 +7,7 @@ execute pathogen#infect()
 set encoding=utf-8
 set fileencodings=utf-8,cp950
  
-" 編輯喜好設定                                                                                                                                                                                                     
+" 編輯喜好設定 
 syntax on        " 語法上色顯示
 set nocompatible " VIM 不使用和 VI 相容的模式
 " set ai           " 自動縮排
@@ -29,6 +29,11 @@ set cursorline   " 顯示目前的游標位置
  
 set laststatus=2
 set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
+
+" //=================================sachet.com====================================
+"set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set background=dark
+colorscheme wombat
 
 " //==============================Source Explorer===============================
 " // The switch of the Source Explorer                                         " 
@@ -88,20 +93,6 @@ nmap <F10>  :TrinityToggleTagList<CR>
 " Open and close the NERD_tree.vim separately 
 nmap <F11>  :TrinityToggleNERDTree<CR> 
 
-" //=================================sachet.com====================================
-set nocompatible
-
-" Pathogen
-call pathogen#infect()
-call pathogen#helptags()
- 
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
-filetype plugin indent on
- 
-set background=dark
-colorscheme wombat
-
 " //==============================pathogen.vim===============================
-if has("autocmd")
-  filetype plugin indent on
-endif
+filetype plugin indent on
+
