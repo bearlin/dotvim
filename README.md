@@ -1,6 +1,6 @@
-# HowToVimTrinity
+# vimrc
 
-This is just my vim settings repo, most information came from below sites:  
+This is my vimrc repo, most information came from below sites:  
 Trinity:  
 http://www.vim.org/scripts/script.php?script_id=2347  
 sachet:  
@@ -16,4 +16,4 @@ cp -r vim_trinity/.vim ~/.vim
 cp -r vim_trinity/.vimrc ~/.vimrc
 ```
 
-For the steps how I create this repo please check how-to.txt.  
+For the steps how I create this repo please check "how-to.txt".  

@@ -1,6 +1,10 @@
 1. sudo apt-get install vim exuberant-ctags cscope
 
 2. Install below four VIM plugin in order:
+  pathogen.vim : Poor man's package manager. Easy manipulation of 'runtimepath' et al 
+  http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
+  http://www.vim.org/scripts/script.php?script_id=2332
+
   taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc) 
   http://www.vim.org/scripts/script.php?script_id=273
 
