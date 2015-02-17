@@ -31,6 +31,20 @@ sudo apt-get install vim exuberant-ctags cscope
 git clone https://github.com/bearlin/dotvim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
+
+cd ~/.vim
+git submodule init
+git submodule update
+```
+
+# Install new vim plugin as git submodule:
+```sh
+cd ~/.vim
+git submodule add <github-plugin-clone-url> bundle/<plugin-name>
+git status
+git add -A
+git commit -m "Install <plugin-name>"
+git push
 ```
 
 References:  
