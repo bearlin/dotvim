@@ -1,3 +1,6 @@
+" //==============================pathogen.vim===============================
+execute pathogen#infect()
+
 " //=============================General Settings===============================
 " http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/
 " 檔案編碼
@@ -26,7 +29,6 @@ set cursorline   " 顯示目前的游標位置
  
 set laststatus=2
 set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
-" //=============================General Settings===============================
 
 " //==============================Source Explorer===============================
 " // The switch of the Source Explorer                                         " 
@@ -72,7 +74,6 @@ let g:SrcExpl_prevDefKey = "<F3>"
 "                                                                              " 
 " // Set "<F4>" key for displaying the next definition in the jump list        " 
 let g:SrcExpl_nextDefKey = "<F4>" 
-" //==============================Source Explorer===============================
 
 " //=================================Trinity====================================
 " Open and close all the three plugins on the same time 
@@ -86,7 +87,6 @@ nmap <F10>  :TrinityToggleTagList<CR>
 
 " Open and close the NERD_tree.vim separately 
 nmap <F11>  :TrinityToggleNERDTree<CR> 
-" //=================================Trinity====================================
 
 " //=================================sachet.com====================================
 set nocompatible
@@ -100,4 +100,8 @@ filetype plugin indent on
  
 set background=dark
 colorscheme wombat
-" //=================================sachet.com====================================
+
+" //==============================pathogen.vim===============================
+if has("autocmd")
+  filetype plugin indent on
+endif

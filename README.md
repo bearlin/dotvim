@@ -7,6 +7,7 @@ http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-patho
 #Plugins
 pathogen.vim : Poor man's package manager. Easy manipulation of 'runtimepath' et al  
 http://www.vim.org/scripts/script.php?script_id=2332
+https://github.com/tpope/vim-pathogen
 
 taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)  
 http://www.vim.org/scripts/script.php?script_id=273
@@ -20,7 +21,7 @@ http://www.vim.org/scripts/script.php?script_id=2179
 Trinity : The Trinity plugin manages Source Explorer, Taglist and NERD Tree, and build them as a great IDE which works like the "Source Insignt". 
 http://www.vim.org/scripts/script.php?script_id=2347
 
-#auto-generate vimrc tool
+#Auto-generate vimrc tool
 sachet:  
 http://yoursachet.com/  
 
