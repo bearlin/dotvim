@@ -1,14 +1,13 @@
-# vimrc
-This is my vimrc repo.  
+# dotvim
+This is my vim/gvim setting repo.  
 
-#Plugin Manager 
-Synchronizing plugins with git submodules and pathogen  
+#Synchronizing plugins with git submodules and pathogen  
 http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 
+#Plugins
 pathogen.vim : Poor man's package manager. Easy manipulation of 'runtimepath' et al  
 http://www.vim.org/scripts/script.php?script_id=2332
 
-#Plugins
 taglist.vim : Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)  
 http://www.vim.org/scripts/script.php?script_id=273
 
@@ -21,19 +20,17 @@ http://www.vim.org/scripts/script.php?script_id=2179
 Trinity : The Trinity plugin manages Source Explorer, Taglist and NERD Tree, and build them as a great IDE which works like the "Source Insignt". 
 http://www.vim.org/scripts/script.php?script_id=2347
 
-#vimrc tool
+#auto-generate vimrc tool
 sachet:  
 http://yoursachet.com/  
 
 # Install steps:  
 ```sh
 sudo apt-get install vim exuberant-ctags cscope  
-git clone https://github.com/bearlin/vimrc.git ~/.vim
+git clone https://github.com/bearlin/dotvim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
 ```
-
-For the steps how I create this repo please check "how-to.txt".  
 
 References:  
   http://blog.vgod.tw/2011/03/19/vimrc/?variant=zh-tw  
