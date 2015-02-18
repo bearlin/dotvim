@@ -10,7 +10,7 @@ set fileencodings=utf-8,cp950
 " 編輯喜好設定 
 syntax on        " 語法上色顯示
 set nocompatible " VIM 不使用和 VI 相容的模式
-" set ai           " 自動縮排
+set ai           " 自動縮排
 set shiftwidth=2 " 設定縮排寬度 = 2 
 set tabstop=2    " tab 的字元數
 set softtabstop=2
@@ -25,13 +25,17 @@ set incsearch    " 在關鍵字還沒完全輸入完畢前就顯示結果
 set smartindent  " 設定 smartindent
 set confirm      " 操作過程有衝突時，以明確的文字來詢問
 set history=100  " 保留 100 個使用過的指令
-set cursorline   " 顯示目前的游標位置
+"set cursorline   " 顯示目前的游標位置
  
 set laststatus=2
-set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
+"set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
+
+" http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm
+set number       " Enable line numbering
+set mouse=a      " Enable mouse use in all modes
 
 " //=================================sachet.com====================================
-"set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set background=dark
 colorscheme wombat
 
@@ -40,10 +44,10 @@ colorscheme wombat
 " nmap <F8> :SrcExplToggle<CR> 
 "                                                                              " 
 " // Set the height of Source Explorer window                                  " 
-" let g:SrcExpl_winHeight = 8 
+ let g:SrcExpl_winHeight = 8 
 "                                                                              " 
 " // Set 100 ms for refreshing the Source Explorer                             " 
-" let g:SrcExpl_refreshTime = 100 
+ let g:SrcExpl_refreshTime = 100 
 "                                                                              " 
 " // Set "Enter" key to jump into the exact definition context                 " 
  let g:SrcExpl_jumpKey = "<ENTER>" 
@@ -62,10 +66,10 @@ colorscheme wombat
 " // Enable/Disable the local definition searching, and note that this is not  " 
 " // guaranteed to work, the Source Explorer doesn't check the syntax for now. " 
 " // It only searches for a match with the keyword according to command 'gd'   " 
-" let g:SrcExpl_searchLocalDef = 1 
+ let g:SrcExpl_searchLocalDef = 1 
 "                                                                              " 
 " // Do not let the Source Explorer update the tags file when opening          " 
-" let g:SrcExpl_isUpdateTags = 0 
+ let g:SrcExpl_isUpdateTags = 0 
 "                                                                              " 
 " // Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to " 
 " //  create/update a tags file                                                " 
