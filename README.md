@@ -14,9 +14,7 @@ bundle/*
 
 # Plugins pre-downloaded
 autocomplpop http://www.vim.org/scripts/script.php?script_id=1879  
-ctrlp.vim http://www.vim.org/scripts/script.php?script_id=3736  
 supertab http://www.vim.org/scripts/script.php?script_id=1643  
-vim-surround http://www.vim.org/scripts/script.php?script_id=1697  
 Wombat http://www.vim.org/scripts/script.php?script_id=1778  
 
 # Plugins need to be "git submodule init/udate"
@@ -25,6 +23,8 @@ nerdtree http://www.vim.org/scripts/script.php?script_id=1658
 srcexpl http://www.vim.org/scripts/script.php?script_id=2179  
 taglist http://www.vim.org/scripts/script.php?script_id=273  
 trinity http://www.vim.org/scripts/script.php?script_id=2347  
+ctrlp.vim http://www.vim.org/scripts/script.php?script_id=3736  
+vim-surround http://www.vim.org/scripts/script.php?script_id=1697  
 
 # Install steps:  
 ```sh
