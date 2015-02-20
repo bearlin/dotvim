@@ -5,6 +5,9 @@ This is my vim/gvim setting repo.
 Synchronizing plugins with git submodules and pathogen  
 http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/  
 
+# Very useful site to learn vim and plugins
+http://vimcasts.org/
+
 # Plugins manager: pathogen.vim
 http://www.vim.org/scripts/script.php?script_id=2332  
 https://github.com/tpope/vim-pathogen  
@@ -14,7 +17,6 @@ bundle/*
 
 # Plugins pre-downloaded
 autocomplpop http://www.vim.org/scripts/script.php?script_id=1879  
-Wombat http://www.vim.org/scripts/script.php?script_id=1778  
 
 # Plugins need to be "git submodule init/update"
 fugitive http://www.vim.org/scripts/script.php?script_id=2975  
@@ -25,6 +27,10 @@ trinity http://www.vim.org/scripts/script.php?script_id=2347
 ctrlp.vim http://www.vim.org/scripts/script.php?script_id=3736  
 vim-surround http://www.vim.org/scripts/script.php?script_id=1697  
 supertab http://www.vim.org/scripts/script.php?script_id=1643  
+
+# Color colorschemes
+Wombat http://www.vim.org/scripts/script.php?script_id=1778  
+Apprentice http://www.vim.org/scripts/script.php?script_id=4905  
 
 # Install steps:  
 ```sh

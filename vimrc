@@ -37,7 +37,9 @@ set mouse=a      " Enable mouse use in all modes
 " //=================================sachet.com====================================
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set background=dark
-colorscheme wombat
+
+" colorscheme wombat
+colorscheme apprentice 
 
 " //==============================Source Explorer===============================
 " // The switch of the Source Explorer                                         " 
