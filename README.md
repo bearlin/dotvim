@@ -19,18 +19,19 @@ bundle/*
 autocomplpop http://www.vim.org/scripts/script.php?script_id=1879  
 
 # Plugins need to be "git submodule init/update"
-fugitive http://www.vim.org/scripts/script.php?script_id=2975  
-nerdtree http://www.vim.org/scripts/script.php?script_id=1658  
-srcexpl http://www.vim.org/scripts/script.php?script_id=2179  
-taglist http://www.vim.org/scripts/script.php?script_id=273  
-trinity http://www.vim.org/scripts/script.php?script_id=2347  
-ctrlp.vim http://www.vim.org/scripts/script.php?script_id=3736  
-vim-surround http://www.vim.org/scripts/script.php?script_id=1697  
 supertab http://www.vim.org/scripts/script.php?script_id=1643  
+ctrlp.vim http://www.vim.org/scripts/script.php?script_id=3736  
+nerdtree http://www.vim.org/scripts/script.php?script_id=1658  
+taglist http://www.vim.org/scripts/script.php?script_id=273  
+srcexpl http://www.vim.org/scripts/script.php?script_id=2179  
+trinity http://www.vim.org/scripts/script.php?script_id=2347  
+fugitive http://www.vim.org/scripts/script.php?script_id=2975  
+vim-surround http://www.vim.org/scripts/script.php?script_id=1697  
 
 # Color colorschemes
-Wombat http://www.vim.org/scripts/script.php?script_id=1778  
-Apprentice http://www.vim.org/scripts/script.php?script_id=4905  
+wombat http://www.vim.org/scripts/script.php?script_id=1778  
+apprentice http://www.vim.org/scripts/script.php?script_id=4905  
+Change colorscheme at runtime -> :colorscheme [wombat|apprentice]  
 
 # Install steps:  
 ```sh
