@@ -17,6 +17,7 @@ bundle/*
 
 # Plugins pre-downloaded
 autocomplpop http://www.vim.org/scripts/script.php?script_id=1879  
+autoload_cscope http://vim.sourceforge.net/scripts/script.php?script_id=157  
 
 # Plugins need to be "git submodule init/update"
 supertab http://www.vim.org/scripts/script.php?script_id=1643  

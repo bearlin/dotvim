@@ -81,10 +81,14 @@ colorscheme apprentice
  let g:SrcExpl_updateTagsKey = "<F12>" 
 "                                                                              " 
 " // Set "<F3>" key for displaying the previous definition in the jump list    " 
-let g:SrcExpl_prevDefKey = "<F3>" 
+ let g:SrcExpl_prevDefKey = "<F3>" 
 "                                                                              " 
 " // Set "<F4>" key for displaying the next definition in the jump list        " 
-let g:SrcExpl_nextDefKey = "<F4>" 
+ let g:SrcExpl_nextDefKey = "<F4>" 
+
+" //=================================NERD_tree====================================
+" This option tells vim whether to display hidden files by default.
+ let NERDTreeShowHidden=1
 
 " //=================================Trinity====================================
 " Open and close all the three plugins on the same time 
