@@ -18,6 +18,7 @@ bundle/*
 # Plugins pre-downloaded
 autocomplpop http://www.vim.org/scripts/script.php?script_id=1879  
 autoload_cscope http://vim.sourceforge.net/scripts/script.php?script_id=157  
+cscope_maps.vim http://cscope.sourceforge.net/cscope_vim_tutorial.html  
 
 # Plugins need to be "git submodule init/update"
 supertab http://www.vim.org/scripts/script.php?script_id=1643  
@@ -27,11 +28,12 @@ taglist http://www.vim.org/scripts/script.php?script_id=273
 srcexpl http://www.vim.org/scripts/script.php?script_id=2179  
 trinity http://www.vim.org/scripts/script.php?script_id=2347  
 fugitive http://www.vim.org/scripts/script.php?script_id=2975  
-vim-surround http://www.vim.org/scripts/script.php?script_id=1697  
+surround http://www.vim.org/scripts/script.php?script_id=1697  
 
 # Color colorschemes
 wombat http://www.vim.org/scripts/script.php?script_id=1778  
 apprentice http://www.vim.org/scripts/script.php?script_id=4905  
+
 Change colorscheme at runtime -> :colorscheme [wombat|apprentice]  
 
 # Install steps:  
