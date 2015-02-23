@@ -43,8 +43,10 @@ if [ "$1" == "init" ]; then
   # -q     Enable fast symbol lookup via an inverted index.
   # -k     ``Kernel Mode'', turns off the use of the default include dir (usually /usr/include) when building the database, since kernel source trees generally do not use it.
   # -inamefile Browse  through all source files whose names are listed in namefile (file names separated by spaces, tabs, or new-lines) instead of the default name list file, which is called cscope.files.
-  cscope -b -q -R -i cscope.files
-  #cscope -b -q -k -i cscope.files
+  # -sdir  Look  in  dir  for additional source files. This option is ignored if source files are given on the command line.
+  #cscope -bqkR -s .
+  #cscope -bqR -i cscope.files
+  cscope -bqkR -i cscope.files
 
 elif [ "$1" == "clean" ]; then
   echo "clean cscope files"
