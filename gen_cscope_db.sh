@@ -53,3 +53,5 @@ elif [ "$1" == "clean" ]; then
   rm cscope.*
 fi
 
+echo "bye!"
+
