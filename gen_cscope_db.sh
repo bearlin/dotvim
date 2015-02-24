@@ -29,9 +29,26 @@ if [ "$1" == "init" ]; then
   
   # 1. Build cscope.files
   echo "Build cscope.files"
-  find `pwd` -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" > cscope.files
-  find `pwd` -name "*.java" >> cscope.files
-  find `pwd` -name "*.cmake" -o -name "*.sh" -o -name "CMakeLists.txt" >> cscope.files
+    # C/C++ files
+    #  -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
+    # Java files
+    #  -o -name "*.java" \
+    # OS Scripts 
+    #  -o -name "*.sh" \
+    # Build Scripts
+    #  -o -name "*.cmake" -o -name "CMakeLists.txt" \
+    # QT files
+    #  -o -name "*.ui" -o -name "*.qrc" \
+    # TomTom files
+    #  -o -name "*.ric" \
+  find `pwd` \
+      -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
+      -o -name "*.sh" \
+      -o -name "*.cmake" -o -name "CMakeLists.txt" \
+      -o -name "*.ui" -o -name "*.qrc" \
+      -o -name "*.ric" \
+  > cscope.files
+
 
   # 2. Build the database
   which cscope &>/dev/null
