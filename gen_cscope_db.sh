@@ -33,6 +33,8 @@ if [ "$1" == "init" ]; then
     #  -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
     # Java files
     #  -o -name "*.java" \
+    # Python files
+    #  -o -name "*.py" \
     # OS Scripts 
     #  -o -name "*.sh" \
     # Build Scripts
@@ -63,7 +65,8 @@ if [ "$1" == "init" ]; then
   # -sdir  Look  in  dir  for additional source files. This option is ignored if source files are given on the command line.
   #cscope -bqkR -s .
   #cscope -bqR -i cscope.files
-  cscope -bqkR -i cscope.files
+  #cscope -bqkR -i cscope.files
+  cscope -bqk -i cscope.files
 
 elif [ "$1" == "clean" ]; then
   echo "clean cscope files"
