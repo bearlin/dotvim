@@ -36,17 +36,18 @@ if [ "$1" == "init" ]; then
     # Python files
     #  -o -name "*.py" \
     # OS Scripts 
-    #  -o -name "*.sh" \
+    #  -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
     # Build Scripts
     #  -o -name "*.cmake" -o -name "CMakeLists.txt" \
     # QT files
-    #  -o -name "*.ui" -o -name "*.qrc" \
+    #  -o -name "*.ui" -o -name "*.qss" -o -name "*.qrc" -o -name "*.ts" \
     # TomTom files
     #  -o -name "*.ric" \
   find `pwd` \
       -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
-      -o -name "*.sh" \
+      -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
       -o -name "*.cmake" -o -name "CMakeLists.txt" \
+      -o -name "*.ui" -o -name "*.qss" -o -name "*.qrc" -o -name "*.ts" \
       -o -name "*.ui" -o -name "*.qrc" \
       -o -name "*.ric" \
   > cscope.files
