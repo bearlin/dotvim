@@ -47,6 +47,12 @@ cd ~/.vim
 git submodule init
 git submodule update
 ```
+# Some useful scripts
+scripts/update_pre_downloaded_plugins.sh  ->  Update cscope_maps and autoload_cscope .vim files.
+scripts/gen_cscope_db.sh                  ->  Generate cscope files/database in `pwd`.
+scripts/gen_ctags_db.sh                   ->  Generate ctags database in `pwd`.
+scripts/cscope_maps_path.sh               ->  Do some patch to cscope_maps.vim. I would like to use F7 key for cscope key mapping trigger.
+scripts/cscope_maps_unpatch.sh            ->  Undo the patch to cscope_maps.vim. 
 
 # Auto-generate vimrc tool
 sachet:  
