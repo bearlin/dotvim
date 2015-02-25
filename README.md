@@ -38,7 +38,7 @@ Change colorscheme at runtime -> :colorscheme [wombat|apprentice]
 
 # Install steps:  
 ```sh
-sudo apt-get install vim exuberant-ctags cscope  
+sudo apt-get install vim exuberant-ctags cscope wget  
 git clone https://github.com/bearlin/dotvim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
@@ -46,6 +46,8 @@ ln -s ~/.vim/gvimrc ~/.gvimrc
 cd ~/.vim
 git submodule init
 git submodule update
+./scripts/update_pre_downloaded_plugins.sh
+./scripts/cscope_maps_patch.sh
 ```
 # Some useful scripts
 ```sh
