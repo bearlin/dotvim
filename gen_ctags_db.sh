@@ -33,7 +33,8 @@ if [ "$1" == "init" ]; then
   # -R   Equivalent to --recurse.
   # --recurse[=yes|no] Recurse into directories encountered in the list of supplied files.
   # --sort[=yes|no|foldcase] Indicates  whether the tag file should be sorted on the tag name (default is yes). The foldcase value specifies case insensitive (or case-folded) sorting.
-  ctags --sort=foldcase -R .
+  #ctags --sort=foldcase -R .
+  ctags --sort=foldcase -L cscope.files 
 
 elif [ "$1" == "clean" ]; then
   echo "clean ctags files"
