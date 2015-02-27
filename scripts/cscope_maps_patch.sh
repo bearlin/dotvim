@@ -13,4 +13,7 @@ sed -i'.bak' 's/\^<C-R>/<C-R>/g' ~/.vim/bundle/cscope_maps/plugin/cscope_maps.vi
 # Change "<CR>$<CR>" to "<CR><CR>"
 sed -i'.bak' 's/<CR>$<CR>/<CR><CR>/g' ~/.vim/bundle/cscope_maps/plugin/cscope_maps.vim
 
+# Delete sed in place backup file.
+rm -rf ~/.vim/bundle/cscope_maps/plugin/cscope_maps.vim.bak
+
 echo "Done!"
