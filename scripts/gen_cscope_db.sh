@@ -68,6 +68,7 @@ if [ "$1" == "init" ]; then
   #cscope -bqR -i cscope.files
   #cscope -bqkR -i cscope.files
   cscope -bqk -i cscope.files
+  #cscope -bq -i cscope.files # Include tags in /usr/include
 
 elif [ "$1" == "clean" ]; then
   echo "clean cscope files"
