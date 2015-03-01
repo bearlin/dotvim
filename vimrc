@@ -3,6 +3,7 @@ execute pathogen#infect()
 
 " //=============================General Settings===============================
 " http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/
+" -----------------------------------
 " 檔案編碼
 set encoding=utf-8
 set fileencodings=utf-8,cp950
@@ -29,10 +30,28 @@ set cursorline   " 顯示目前的游標位置
  
 set laststatus=2
 "set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
+" -----------------------------------
 
 " http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm
+" -----------------------------------
 set number       " Enable line numbering
 set mouse=a      " Enable mouse use in all modes
+" -----------------------------------
+
+" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+" -----------------------------------
+" Easier split navigations 
+" We can use different key mappings for easy navigation between splits to save a keystroke. So instead of ctrl-w then j, it’s just ctrl-j:
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" More natural split opening
+" Open new split panes to right and bottom, which feels more natural than Vim’s default:
+set splitbelow
+set splitright
+" -----------------------------------
 
 " //=================================sachet.com====================================
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
