@@ -44,6 +44,7 @@ if [ "$1" == "init" ]; then
     # TomTom files
     #  -o -name "*.ric" \
   find `pwd` \
+  #find `pwd`/AppLoaders/ `pwd`/Kits/ `pwd`/Platform/ `pwd`/Products/ \
       -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
       -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
       -o -name "*.cmake" -o -name "CMakeLists.txt" \
