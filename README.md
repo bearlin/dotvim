@@ -62,7 +62,7 @@ scripts/gen_cscope_db.sh:
 scripts/gen_ctags_db.sh:  
   Generate ctags database in `pwd`.  
 
-scripts/cscope_maps_path.sh:  
+scripts/cscope_maps_patch.sh:  
   Do some patch to cscope_maps.vim. I would like to use F7 key to trigger cscope key mapping.  
 
 scripts/cscope_maps_unpatch.sh:  
