@@ -43,8 +43,8 @@ if [ "$1" == "init" ]; then
     #  -o -name "*.ui" -o -name "*.qss" -o -name "*.qrc" -o -name "*.ts" \
     # TomTom files
     #  -o -name "*.ric" \
-  find `pwd` \
   #find `pwd`/AppLoaders/ `pwd`/Kits/ `pwd`/Platform/ `pwd`/Products/ \
+  find `pwd` \
       -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
       -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
       -o -name "*.cmake" -o -name "CMakeLists.txt" \
