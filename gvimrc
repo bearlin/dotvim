@@ -33,9 +33,14 @@ set laststatus=2
 " -----------------------------------
 
 " http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm
+" http://usevim.com/2012/05/16/mouse/
 " -----------------------------------
 set number       " Enable line numbering
+"set ttyfast      " Send more characters for redraws
 set mouse=a      " Enable mouse use in all modes
+" Set this to the name of your terminal that supports mouse codes.
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+" set ttymouse=xterm
 " -----------------------------------
 
 " https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
