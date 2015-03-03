@@ -67,8 +67,11 @@ set splitright
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set background=dark
 
-" colorscheme wombat
+" http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
 colorscheme apprentice 
+" colorscheme wombat
+" colorscheme grb256 
+" colorscheme jellybeans
 
 " //==============================Source Explorer===============================
 " // The switch of the Source Explorer                                         " 
