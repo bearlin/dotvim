@@ -49,7 +49,6 @@ if [ "$1" == "init" ]; then
       -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
       -o -name "*.cmake" -o -name "CMakeLists.txt" \
       -o -name "*.ui" -o -name "*.qss" -o -name "*.qrc" -o -name "*.ts" \
-      -o -name "*.ui" -o -name "*.qrc" \
       -o -name "*.ric" \
   > cscope.files
 
