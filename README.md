@@ -49,7 +49,7 @@ git submodule update
 ./scripts/update_pre_downloaded_plugins.sh
 ./scripts/cscope_maps_patch.sh
 ```
-If you are using MacOS, I suggest you use package manager Homebrew to install exuberant-ctags/cscope/wget/curl.  
+If you are using MacOS, I suggest you use package manager Homebrew to install exuberant-ctags and cscope to support multiple languages(The default ctags version on Mac OS is not the exuberant one). Also install wget or curl for scripts updating.
 
 # Some useful scripts
 ```sh
@@ -91,3 +91,4 @@ git push
   http://eeepage.info/tag-vim-source-insight/
   http://www.cnblogs.com/coderkian/p/3823366.html
   http://blog.longwin.com.tw/2013/03/favorite-vim-vimrc-setup-2013/
+  http://technosavvy-vdk.blogspot.in/2012/01/ctags-and-cscope-for-java.html 
