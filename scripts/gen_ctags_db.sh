@@ -37,7 +37,7 @@ if [ "$1" == "init" ]; then
   ctags --sort=foldcase -L cscope.files 
 
 elif [ "$1" == "clean" ]; then
-  echo "clean ctags files"
+  echo "clean generated ctags files in current folder..."
   rm tags
 fi
 

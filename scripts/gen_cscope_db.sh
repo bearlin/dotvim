@@ -6,6 +6,7 @@
 [ "$#" -lt 1 ] && \
     echo "Usage: " && \
     echo "Init cscope files: ./gen_cscope_db.sh init" && \
+    echo "Init cscope files with tags in /usr/include: ./gen_cscope_db.sh init std" && \
     echo "Clear cscope files: ./gen_cscope_db.sh clean" && \
     exit 0
 
@@ -14,7 +15,11 @@
 #echo "The 2nd parameter         ==> $2"
 
 if [ "$1" == "init" ] || [ "$1" == "clean" ]; then
-  echo "para=$1"
+  if [ "$2" == "std" ]; then
+    echo "para=$1 $2"
+  else
+    echo "para=$1"
+  fi
 else
   echo "Unknow parameters \"$1\""
   exit 0
@@ -28,7 +33,7 @@ if [ "$1" == "init" ]; then
   # http://angledark0123.pixnet.net/blog/post/51919594-vim%E9%99%84%E4%BB%B6%EF%BC%9Acscope%2Bctag-%E4%BD%BF%E7%94%A8%E7%AD%86%E8%A8%98
   
   # 1. Build cscope.files
-  echo "Build cscope.files"
+  echo "Build cscope.files..."
     # C/C++ files
     #  -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
     # Java files
@@ -57,21 +62,25 @@ if [ "$1" == "init" ]; then
   which cscope &>/dev/null
   [ $? -eq 0 ] || echo "cscope command not found, please install cscope first."
 
-  echo "Build the database"
+  echo "Build the database..."
   # -R     Recurse subdirectories during search for source files.
   # -b     Build the cross-reference only.
   # -q     Enable fast symbol lookup via an inverted index.
   # -k     ``Kernel Mode'', turns off the use of the default include dir (usually /usr/include) when building the database, since kernel source trees generally do not use it.
   # -inamefile Browse  through all source files whose names are listed in namefile (file names separated by spaces, tabs, or new-lines) instead of the default name list file, which is called cscope.files.
   # -sdir  Look  in  dir  for additional source files. This option is ignored if source files are given on the command line.
-  #cscope -bqkR -s .
-  #cscope -bqR -i cscope.files
-  #cscope -bqkR -i cscope.files
-  cscope -bqk -i cscope.files
-  #cscope -bq -i cscope.files # Include tags in /usr/include
-
+  if [ "$2" == "std" ]; then
+    cscope -bq -i cscope.files # Include tags in /usr/include
+    echo "WITH tags in std headers"
+  else
+    #cscope -bqkR -s .
+    #cscope -bqR -i cscope.files
+    #cscope -bqkR -i cscope.files
+    cscope -bqk -i cscope.files
+    echo "WITHOUT tags in std headers"
+  fi
 elif [ "$1" == "clean" ]; then
-  echo "clean cscope files"
+  echo "clean generated cscope files in current folder..."
   rm cscope.*
 fi
 
