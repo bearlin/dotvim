@@ -83,6 +83,44 @@ git commit -m "Install <plugin-name>"
 git push
 ```
 
+# Remove old vim plugin from git submodule:
+For example, to remove colorscheme submodule "bundle/apprentice":  
+1. Go to ~/.vim/ directory:
+```sh
+cd ~/.vim/
+```
+2. Delete the relevant section from the .gitmodules file.  The section would look similar to:  
+```sh
+[submodule "bundle/apprentice"]
+  path = bundle/apprentice
+  url = https://github.com/romainl/Apprentice.git
+```
+3. Stage the .gitmodules changes via command line using:  
+```sh
+git add .gitmodules
+```
+4. Delete the relevant section from .git/config, which will look like:  
+```sh
+[submodule "bundle/apprentice"]
+  url = https://github.com/romainl/Apprentice.git
+```
+5. Run git rm --cached path/to/submodule .  Don't include a trailing slash -- that will lead to an error.  
+```sh
+git rm --cached bundle/apprentice
+```
+6. Run rm -rf .git/modules/submodule_path  
+```sh
+rm -rf .git/modules/bundle/apprentice
+```
+7. Commit the change:  
+```sh
+git commit -m "Removed submodule bundle/apprentice"
+```
+8. Delete the now untracked submodule files rm -rf path/to/submodule  
+```sh
+rm -rf bundle/apprentice
+```
+
 # References:  
   http://blog.vgod.tw/2011/03/19/vimrc/?variant=zh-tw  
   http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/  
@@ -92,3 +130,6 @@ git push
   http://www.cnblogs.com/coderkian/p/3823366.html
   http://blog.longwin.com.tw/2013/03/favorite-vim-vimrc-setup-2013/
   http://technosavvy-vdk.blogspot.in/2012/01/ctags-and-cscope-for-java.html 
+  http://davidwalsh.name/git-remove-submodule  
+  http://stackoverflow.com/questions/1260748/how-do-i-remove-a-git-submodule  
+  
