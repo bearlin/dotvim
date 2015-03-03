@@ -33,8 +33,9 @@ surround http://www.vim.org/scripts/script.php?script_id=1697
 # Color colorschemes
 wombat http://www.vim.org/scripts/script.php?script_id=1778  
 apprentice http://www.vim.org/scripts/script.php?script_id=4905  
-
-Change colorscheme at runtime -> :colorscheme [wombat|apprentice]  
+grb256 https://github.com/garybernhardt/dotfiles/blob/master/.vim/colors/grb256.vim  
+jellybeans https://github.com/nanotech/jellybeans.vim  
+Change colorscheme at runtime -> :colorscheme [apprentice|wombat|grb256|jellybeans]  
 
 # Install steps:  
 ```sh
