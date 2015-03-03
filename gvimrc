@@ -35,12 +35,13 @@ set laststatus=2
 " http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm
 " http://usevim.com/2012/05/16/mouse/
 " http://vimdoc.sourceforge.net/htmldoc/options.html#'mouse' 
+" How to copy text when mouse=a: http://stackoverflow.com/questions/4608161/copy-text-out-of-vim-with-set-mouse-a-enabled
 " -----------------------------------
 set number       " Enable line numbering
 "set ttyfast      " Send more characters for redraws
-"
-"set mouse=a      " Enable mouse use in all modes
-set mouse=n      " Enable mouse use only in normal modes
+
+set mouse=a      " Enable mouse use in all modes
+"set mouse=n      " Enable mouse use only in normal modes
 
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
