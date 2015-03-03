@@ -19,6 +19,3 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "bundle/apprentice"]
-	path = bundle/apprentice
-	url = https://github.com/romainl/Apprentice.git
