@@ -21,13 +21,16 @@ echo "hasCurl=$hasCurl"
 
 if [ $hasWget == 0 ] && [ $hasCurl == 0 ]; then
   echo "Both wget/crul commands not found, please install one of them first."
+  exit 0
 fi
 
 rm -rf plugin
+
+# Current version: 0.5 2011-01-27
 if [ $hasWget == 1  ]; then
-  wget http://vim.sourceforge.net/scripts/download_script.php?src_id=14884 -O autoload_cscope.vim
+  wget "http://vim.sourceforge.net/scripts/download_script.php?src_id=14884" -O "autoload_cscope.vim"
 elif [ $hasCurl == 1  ]; then
-  curl -o autoload_cscope.vim http://vim.sourceforge.net/scripts/download_script.php?src_id=14884 
+  curl -o "autoload_cscope.vim" "http://vim.sourceforge.net/scripts/download_script.php?src_id=14884"
 else
   echo "Unknow parameters, exit"
   exit 0
