@@ -23,8 +23,8 @@ if [ $hasWget == 0 ] && [ $hasCurl == 0 ]; then
   exit 0
 fi
 
-rm -rf `find -name "*zip*" -o -name "*autoload*" -o -name "*doc*" -o -name "*plugin*"`
-#rm -rf `find -name "*autocomplpop*" -o -name "*zip*" -o -name "*autoload*" -o -name "*doc*" -o -name "*plugin*" -o -name "*.hg*" `
+rm -rf `find . -name "*zip*" -o -name "*autoload*" -o -name "*doc*" -o -name "*plugin*"`
+#rm -rf `find . -name "*autocomplpop*" -o -name "*zip*" -o -name "*autoload*" -o -name "*doc*" -o -name "*plugin*" -o -name "*.hg*" `
 
 # Current version: 2.14.1 2009-12-12
 if [ $hasWget == 1  ]; then
