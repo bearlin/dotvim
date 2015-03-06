@@ -49,6 +49,8 @@ git submodule init
 git submodule update
 ./scripts/update_pre_downloaded_plugins.sh
 ./scripts/cscope_maps_patch.sh
+
+./scripts/set_env_git.sh    (Optional)
 ```
 If you are using MacOS, I suggest you use package manager Homebrew to install exuberant-ctags and cscope to support multiple languages(The default ctags version on Mac OS is not the exuberant one). Also install wget or curl for scripts updating.
 
