@@ -1,14 +1,16 @@
 #!/bin/bash
+DOTVIMHOME=~/.vim
+source $DOTVIMHOME/scripts/handy_functions.sh
 
 #echo "The script name is        ==> $0"
 #echo "Total parameter number is ==> $#"
 
 [ "$#" -lt 1 ] && \
-    echo "Usage: " && \
-    echo "Init cscope files: ./gen_cscope_db.sh init" && \
-    echo "Init cscope files with tags in /usr/include: ./gen_cscope_db.sh init std" && \
-    echo "Clear cscope files: ./gen_cscope_db.sh clean" && \
-    exit 0
+  echo "Usage: " && \
+  echo "Init cscope files: ./gen_cscope_db.sh init" && \
+  echo "Init cscope files with tags in /usr/include: ./gen_cscope_db.sh init std" && \
+  echo "Clear cscope files: ./gen_cscope_db.sh clean" && \
+  byebye
 
 #echo "Your whole parameter is   ==> '$@'"
 #echo "The 1st parameter         ==> $1"
@@ -21,8 +23,7 @@ if [ "$1" == "init" ] || [ "$1" == "clean" ]; then
     echo "para=$1"
   fi
 else
-  echo "Unknow parameters \"$1\""
-  exit 0
+  die "Unknow parameters \"$1\", exit!"
 fi
 
 if [ "$1" == "init" ]; then
@@ -84,5 +85,4 @@ elif [ "$1" == "clean" ]; then
   rm cscope.*
 fi
 
-echo "bye!"
-
+byebye

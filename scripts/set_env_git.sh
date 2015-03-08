@@ -1,4 +1,6 @@
 # !/bin/bash
+DOTVIMHOME=~/.vim
+source $DOTVIMHOME/scripts/handy_functions.sh
 
 # References:
 # http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
@@ -18,4 +20,4 @@ git config user.name
 git config user.email
 git config core.editor
 
-echo "bye!"
+byebye
