@@ -1,4 +1,6 @@
 #!/bin/bash
+DOTVIMHOME=~/.vim
+source $DOTVIMHOME/scripts/handy_functions.sh
 
 # Reference: 
 # http://derekingrouville.com/2012/cscope-will-change-the-way-you-code/
@@ -20,8 +22,7 @@ echo "hasWget=$hasWget"
 echo "hasCurl=$hasCurl"
 
 if [ $hasWget == 0 ] && [ $hasCurl == 0 ]; then
-  echo "Both wget/crul commands not found, please install one of them first."
-  exit 0
+  byebye "Both wget/crul commands not found, please install one of them first."
 fi
 
 rm -rf plugin
@@ -32,12 +33,10 @@ if [ $hasWget == 1  ]; then
 elif [ $hasCurl == 1  ]; then
   curl -o "autoload_cscope.vim" "http://vim.sourceforge.net/scripts/download_script.php?src_id=14884"
 else
-  echo "Unknow parameters, exit"
-  exit 0
+  die "Unknow parameters, exit"
 fi
 
 mkdir plugin
 mv autoload_cscope.vim plugin
 
-echo "bye!"
-
+byebye

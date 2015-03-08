@@ -1,4 +1,6 @@
 #!/bin/bash
+DOTVIMHOME=~/.vim
+source $DOTVIMHOME/scripts/handy_functions.sh
 
 # Reference: 
 # http://www.vim.org/scripts/script.php?script_id=1879
@@ -20,7 +22,7 @@ echo "hasCurl=$hasCurl"
 
 if [ $hasWget == 0 ] && [ $hasCurl == 0 ]; then
   echo "Both wget/crul commands not found, please install one of them first."
-  exit 0
+  byebye 
 fi
 
 rm -rf `find . -name "*zip*" -o -name "*autoload*" -o -name "*doc*" -o -name "*plugin*"`
@@ -32,8 +34,7 @@ if [ $hasWget == 1  ]; then
 elif [ $hasCurl == 1  ]; then
   curl -o "vim-autocomplpop.zip" "http://www.vim.org/scripts/download_script.php?src_id=11894" 
 else
-  echo "Unknow parameters, exit"
-  exit 0
+  die "Unknow parameters, exit"
 fi
 
 hasUnzip=0
@@ -44,8 +45,7 @@ fi
 echo "hasUnzip=$hasUnzip"
 
 if [ $hasUnzip == 0 ]; then
-  echo "unzip commands not found, please install unzip first."
-  exit 0
+  die "unzip commands not found, please install unzip first."
 fi
 
 unzip vim-autocomplpop.zip
@@ -56,5 +56,4 @@ unzip vim-autocomplpop.zip
 #rmdir $extractDir
 rm -rf vim-autocomplpop.zip
 
-echo "bye!"
-
+byebye
