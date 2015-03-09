@@ -37,7 +37,21 @@ grb256 https://github.com/garybernhardt/dotfiles/blob/master/.vim/colors/grb256.
 jellybeans https://github.com/nanotech/jellybeans.vim  
 Change colorscheme at runtime -> :colorscheme [apprentice|wombat|grb256|jellybeans]  
 
-# Install steps:  
+# Before install:
+If you are using MacOS, I suggest you use package manager Homebrew to install exuberant-ctags and cscope to support multiple languages(The default ctags version on Mac OS is not the exuberant one). Also install wget or curl for scripts updating.  
+
+# Auto install steps:  
+Reference from vgod's vim install steps.  
+Use curl (for Mac OS X):  
+```sh
+  curl -o - https://raw.githubusercontent.com/bearlin/dotvim/master/auto-install.sh | sh
+```
+Or use wget (for most UNIX platforms):  
+```sh
+  wget -O - https://raw.githubusercontent.com/bearlin/dotvim/master/auto-install.sh | sh
+```
+
+# Manually install steps:  
 ```sh
 sudo apt-get install vim exuberant-ctags cscope wget curl 
 git clone https://github.com/bearlin/dotvim.git ~/.vim
@@ -52,7 +66,6 @@ git submodule update
 
 ./scripts/set_env_git.sh    (Optional)
 ```
-If you are using MacOS, I suggest you use package manager Homebrew to install exuberant-ctags and cscope to support multiple languages(The default ctags version on Mac OS is not the exuberant one). Also install wget or curl for scripts updating.
 
 # Some useful scripts
 ```sh
@@ -125,6 +138,7 @@ rm -rf bundle/apprentice
 ```
 
 # References:  
+  https://github.com/vgod/vimrc
   http://blog.vgod.tw/2011/03/19/vimrc/?variant=zh-tw  
   http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/  
   http://stenlyho.blogspot.tw/2010/03/vim-trinity-source-explorer-tag-list.html
