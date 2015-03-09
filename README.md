@@ -42,22 +42,21 @@ If you are using MacOS, I suggest you use package manager Homebrew to install ex
 
 # Auto install steps:  
 Reference from vgod's vim install steps.  
-Use curl (for Mac OS X):  
+Get auto_install.sh use curl (for Mac OS X):  
 ```sh
   curl -o "auto_install.sh" "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install.sh"
-  
-  sh auto_install.sh
-  or
-  sh auto_install.sh force (This will force remove ~/.vim, ~/.vimrc and ~/.gvimrc)
 ```
 Or use wget (for most UNIX platforms):  
 ```sh
   wget "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install.sh" -O "auto_install.sh" 
-  
+```
+Then run the script:  
+```sh
   sh auto_install.sh
   or
   sh auto_install.sh force (This will force remove ~/.vim, ~/.vimrc and ~/.gvimrc)
 ```
+Set git env:  
 ```sh
   ./scripts/set_env_git.sh    (Optional)
 ```
