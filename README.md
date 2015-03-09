@@ -46,9 +46,9 @@ Use curl (for Mac OS X):
 ```sh
   curl -o "auto_install.sh" "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install.sh"
   
-  sh /auto_install.sh
+  sh auto_install.sh
   or
-  sh /auto_install.sh force (This will force remove ~/.vim, ~/.vimrc and ~/.gvimrc)
+  sh auto_install.sh force (This will force remove ~/.vim, ~/.vimrc and ~/.gvimrc)
 ```
 Or use wget (for most UNIX platforms):  
 ```sh
@@ -56,7 +56,7 @@ Or use wget (for most UNIX platforms):
   
   sh auto_install.sh
   or
-  sh /auto_install.sh force (This will force remove ~/.vim, ~/.vimrc and ~/.gvimrc)
+  sh auto_install.sh force (This will force remove ~/.vim, ~/.vimrc and ~/.gvimrc)
 ```
 ```sh
   ./scripts/set_env_git.sh    (Optional)
