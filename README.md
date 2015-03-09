@@ -44,11 +44,11 @@ If you are using MacOS, I suggest you use package manager Homebrew to install ex
 Reference from vgod's vim install steps.  
 Use curl (for Mac OS X):  
 ```sh
-  curl -o - https://raw.githubusercontent.com/bearlin/dotvim/master/auto-install.sh | sh
+  curl -o - https://github.com/bearlin/dotvim/blob/master/auto_install.sh | sh
 ```
 Or use wget (for most UNIX platforms):  
 ```sh
-  wget -O - https://raw.githubusercontent.com/bearlin/dotvim/master/auto-install.sh | sh
+  wget -O - https://github.com/bearlin/dotvim/blob/master/auto_install.sh | sh
 ```
 
 # Manually install steps:  
