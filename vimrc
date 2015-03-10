@@ -63,6 +63,15 @@ set splitbelow
 set splitright
 " -----------------------------------
 
+" http://danawoodman.com/posts/vim-show-whitespace/
+" http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-characters
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+" -----------------------------------
+" Show extra whitespace
+set list
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+" -----------------------------------
+
 " //=================================sachet.com====================================
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set background=dark
