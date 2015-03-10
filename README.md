@@ -52,11 +52,13 @@ Or use wget (for most UNIX platforms):
 ```
 Then run the script:  
 ```sh
-  sh auto_install.sh
+  chmod +x auto_install.sh
+  ./auto_install.sh
 ```
 Or force remove ~/.vim, ~/.vimrc and ~/.gvimrc:  
 ```sh
-  sh auto_install.sh force 
+  chmod +x auto_install.sh
+  ./auto_install.sh force
 ```
 Set git env:  
 ```sh
