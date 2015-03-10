@@ -60,9 +60,9 @@ Or force remove ~/.vim, ~/.vimrc and ~/.gvimrc:
   chmod +x auto_install.sh
   ./auto_install.sh force
 ```
-Set git env:  
+Set git env(Optional):  
 ```sh
-  ~/.vim/scripts/set_env_git.sh    (Optional)
+  ~/.vim/scripts/set_env_git.sh BearLin bear.lin.001@gmail.com vim 
 ```
 
 # Manually install steps:  
@@ -77,8 +77,7 @@ git submodule init
 git submodule update
 ./scripts/update_pre_downloaded_plugins.sh
 ./scripts/cscope_maps_patch.sh
-
-./scripts/set_env_git.sh    (Optional)
+./scripts/set_env_git.sh BearLin bear.lin.001@gmail.com vim   (Optional)
 ```
 
 # Some useful scripts
