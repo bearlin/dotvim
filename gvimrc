@@ -70,7 +70,8 @@ set splitright
 " Show extra whitespace
 set list
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set listchars=eol:$,tab:\|_,trail:.,extends:>,precedes:<
+"set listchars=eol:$,tab:\|_,trail:.,extends:>,precedes:<
+set listchars=eol:↲,tab:▸\ ,trail:·,extends:»,precedes:«
 " -----------------------------------
 
 " //=================================sachet.com====================================
