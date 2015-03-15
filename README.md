@@ -38,6 +38,9 @@ jellybeans https://github.com/nanotech/jellybeans.vim
 Change colorscheme at runtime -> :colorscheme [apprentice|wombat|grb256|jellybeans]  
 
 # Before install:
+Required below packages:  
+git, wget or curl, unzip  
+
 If you are using MacOS, I suggest you use package manager Homebrew to install exuberant-ctags and cscope to support multiple languages(The default ctags version on Mac OS is not the exuberant one). Also install wget or curl for scripts updating.  
 
 # Auto install steps:  
@@ -67,7 +70,7 @@ Set git env(Optional):
 
 # Manually install steps:  
 ```sh
-sudo apt-get install vim exuberant-ctags cscope wget curl 
+sudo apt-get install vim exuberant-ctags cscope wget curl unzip 
 git clone https://github.com/bearlin/dotvim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
