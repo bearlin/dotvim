@@ -74,6 +74,21 @@ set list
 set listchars=eol:↲,tab:▸\ ,trail:·,extends:»,precedes:«
 " -----------------------------------
 
+" http://serverfault.com/questions/27917/configure-vim-for-text-selection-with-shift-and-copy-paste-via-ctrlc-ctrlv
+" http://vim.cybermirror.org/runtime/mswin.vim
+" -----------------------------------
+" SHIFT-X are Cut in visual mode
+vmap <S-X>  "+x
+
+" SHIFT-C are Copy in visual mode
+
+vmap <S-C>  "+y
+
+" SHIFT-V are Paste in normal mode and command line mode
+map <S-V>   "+gP
+cmap <S-V>  <C-R>+
+" -----------------------------------
+
 " //=================================sachet.com====================================
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set background=dark
