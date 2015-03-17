@@ -44,7 +44,7 @@ if [ "$1" == "init" ]; then
     # OS Scripts 
     #  -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
     # Build Scripts
-    #  -o -name "*.cmake" -o -name "CMakeLists.txt" \
+    #  -o -name "*.cmake" -o -name "CMakeLists.txt" -o -name "*.in"\
     # QT files
     #  -o -name "*.ui" -o -name "*.qss" -o -name "*.qrc" -o -name "*.ts" \
     # TomTom files
@@ -53,7 +53,7 @@ if [ "$1" == "init" ]; then
   find `pwd` \
       -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
       -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
-      -o -name "*.cmake" -o -name "CMakeLists.txt" \
+      -o -name "*.cmake" -o -name "CMakeLists.txt" -o -name "*.in"\
       -o -name "*.ui" -o -name "*.qss" -o -name "*.qrc" -o -name "*.ts" \
       -o -name "*.ric" \
   > cscope.files
