@@ -160,6 +160,15 @@ colorscheme apprentice
 " Open and close the taglist.vim separately                                    " 
  nmap <silent> <F10> :TlistToggle<CR>
 
+" //=================================vim-cpp-enhanced-highlight===================================
+" Optional features
+" Highlighting of class scope if disabled by default. To enable set
+" let g:cpp_class_scope_highlight = 1
+
+" Highlighting of template functions is enabled by setting
+" let g:cpp_experimental_template_highlight = 1
+" Note: C++ template syntax is notoriously difficult to parse, so don't expect this feature to be perfect."
+
 " //==============================pathogen.vim===============================
 filetype plugin indent on
 
