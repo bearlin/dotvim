@@ -26,7 +26,6 @@ ctrlp.vim http://www.vim.org/scripts/script.php?script_id=3736
 nerdtree http://www.vim.org/scripts/script.php?script_id=1658  
 taglist http://www.vim.org/scripts/script.php?script_id=273  
 srcexpl http://www.vim.org/scripts/script.php?script_id=2179  
-trinity http://www.vim.org/scripts/script.php?script_id=2347  
 fugitive http://www.vim.org/scripts/script.php?script_id=2975  
 surround http://www.vim.org/scripts/script.php?script_id=1697  
 
@@ -157,7 +156,6 @@ rm -rf bundle/apprentice
   https://github.com/vgod/vimrc
   http://blog.vgod.tw/2011/03/19/vimrc/?variant=zh-tw  
   http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/  
-  http://stenlyho.blogspot.tw/2010/03/vim-trinity-source-explorer-tag-list.html
   http://yuanfarn.blogspot.tw/2013/02/srcexpl-vim-source-explorer.html
   http://eeepage.info/tag-vim-source-insight/
   http://www.cnblogs.com/coderkian/p/3823366.html

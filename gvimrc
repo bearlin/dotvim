@@ -81,7 +81,6 @@ set listchars=eol:↲,tab:▸\ ,trail:·,extends:»,precedes:«
 vmap <S-X>  "+x
 
 " SHIFT-C are Copy in visual mode
-
 vmap <S-C>  "+y
 
 " SHIFT-V are Paste in normal mode and command line mode
@@ -101,7 +100,7 @@ colorscheme apprentice
 
 " //==============================Source Explorer===============================
 " // The switch of the Source Explorer                                         " 
-" nmap <F8> :SrcExplToggle<CR> 
+ nmap <F9> :SrcExplToggle<CR> 
 "                                                                              " 
 " // Set the height of Source Explorer window                                  " 
  let g:SrcExpl_winHeight = 8 
@@ -144,22 +143,22 @@ colorscheme apprentice
 " // Set "<F4>" key for displaying the next definition in the jump list        " 
  let g:SrcExpl_nextDefKey = "<F4>" 
 
-" //=================================NERD_tree====================================
-" This option tells vim whether to display hidden files by default.
+" //=================================NERD_tree===================================
+" Open and close the NERD_tree.vim separately                                  " 
+ nmap <F11>  :NERDTreeToggle<CR>
+"                                                                              " 
+" This option tells vim whether to display hidden files by default             ".
  let NERDTreeShowHidden=1
+"                                                                              " 
+" Tells the script where to put the NERD tree window                           " 
+ let NERDTreeWinPos="right"
+"                                                                              " 
+" Sets the window size when the NERD tree is opened                            " 
+ let NERDTreeWinSize=35
 
-" //=================================Trinity====================================
-" Open and close all the three plugins on the same time 
-nmap <F8>   :TrinityToggleAll<CR> 
-
-" Open and close the srcexpl.vim separately 
-nmap <F9>   :TrinityToggleSourceExplorer<CR> 
-
-" Open and close the taglist.vim separately 
-nmap <F10>  :TrinityToggleTagList<CR> 
-
-" Open and close the NERD_tree.vim separately 
-nmap <F11>  :TrinityToggleNERDTree<CR> 
+" //==================================Taglist====================================
+" Open and close the taglist.vim separately                                    " 
+ nmap <silent> <F10> :TlistToggle<CR>
 
 " //==============================pathogen.vim===============================
 filetype plugin indent on
