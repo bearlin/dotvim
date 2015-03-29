@@ -84,7 +84,7 @@ vmap <S-X>  "+x
 vmap <S-C>  "+y
 
 " SHIFT-V are Paste in normal mode and command line mode
-map <S-V>   "+gP
+map <S-V>   "+gp
 cmap <S-V>  <C-R>+
 " -----------------------------------
 
