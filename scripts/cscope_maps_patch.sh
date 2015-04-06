@@ -4,8 +4,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 
 # Do some patch to cscope_maps.vim. 
 # I would like to use F7 key for cscope key mapping trigger.
-echo "Patching to cscope_maps.vim..."
-
+echo "Do some patching to cscope_maps.vim..."
 # Change "<C-\>" to "<F7>"
 sed -i'.bak' 's/C-\\/F7/g' $DOTVIMHOME/bundle/cscope_maps/plugin/cscope_maps.vim 
 # Change "<C-@>" to "<F7>7"
