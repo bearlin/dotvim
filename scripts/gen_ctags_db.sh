@@ -34,8 +34,13 @@ if [ "$1" == "init" ]; then
   # -R   Equivalent to --recurse.
   # --recurse[=yes|no] Recurse into directories encountered in the list of supplied files.
   # --sort[=yes|no|foldcase] Indicates  whether the tag file should be sorted on the tag name (default is yes). The foldcase value specifies case insensitive (or case-folded) sorting.
+  # Usage 1: No cscope.files
   #ctags --sort=foldcase -R .
-  ctags --sort=foldcase -L cscope.files 
+
+  # Usage 2: Using cscope.files
+  # Remove double quotes in cscope.files as cscope.files.ctags
+  cat cscope.files | sed -e 's/^"//g' -e 's/"$//g' > cscope.files.ctags
+  ctags --sort=foldcase -L cscope.files.ctags
 
 elif [ "$1" == "clean" ]; then
   echo "clean generated ctags files in current folder..."
