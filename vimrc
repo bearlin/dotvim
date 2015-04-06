@@ -100,7 +100,7 @@ colorscheme apprentice
 
 " //==============================Source Explorer===============================
 " // The switch of the Source Explorer                                         " 
- nmap <F9> :SrcExplToggle<CR> 
+ nmap <F10> :SrcExplToggle<CR> 
 "                                                                              " 
 " // Set the height of Source Explorer window                                  " 
  let g:SrcExpl_winHeight = 8 
@@ -145,7 +145,7 @@ colorscheme apprentice
 
 " //=================================NERD_tree===================================
 " Open and close the NERD_tree.vim separately                                  " 
- nmap <F11>  :NERDTreeToggle<CR>
+ nmap <F8>  :NERDTreeToggle<CR>
 "                                                                              " 
 " This option tells vim whether to display hidden files by default             ".
  let NERDTreeShowHidden=1
@@ -158,7 +158,7 @@ colorscheme apprentice
 
 " //==================================Taglist====================================
 " Open and close the taglist.vim separately                                    " 
- nmap <silent> <F10> :TlistToggle<CR>
+ nmap <silent> <F9> :TlistToggle<CR>
 
 " //=================================vim-cpp-enhanced-highlight===================================
 " Optional features
