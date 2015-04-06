@@ -56,8 +56,11 @@ if [ "$1" == "init" ]; then
       -o -name "*.cmake" -o -name "CMakeLists.txt" -o -name "*.in"\
       -o -name "*.ui" -o -name "*.qss" -o -name "*.qrc" -o -name "*.ts" \
       -o -name "*.ric" \
+  | sed -e 's/^/"/g' -e 's/$/"/g' \
   > cscope.files
-
+# [NOTE]
+# Issue: man cscope :Filenames in the namefile that contain whitespace have to be enclosed in "double quotes".  Inside such quoted filenames, any  double-quote and backslash characters have to be escaped by backslashes
+# Solution: quote all file paths: http://stackoverflow.com/questions/3196760/how-to-use-cscope-with-paths-that-contain-spaces
 
   # 2. Build the database
   which cscope &>/dev/null
