@@ -16,8 +16,11 @@ if [ "$#" -lt 1 ]; then
 fi
 
 # ---------------------------------------------------------------------------------
-echo "Delete old git configurations..."
-rm -rf ~/.gitconfig
+read -p "Do you want to delete your old ~/.gitconfig file? [y/n]: " DeleteGitconfig
+if [ "$DeleteGitconfig" == "y" ]; then
+  echo "Delete ~/.gitconfig..."
+  rm -I  ~/.gitconfig
+fi
 # ---------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------
