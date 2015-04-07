@@ -19,7 +19,7 @@ fi
 read -p "Do you want to delete your old ~/.gitconfig file? [y/n]: " DeleteGitconfig
 if [ "$DeleteGitconfig" == "y" ]; then
   echo "Delete ~/.gitconfig..."
-  rm -I  ~/.gitconfig
+  rm ~/.gitconfig
 fi
 # ---------------------------------------------------------------------------------
 
@@ -27,8 +27,7 @@ fi
 echo "Beautiful colored and readable output..."
 # Git tip: Beautiful colored and readable output
 # http://www.leaseweblabs.com/2013/08/git-tip-beautiful-colored-and-readable-output/
-echo "
-[alias]
+echo "[alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	st = status
 [color]
@@ -70,17 +69,15 @@ fi
 # ---------------------------------------------------------------------------------
 # Checking Your Settings
 echo ""
-echo "Your current git config setting had been changed to:"
+echo "Your new ~/.gitconfig file content:"
+echo "------------------------------------------"
 cat ~/.gitconfig
-#echo "[name]"
-#git config user.name
-#echo "[email]"
-#git config user.email
-#echo "[editor]"
-#git config core.editor
-#echo "[color]"
-#git config color.ui
-#git config --list
+echo "------------------------------------------"
+echo ""
+echo "Your current git config setting had been changed to:"
+echo "------------------------------------------"
+git config --list
+echo "------------------------------------------"
 # ---------------------------------------------------------------------------------
 
 byebye
