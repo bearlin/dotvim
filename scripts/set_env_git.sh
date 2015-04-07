@@ -15,8 +15,41 @@ if [ "$#" -lt 1 ]; then
   byebye
 fi
 
-echo "Update git configurations..."
+# ---------------------------------------------------------------------------------
+echo "Delete old git configurations..."
+rm -rf ~/.gitconfig
+# ---------------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------------
+echo "Beautiful colored and readable output..."
+# Git tip: Beautiful colored and readable output
+# http://www.leaseweblabs.com/2013/08/git-tip-beautiful-colored-and-readable-output/
+echo "
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	st = status
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+	ui = auto
+[color \"branch\"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color \"diff\"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color \"status\"]
+	added = yellow
+	changed = green
+	untracked = cyan" >> ~/.gitconfig
+# ---------------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------------
+echo "Add name/email/editor configurations..."
 # Your Identity
 if [ "$1" != "" ]; then
   git config --global user.name "$1"
@@ -29,21 +62,22 @@ fi
 if [ "$3" != "" ]; then
   git config --global core.editor $3 
 fi
+# ---------------------------------------------------------------------------------
 
-# Enable git output color
-git config --global color.ui auto
-
+# ---------------------------------------------------------------------------------
 # Checking Your Settings
 echo ""
 echo "Your current git config setting had been changed to:"
-echo "[name]"
-git config user.name
-echo "[email]"
-git config user.email
-echo "[editor]"
-git config core.editor
-echo "[color]"
-git config color.ui
+cat ~/.gitconfig
+#echo "[name]"
+#git config user.name
+#echo "[email]"
+#git config user.email
+#echo "[editor]"
+#git config core.editor
+#echo "[color]"
+#git config color.ui
 #git config --list
+# ---------------------------------------------------------------------------------
 
 byebye
