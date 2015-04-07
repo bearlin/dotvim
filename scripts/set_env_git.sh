@@ -30,6 +30,9 @@ if [ "$3" != "" ]; then
   git config --global core.editor $3 
 fi
 
+# Enable git output color
+git config --global color.ui auto
+
 # Checking Your Settings
 echo ""
 echo "Your current git config setting had been changed to:"
@@ -39,6 +42,8 @@ echo "[email]"
 git config user.email
 echo "[editor]"
 git config core.editor
+echo "[color]"
+git config color.ui
 #git config --list
 
 byebye
