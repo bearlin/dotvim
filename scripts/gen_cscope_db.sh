@@ -43,6 +43,10 @@ if [ "$1" == "init" ]; then
     #  -o -name "*.py" \
     # OS Scripts 
     #  -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
+    # Config files 
+    #  -o -name "*.yaml" -o -name "*.xml" -o -name "*.json" \
+    # Web files 
+    #  -o -name "*.html" -o -name "*.php" -o -name "*.jsp"\
     # Build Scripts
     #  -o -name "*.cmake" -o -name "CMakeLists.txt" -o -name "*.in"\
     # QT files
@@ -53,6 +57,7 @@ if [ "$1" == "init" ]; then
   find `pwd` \
       -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
       -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
+      -o -name "*.yaml" -o -name "*.xml" -o -name "*.json" \
       -o -name "*.cmake" -o -name "CMakeLists.txt" -o -name "*.in"\
       -o -name "*.ui" -o -name "*.qss" -o -name "*.qrc" -o -name "*.ts" \
       -o -name "*.ric" \
