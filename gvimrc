@@ -2,8 +2,9 @@
 execute pathogen#infect()
 
 " //=============================General Settings===============================
-" http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/
+" Basic settings
 " -----------------------------------
+" http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/
 " 檔案編碼
 set encoding=utf-8
 set fileencodings=utf-8,cp950
@@ -32,11 +33,12 @@ set laststatus=2
 "set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
 " -----------------------------------
 
+" Enable mouse and line numbering
+" -----------------------------------
 " http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm
 " http://usevim.com/2012/05/16/mouse/
 " http://vimdoc.sourceforge.net/htmldoc/options.html#'mouse' 
 " How to copy text when mouse=a: http://stackoverflow.com/questions/4608161/copy-text-out-of-vim-with-set-mouse-a-enabled
-" -----------------------------------
 set number       " Enable line numbering
 "set ttyfast      " Send more characters for redraws
 
@@ -48,8 +50,17 @@ set mouse=a      " Enable mouse use in all modes
 " set ttymouse=xterm
 " -----------------------------------
 
-" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+" Change mapleader to ','
 " -----------------------------------
+" Learn Vimscript the Hard Way - Leaders http://learnvimscriptthehardway.stevelosh.com/chapters/06.html
+" http://stackoverflow.com/questions/1764263/what-is-the-leader-in-a-vimrc-file
+let mapleader=","
+" -----------------------------------
+
+" Easier split window navigations 
+" -----------------------------------
+" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+"
 " Easier split navigations 
 " We can use different key mappings for easy navigation between splits to save a keystroke. So instead of ctrl-w then j, it’s just ctrl-j:
 nnoremap <C-J> <C-W><C-J>
@@ -63,10 +74,12 @@ set splitbelow
 set splitright
 " -----------------------------------
 
+" Show special characters
+" -----------------------------------
 " http://danawoodman.com/posts/vim-show-whitespace/
 " http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-characters
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-" -----------------------------------
+"
 " Show extra whitespace
 set list
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
@@ -74,9 +87,11 @@ set list
 set listchars=eol:↲,tab:▸\ ,trail:·,extends:»,precedes:«
 " -----------------------------------
 
+" Easier Cut/Copy/Paste 
+" -----------------------------------
 " http://serverfault.com/questions/27917/configure-vim-for-text-selection-with-shift-and-copy-paste-via-ctrlc-ctrlv
 " http://vim.cybermirror.org/runtime/mswin.vim
-" -----------------------------------
+"
 " SHIFT-X are Cut in visual mode
 vmap <S-X>  "+x
 
@@ -88,17 +103,40 @@ map <S-V>   "+gp
 cmap <S-V>  <C-R>+
 " -----------------------------------
 
-" //=================================sachet.com====================================
+" Statusline and background color
+" -----------------------------------
+" sachet.com
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set background=dark
+" -----------------------------------
 
+" Color schemes
+" -----------------------------------
 " http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
 colorscheme apprentice 
 " colorscheme wombat
 " colorscheme grb256 
 " colorscheme jellybeans
+" -----------------------------------
 
-" //==============================Source Explorer===============================
+" Hex editing using xxd tool
+" -----------------------------------
+" http://nion.modprobe.de/blog/archives/628-vim-as-hex-editor.html
+map <Leader>hon :%!xxd<CR>
+map <Leader>hof :%!xxd -r<CR>
+
+" Considering adding advanced hex editing plugins in the future:
+" http://usevim.com/2012/06/20/vim-binary-files/
+" http://vim.wikia.com/wiki/Hex_dump
+" http://vim.wikia.com/wiki/Improved_hex_editing
+" http://www.vim.org/scripts/script.php?script_id=666
+" https://github.com/fidian/hexmode
+" -----------------------------------
+" //============================================================================
+
+" //============================Plugins settings start============================
+" Source Explorer
+" -----------------------------------
 " // The switch of the Source Explorer                                         " 
  nmap <F10> :SrcExplToggle<CR> 
 "                                                                              " 
@@ -142,8 +180,10 @@ colorscheme apprentice
 "                                                                              " 
 " // Set "<F4>" key for displaying the next definition in the jump list        " 
  let g:SrcExpl_nextDefKey = "<F4>" 
+" -----------------------------------
 
-" //=================================NERD_tree===================================
+" NERD_tree
+" -----------------------------------
 " Open and close the NERD_tree.vim separately                                  " 
  nmap <F8>  :NERDTreeToggle<CR>
 "                                                                              " 
@@ -155,12 +195,16 @@ colorscheme apprentice
 "                                                                              " 
 " Sets the window size when the NERD tree is opened                            " 
  let NERDTreeWinSize=35
+" -----------------------------------
 
-" //==================================Taglist====================================
+" Taglist
+" -----------------------------------
 " Open and close the taglist.vim separately                                    " 
  nmap <silent> <F9> :TlistToggle<CR>
+" -----------------------------------
 
-" //=================================vim-cpp-enhanced-highlight===================================
+" vim-cpp-enhanced-highlight
+" -----------------------------------
 " Optional features
 " Highlighting of class scope if disabled by default. To enable set
 " let g:cpp_class_scope_highlight = 1
@@ -168,7 +212,11 @@ colorscheme apprentice
 " Highlighting of template functions is enabled by setting
 " let g:cpp_experimental_template_highlight = 1
 " Note: C++ template syntax is notoriously difficult to parse, so don't expect this feature to be perfect."
+" -----------------------------------
 
-" //==============================pathogen.vim===============================
+" pathogen.vim
+" -----------------------------------
 filetype plugin indent on
+" -----------------------------------
+" //==============================================================================
 
