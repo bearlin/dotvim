@@ -1,4 +1,8 @@
 #!/bin/bash
+# Limitations:
+# 1. cscope: cannot find file: For symbolic linked files
+# 2. cscope: cannot find file: For very long file path
+
 DOTVIMHOME=~/.vim
 source $DOTVIMHOME/scripts/handy_functions.sh
 
