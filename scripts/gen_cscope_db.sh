@@ -36,7 +36,7 @@ if [ "$1" == "init" ]; then
   # 1. Build cscope.files
   echo "Build cscope.files..."
     # C/C++ files
-    #  -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
+    #  -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" -o -name "*.inl"\
     # Java files
     #  -o -name "*.java" \
     # Python files
@@ -55,7 +55,7 @@ if [ "$1" == "init" ]; then
     #  -o -name "*.ric" \
   #find `pwd`/AppLoaders/ `pwd`/Kits/ `pwd`/Platform/ `pwd`/Products/ \
   find `pwd` \
-      -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" \
+      -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" -o -name "*.inl"\
       -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
       -o -name "*.yaml" -o -name "*.xml" -o -name "*.json" \
       -o -name "*.cmake" -o -name "CMakeLists.txt" -o -name "*.in"\
