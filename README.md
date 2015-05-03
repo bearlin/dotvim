@@ -71,6 +71,7 @@ Set git env(Optional):
 # Manually install steps:  
 ```sh
 sudo apt-get install vim exuberant-ctags cscope wget curl unzip 
+(rename or backup your ~/.vim, ~/.vimrc and ~/.gvimrc)
 git clone https://github.com/bearlin/dotvim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
