@@ -214,6 +214,20 @@ map <Leader>hof :%!xxd -r<CR>
 " Note: C++ template syntax is notoriously difficult to parse, so don't expect this feature to be perfect."
 " -----------------------------------
 
+" DirDiff
+" -----------------------------------
+" http://myvicommandhelp.blogspot.tw/2010/10/dirdiff-compare-two-folders.html
+" http://minimul.com/compare-and-merge-directories-with-dirdiff.html
+" #Don't compare directories or filenames that match conditions like CVS,*.swp
+" let g:DirDiffExcludes = "system,CVS,*.class,*.exe,.*.swp" 
+"
+" #Ignore lines that Id:,Revision: etc.
+" let g:DirDiffIgnore = "Id:,Revision:,Date:"
+"
+" #Don't flag files as different based on whitespace
+ let g:DirDiffAddArgs = "-w"
+" -----------------------------------
+
 " pathogen.vim
 " -----------------------------------
 filetype plugin indent on
