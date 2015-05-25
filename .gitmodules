@@ -25,3 +25,6 @@
 [submodule "bundle/syntax.vim-cpp-enhanced-highlight"]
 	path = bundle/syntax.vim-cpp-enhanced-highlight
 	url = https://github.com/octol/vim-cpp-enhanced-highlight.git
+[submodule "bundle/dirdiff"]
+	path = bundle/dirdiff
+	url = https://github.com/will133/vim-dirdiff.git
