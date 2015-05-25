@@ -29,6 +29,7 @@ srcexpl http://www.vim.org/scripts/script.php?script_id=2179
 fugitive http://www.vim.org/scripts/script.php?script_id=2975  
 surround http://www.vim.org/scripts/script.php?script_id=1697  
 vim-cpp-enhanced-highlight http://www.vim.org/scripts/script.php?script_id=4617  
+DirDiff http://www.vim.org/scripts/script.php?script_id=102  
 
 # Color colorschemes
 wombat http://www.vim.org/scripts/script.php?script_id=1778  
