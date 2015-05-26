@@ -219,7 +219,7 @@ map <Leader>hof :%!xxd -r<CR>
 " http://myvicommandhelp.blogspot.tw/2010/10/dirdiff-compare-two-folders.html
 " http://minimul.com/compare-and-merge-directories-with-dirdiff.html
 " #Don't compare directories or filenames that match conditions like CVS,*.swp
-" let g:DirDiffExcludes = "system,CVS,*.class,*.exe,.*.swp" 
+ let g:DirDiffExcludes = "system,CVS,*.class,*.exe,.*.swp" 
 "
 " #Ignore lines that Id:,Revision: etc.
 " let g:DirDiffIgnore = "Id:,Revision:,Date:"
