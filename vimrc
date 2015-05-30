@@ -1,7 +1,12 @@
-" //==============================pathogen.vim===============================
+" pathogen.vim
+" ==============================================================================
  execute pathogen#infect()
+" ==============================================================================
 
-" //=============================General Settings===============================
+" ************************************
+" ********* General Settings *********
+" ************************************
+" ====================================
 " Basic settings
 " -----------------------------------
 " http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/
@@ -78,8 +83,8 @@
 
 " More natural split opening
 " Open new split panes to right and bottom, which feels more natural than Vim’s default:
- set splitbelow
- set splitright
+ set splitbelow       " When on, splitting a window will put the new window below the current one
+ set splitright       " When on, splitting a window will put the new window right of the current one
 " -----------------------------------
 
 " Show special characters
@@ -89,6 +94,8 @@
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 "
 " Show extra whitespace
+" 'list' : List mode: Show tabs as CTRL-I is displayed, display $ after end of line
+" 'listchars' 'lcs' : Strings to use in 'list' mode and for the |:list| command.  It is a comma separated list of string settings
  set list
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set listchars=eol:$,tab:\|_,trail:.,extends:>,precedes:<
@@ -119,13 +126,19 @@
 " Statusline and background color
 " -----------------------------------
 " sachet.com
+" 'statusline' 'stl' : When nonempty, this option determines the content of the status line
+" 'background' 'bg' : When set to "dark", Vim will try to use colors that look good on a dark background
+"                     When set to "light", Vim will try to use colors that look good on a light background
+"                     Any other value is illegal
  set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+" set background=light
  set background=dark
 " -----------------------------------
 
 " Color schemes
 " -----------------------------------
 " http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
+" :colo[rscheme] {name} : Load color scheme {name}
  colorscheme apprentice 
 " colorscheme wombat
 " colorscheme grb256 
@@ -145,11 +158,12 @@
 " http://www.vim.org/scripts/script.php?script_id=666
 " https://github.com/fidian/hexmode
 " -----------------------------------
-" //============================================================================
 
-" //============================Plugins settings start============================
+" ************************************
+" ****** Plugins settings start ******
+" ************************************
 " Source Explorer
-" -----------------------------------
+" ==============================================================================
 " // The switch of the Source Explorer                                         " 
  nmap <F10> :SrcExplToggle<CR> 
 "                                                                              " 
@@ -193,10 +207,10 @@
 "                                                                              " 
 " // Set "<F4>" key for displaying the next definition in the jump list        " 
  let g:SrcExpl_nextDefKey = "<F4>" 
-" -----------------------------------
+" ==============================================================================
 
 " NERD_tree
-" -----------------------------------
+" ==============================================================================
 " Open and close the NERD_tree.vim separately                                  " 
  nmap <F8>  :NERDTreeToggle<CR>
 "                                                                              " 
@@ -208,16 +222,16 @@
 "                                                                              " 
 " Sets the window size when the NERD tree is opened                            " 
  let NERDTreeWinSize=35
-" -----------------------------------
+" ==============================================================================
 
 " Taglist
-" -----------------------------------
+" ==============================================================================
 " Open and close the taglist.vim separately                                    " 
  nmap <silent> <F9> :TlistToggle<CR>
-" -----------------------------------
+" ==============================================================================
 
 " vim-cpp-enhanced-highlight
-" -----------------------------------
+" ==============================================================================
 " Optional features
 " Highlighting of class scope if disabled by default. To enable set
 " let g:cpp_class_scope_highlight = 1
@@ -225,10 +239,10 @@
 " Highlighting of template functions is enabled by setting
 " let g:cpp_experimental_template_highlight = 1
 " Note: C++ template syntax is notoriously difficult to parse, so don't expect this feature to be perfect."
-" -----------------------------------
+" ==============================================================================
 
 " DirDiff
-" -----------------------------------
+" ==============================================================================
 " http://myvicommandhelp.blogspot.tw/2010/10/dirdiff-compare-two-folders.html
 " http://minimul.com/compare-and-merge-directories-with-dirdiff.html
 " #Don't compare directories or filenames that match conditions like CVS,*.swp
@@ -239,11 +253,10 @@
 "
 " #Don't flag files as different based on whitespace
  let g:DirDiffAddArgs = "-w"
-" -----------------------------------
+" ==============================================================================
 
 " pathogen.vim
-" -----------------------------------
+" ==============================================================================
  filetype plugin indent on
-" -----------------------------------
-" //==============================================================================
+" ==============================================================================
 
