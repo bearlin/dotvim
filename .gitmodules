@@ -28,3 +28,6 @@
 [submodule "bundle/dirdiff"]
 	path = bundle/dirdiff
 	url = https://github.com/will133/vim-dirdiff.git
+[submodule "bundle/commentary"]
+	path = bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git
