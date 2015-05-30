@@ -27,6 +27,7 @@
  set cursorline    " Highlight the screen line of the cursor with CursorLine
  set laststatus=2  " The value of this option influences when the last window will have a status line: 0:never 1:if there are 2 windows 2:always
 " set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
+ set wildmenu      " When 'wildmenu' is on, command-line completion operates in an enhanced mode
 " -----------------------------------
 
 " Enable mouse and line numbering
@@ -35,15 +36,15 @@
 " http://usevim.com/2012/05/16/mouse/
 " http://vimdoc.sourceforge.net/htmldoc/options.html#'mouse' 
 " How to copy text when mouse=a: http://stackoverflow.com/questions/4608161/copy-text-out-of-vim-with-set-mouse-a-enabled
- set number       " Enable line numbering
-" set ttyfast      " Send more characters for redraws
+ set number        " Print the line number in front of each line
+" set ttyfast       " Indicates a fast terminal connection, More characters will be sent to the screen for redrawing
 
- set mouse=a      " Enable mouse use in all modes
-" set mouse=n      " Enable mouse use only in normal modes
+ set mouse=a       " Enable the use of the mouse in all modes
+" set mouse=n       " Enable the use of the mouse only in normal modes
 
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-" set ttymouse=xterm
+" set ttymouse=xterm " Name of the terminal type for which mouse codes are to be recognized. Currently use xterm-like mouse handling
 " -----------------------------------
 
 " Enable filetype detection and plugins
