@@ -5,31 +5,27 @@
 " Basic settings
 " -----------------------------------
 " http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/
-" 檔案編碼
+ " Encoding settings
  set encoding=utf-8
  set fileencodings=utf-8,cp950
-
-" 編輯喜好設定 
- syntax on        " 語法上色顯示
- set nocompatible " VIM 不使用和 VI 相容的模式
- set ai           " 自動縮排
- set shiftwidth=2 " 設定縮排寬度 = 2 
- set tabstop=2    " tab 的字元數
- set softtabstop=2
- set expandtab   " 用 space 代替 tab
-
- set ruler        " 顯示右下角設定值
- set backspace=2  " 在 insert 也可用 backspace
- set ic           " 設定搜尋忽略大小寫
- set ru           " 第幾行第幾個字
- set hlsearch     " 設定高亮度顯示搜尋結果
- set incsearch    " 在關鍵字還沒完全輸入完畢前就顯示結果
- set smartindent  " 設定 smartindent
- set confirm      " 操作過程有衝突時，以明確的文字來詢問
- set history=100  " 保留 100 個使用過的指令
- set cursorline   " 顯示目前的游標位置
-
- set laststatus=2
+ " Editing settings
+ syntax on         " This command switches on syntax highlighting, let Vim to overrule your settings with the defaults
+ set nocompatible  " Make VIM not vi-compatible
+ set autoindent    " Copy indent from current line when starting a new line
+ set shiftwidth=2  " Number of spaces to use for each step of (auto)indent
+ set tabstop=2     " Number of spaces that a <Tab> in the file counts for
+ set softtabstop=2 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
+ set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
+ set ruler         " Show the line and column number of the cursor position, separated by a comma
+ set backspace=2   " Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode. 在 insert 也可用 backspace
+ set ignorecase    " Ignore case in search patterns
+ set hlsearch      " When there is a previous search pattern, highlight all its matches
+ set incsearch     " While typing a search command, show where the pattern, as it was typed so far, matches
+ set smartindent   " Do smart autoindenting when starting a new line
+ set confirm       " When unsaved changes to a buffer, e.g. ":q" and ":e", raise a |dialog| asking if you wish to save the current file(s)
+ set history=100   " A history of ":" commands, and a history of previous search patterns, how many will be remembered
+ set cursorline    " Highlight the screen line of the cursor with CursorLine
+ set laststatus=2  " The value of this option influences when the last window will have a status line: 0:never 1:if there are 2 windows 2:always
 " set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
 " -----------------------------------
 
@@ -50,7 +46,7 @@
 " set ttymouse=xterm
 " -----------------------------------
 
-" Change mapleader to ';'
+" Enable filetype detection and plugins
 " -----------------------------------
 " https://github.com/yangyangwithgnu/use_vim_as_ide/blob/master/README.md
 " Enable file type detection
