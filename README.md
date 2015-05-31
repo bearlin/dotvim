@@ -6,7 +6,9 @@ Synchronizing plugins with git submodules and pathogen
 http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/  
 
 # Very useful site to learn vim and plugins
-http://vimcasts.org/
+http://vimcasts.org/  
+https://pragprog.com/book/dnvim/practical-vim  
+https://github.com/yangyangwithgnu/use_vim_as_ide/blob/master/README.md  
 
 # Plugins manager: pathogen.vim
 http://www.vim.org/scripts/script.php?script_id=2332  

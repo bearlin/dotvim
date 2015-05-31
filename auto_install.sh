@@ -48,6 +48,7 @@ fi
 git clone https://github.com/bearlin/dotvim.git "$DOTVIMHOME" 
 
 cd "$DOTVIMHOME" 
+./scripts/update_pathogen.vim.sh
 git submodule init
 git submodule update
 ./scripts/update_pre_downloaded_plugins.sh
