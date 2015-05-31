@@ -21,3 +21,36 @@ byebye() {
   exit 0
 }
 
+hasCommandWget() {
+  retval=0
+  which wget &>/dev/null
+  if [ $? -eq 0 ]; then
+    retval=1
+  fi
+  return "$retval"
+}
+hasCommandCurl() {
+  retval=0
+  which curl &>/dev/null
+  if [ $? -eq 0 ]; then
+    retval=1
+  fi
+  return "$retval"
+}
+hasCommandUnzip() {
+  retval=0
+  which unzip &>/dev/null
+  if [ $? -eq 0 ]; then
+    retval=1
+  fi
+  return "$retval"
+}
+getHasCommandWgetCurlAndByebyeIfNoBothCommands() {
+  hasCommandWget
+  hasWget=$?
+  hasCommandCurl
+  hasCurl=$?
+  if [ $hasWget == 0 ] && [ $hasCurl == 0 ]; then
+    byebye "Both wget/crul commands not found, please install one of them first."
+  fi
+}

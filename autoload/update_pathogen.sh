@@ -7,22 +7,9 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 
 hasWget=0
 hasCurl=0
-
-which wget &>/dev/null
-if [ $? -eq 0 ]; then
-  hasWget=1
-fi
-
-which curl &>/dev/null
-if [ $? -eq 0 ]; then
-  hasCurl=1
-fi
+getHasCommandWgetCurlAndByebyeIfNoBothCommands
 echo "hasWget=$hasWget"
 echo "hasCurl=$hasCurl"
-
-if [ $hasWget == 0 ] && [ $hasCurl == 0 ]; then
-  byebye "Both wget/crul commands not found, please install one of them first."
-fi
 
 rm -rf pathogen.vim
 
