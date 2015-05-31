@@ -7,7 +7,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 
 hasWget=0
 hasCurl=0
-getHasCommandWgetCurlAndByebyeIfNoBothCommands
+setFlagsHasWgetHasCurlAndExitIfBothEqualZero
 echo "hasWget=$hasWget"
 echo "hasCurl=$hasCurl"
 
@@ -23,12 +23,9 @@ else
   die "Unknow parameters, exit"
 fi
 
-hasCommandUnzip
-hasUnzip=$?
+hasUnzip=0
+setFlagsHasUnzipAndExitIfEqualZero
 echo "hasUnzip=$hasUnzip"
-if [ $hasUnzip == 0 ]; then
-  die "unzip commands not found, please install unzip first."
-fi
 
 unzip vim-autocomplpop.zip
 #extractDir=`ls -d ns*`

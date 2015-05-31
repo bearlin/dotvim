@@ -22,6 +22,7 @@ byebye() {
 }
 
 hasCommandWget() {
+  # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
   retval=0
   which wget &>/dev/null
   if [ $? -eq 0 ]; then
@@ -30,6 +31,7 @@ hasCommandWget() {
   return "$retval"
 }
 hasCommandCurl() {
+  # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
   retval=0
   which curl &>/dev/null
   if [ $? -eq 0 ]; then
@@ -38,6 +40,7 @@ hasCommandCurl() {
   return "$retval"
 }
 hasCommandUnzip() {
+  # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
   retval=0
   which unzip &>/dev/null
   if [ $? -eq 0 ]; then
@@ -45,12 +48,22 @@ hasCommandUnzip() {
   fi
   return "$retval"
 }
-getHasCommandWgetCurlAndByebyeIfNoBothCommands() {
+setFlagsHasWgetHasCurlAndExitIfBothEqualZero() {
+  # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
   hasCommandWget
   hasWget=$?
   hasCommandCurl
   hasCurl=$?
   if [ $hasWget == 0 ] && [ $hasCurl == 0 ]; then
     byebye "Both wget/crul commands not found, please install one of them first."
+  fi
+}
+setFlagsHasUnzipAndExitIfEqualZero() {
+  # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
+  hasCommandUnzip
+  hasUnzip=$?
+  echo "hasUnzip=$hasUnzip"
+  if [ $hasUnzip == 0 ]; then
+    die "unzip commands not found, please install unzip first."
   fi
 }
