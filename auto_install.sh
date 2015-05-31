@@ -56,7 +56,9 @@ fi
 git clone https://github.com/bearlin/dotvim.git "$DOTVIMHOME" 
 
 cd "$DOTVIMHOME" 
-./scripts/update_pathogen.vim.sh
+# ------------------------ 
+
+./scripts/update_plugin_manager.sh
 git submodule init
 git submodule update
 ./scripts/update_pre_downloaded_plugins.sh
@@ -65,5 +67,7 @@ git submodule update
 ln -s $DOTVIMHOME/vimrc $DOTVIMRC
 ln -s $DOTVIMHOME/gvimrc $DOTGVIMRC
 
+# ------------------------ 
+cd -
 byebye "$@" "bearlin's dotvim is installed!"
 

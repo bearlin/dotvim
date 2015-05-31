@@ -69,7 +69,6 @@ setFlagsHasUnzipAndExitIfEqualZero() {
   # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
   hasCommandUnzip
   hasUnzip=$?
-  echo "hasUnzip=$hasUnzip"
   if [ $hasUnzip == 0 ]; then
     byebye "$@" "unzip commands not found, please install unzip first."
   fi
