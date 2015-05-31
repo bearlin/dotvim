@@ -9,7 +9,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
   echo "Usage: " && \
   echo "Init ctags files: ./gen_ctags_db.sh init" && \
   echo "Clear ctags files: ./gen_ctags_db.sh clean" && \
-  byebye
+  byebye "$@"
 
 #echo "Your whole parameter is   ==> '$@'"
 #echo "The 1st parameter         ==> $1"
@@ -47,4 +47,4 @@ elif [ "$1" == "clean" ]; then
   rm tags
 fi
 
-byebye
+byebye "$@"

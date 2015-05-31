@@ -14,7 +14,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
   echo "Init cscope files: ./gen_cscope_db.sh init" && \
   echo "Init cscope files with tags in /usr/include: ./gen_cscope_db.sh init std" && \
   echo "Clear cscope files: ./gen_cscope_db.sh clean" && \
-  byebye
+  byebye "$@"
 
 #echo "Your whole parameter is   ==> '$@'"
 #echo "The 1st parameter         ==> $1"
@@ -97,4 +97,4 @@ elif [ "$1" == "clean" ]; then
   rm cscope.*
 fi
 
-byebye
+byebye "$@"

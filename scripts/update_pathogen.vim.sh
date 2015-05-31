@@ -8,4 +8,4 @@ cd $DOTVIMHOME/autoload/
 ./update_pathogen.sh
 cd -
 
-byebye
+byebye "$@"

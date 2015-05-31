@@ -11,13 +11,20 @@ die() {
   warn "$1"
   exit 1
 }
+printCurrentScriptRuntimeInfo() {
+  printf '\t'
+  for argument in "$0 $@"
+  do
+    printf '%s ' $argument
+  done
+  printf '\n'
+}
 byebye() {
   echo -e "\t=======\t"
-  if [ $# -gt 0 ]; then
-    echo -e "\t$1\t"
-  fi
+  printCurrentScriptRuntimeInfo "$@"
   echo -e "\tByeBye!\t"
   echo -e "\t=======\t"
+  echo
   exit 0
 }
 
@@ -55,7 +62,7 @@ setFlagsHasWgetHasCurlAndExitIfBothEqualZero() {
   hasCommandCurl
   hasCurl=$?
   if [ $hasWget == 0 ] && [ $hasCurl == 0 ]; then
-    byebye "Both wget/crul commands not found, please install one of them first."
+    byebye "$@" "Both wget/crul commands not found, please install one of them first."
   fi
 }
 setFlagsHasUnzipAndExitIfEqualZero() {
@@ -64,6 +71,6 @@ setFlagsHasUnzipAndExitIfEqualZero() {
   hasUnzip=$?
   echo "hasUnzip=$hasUnzip"
   if [ $hasUnzip == 0 ]; then
-    die "unzip commands not found, please install unzip first."
+    byebye "$@" "unzip commands not found, please install unzip first."
   fi
 }
