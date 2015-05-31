@@ -8,7 +8,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 
 hasWget=0
 hasCurl=0
-setFlagsHasWgetHasCurlAndExitIfBothEqualZero
+setFlagsHasWgetHasCurlAndExitIfBothEqualZero "$@"
 echo "hasWget=$hasWget"
 echo "hasCurl=$hasCurl"
 
@@ -26,5 +26,5 @@ fi
 mkdir plugin
 mv cscope_maps.vim plugin
 
-byebye
+byebye "$@"
 

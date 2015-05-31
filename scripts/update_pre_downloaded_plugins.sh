@@ -20,4 +20,4 @@ cd $DOTVIMHOME/bundle/autocomplpop/
 ./update_autocomplpop.sh
 cd -
 
-byebye
+byebye "$@"

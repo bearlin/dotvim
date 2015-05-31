@@ -7,7 +7,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 
 hasWget=0
 hasCurl=0
-setFlagsHasWgetHasCurlAndExitIfBothEqualZero
+setFlagsHasWgetHasCurlAndExitIfBothEqualZero "$@"
 echo "hasWget=$hasWget"
 echo "hasCurl=$hasCurl"
 
@@ -21,4 +21,4 @@ else
   die "Unknow parameters, exit"
 fi
 
-byebye
+byebye "$@"

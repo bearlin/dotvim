@@ -12,13 +12,21 @@ die() {
   warn "$1"
   exit 1
 }
+printCurrentScriptRuntimeInfo() {
+  printf '\t'
+  for argument in "$0 $@"
+  do
+    printf '%s ' $argument
+  done
+  printf '\n'
+}
 byebye() {
   echo -e "\t=======\t"
-  if [ $# -gt 0 ]; then
-    echo -e "\t$1\t"
-  fi
+  printCurrentScriptRuntimeInfo "$@"
   echo -e "\tByeBye!\t"
   echo -e "\t=======\t"
+  echo
+  echo
   exit 0
 }
 usage() {
@@ -57,5 +65,5 @@ git submodule update
 ln -s $DOTVIMHOME/vimrc $DOTVIMRC
 ln -s $DOTVIMHOME/gvimrc $DOTGVIMRC
 
-byebye "bearlin's dotvim is installed!"
+byebye "$@" "bearlin's dotvim is installed!"
 

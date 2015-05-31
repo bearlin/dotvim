@@ -17,4 +17,4 @@ sed -i'.bak' 's/<CR>$<CR>/<CR><CR>/g' $DOTVIMHOME/bundle/cscope_maps/plugin/csco
 # Delete sed in place backup file.
 rm -rf $DOTVIMHOME/bundle/cscope_maps/plugin/cscope_maps.vim.bak
 
-byebye
+byebye "$@"

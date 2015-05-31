@@ -7,7 +7,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 
 hasWget=0
 hasCurl=0
-setFlagsHasWgetHasCurlAndExitIfBothEqualZero
+setFlagsHasWgetHasCurlAndExitIfBothEqualZero "$@"
 echo "hasWget=$hasWget"
 echo "hasCurl=$hasCurl"
 
@@ -24,7 +24,7 @@ else
 fi
 
 hasUnzip=0
-setFlagsHasUnzipAndExitIfEqualZero
+setFlagsHasUnzipAndExitIfEqualZero "$@"
 echo "hasUnzip=$hasUnzip"
 
 unzip vim-autocomplpop.zip
@@ -35,4 +35,4 @@ unzip vim-autocomplpop.zip
 #rmdir $extractDir
 rm -rf vim-autocomplpop.zip
 
-byebye
+byebye "$@"
