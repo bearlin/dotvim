@@ -50,7 +50,7 @@ If you are using MacOS, I suggest you use package manager Homebrew to install ex
 Reference from vgod's vim install steps.  
 Get auto_install.sh use curl (for Mac OS X):  
 ```sh
-  curl -o "auto_install.sh" "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install.sh"
+  curl -LSso "auto_install.sh" "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install.sh"
 ```
 Or use wget (for most UNIX platforms):  
 ```sh
