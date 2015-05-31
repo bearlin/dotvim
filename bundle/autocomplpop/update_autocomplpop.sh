@@ -7,23 +7,9 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 
 hasWget=0
 hasCurl=0
-
-which wget &>/dev/null
-if [ $? -eq 0 ]; then
-  hasWget=1
-fi
-
-which curl &>/dev/null
-if [ $? -eq 0 ]; then
-  hasCurl=1
-fi
+getHasCommandWgetCurlAndByebyeIfNoBothCommands
 echo "hasWget=$hasWget"
 echo "hasCurl=$hasCurl"
-
-if [ $hasWget == 0 ] && [ $hasCurl == 0 ]; then
-  echo "Both wget/crul commands not found, please install one of them first."
-  byebye 
-fi
 
 rm -rf `find . -name "*zip*" -o -name "*autoload*" -o -name "*doc*" -o -name "*plugin*"`
 #rm -rf `find . -name "*autocomplpop*" -o -name "*zip*" -o -name "*autoload*" -o -name "*doc*" -o -name "*plugin*" -o -name "*.hg*" `
@@ -37,13 +23,9 @@ else
   die "Unknow parameters, exit"
 fi
 
-hasUnzip=0
-which unzip &>/dev/null
-if [ $? -eq 0 ]; then
-  hasUnzip=1
-fi
+hasCommandUnzip
+hasUnzip=$?
 echo "hasUnzip=$hasUnzip"
-
 if [ $hasUnzip == 0 ]; then
   die "unzip commands not found, please install unzip first."
 fi
