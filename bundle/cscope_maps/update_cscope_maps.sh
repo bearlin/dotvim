@@ -8,7 +8,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 
 hasWget=0
 hasCurl=0
-getHasCommandWgetCurlAndByebyeIfNoBothCommands
+setFlagsHasWgetHasCurlAndExitIfBothEqualZero
 echo "hasWget=$hasWget"
 echo "hasCurl=$hasCurl"
 
