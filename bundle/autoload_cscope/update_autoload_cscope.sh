@@ -31,7 +31,7 @@ rm -rf plugin
 if [ $hasWget == 1  ]; then
   wget "http://vim.sourceforge.net/scripts/download_script.php?src_id=14884" -O "autoload_cscope.vim"
 elif [ $hasCurl == 1  ]; then
-  curl -o "autoload_cscope.vim" "http://vim.sourceforge.net/scripts/download_script.php?src_id=14884"
+  curl -LSso "autoload_cscope.vim" "http://vim.sourceforge.net/scripts/download_script.php?src_id=14884"
 else
   die "Unknow parameters, exit"
 fi

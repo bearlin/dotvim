@@ -32,7 +32,7 @@ rm -rf `find . -name "*zip*" -o -name "*autoload*" -o -name "*doc*" -o -name "*p
 if [ $hasWget == 1  ]; then
   wget "http://www.vim.org/scripts/download_script.php?src_id=11894" -O "vim-autocomplpop.zip" 
 elif [ $hasCurl == 1  ]; then
-  curl -o "vim-autocomplpop.zip" "http://www.vim.org/scripts/download_script.php?src_id=11894" 
+  curl -LSso "vim-autocomplpop.zip" "http://www.vim.org/scripts/download_script.php?src_id=11894" 
 else
   die "Unknow parameters, exit"
 fi

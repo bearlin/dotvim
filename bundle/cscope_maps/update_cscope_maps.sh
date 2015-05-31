@@ -31,7 +31,7 @@ rm -rf plugin
 if [ $hasWget == 1  ]; then
   wget "http://cscope.sourceforge.net/cscope_maps.vim" -O "cscope_maps.vim"
 elif [ $hasCurl == 1  ]; then
-  curl -o "cscope_maps.vim" "http://cscope.sourceforge.net/cscope_maps.vim"
+  curl -LSso "cscope_maps.vim" "http://cscope.sourceforge.net/cscope_maps.vim"
 else
   die "Unknow parameters, exit"
 fi
