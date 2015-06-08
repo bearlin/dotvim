@@ -45,6 +45,8 @@ if [ "$1" == "init" ]; then
     #  -o -name "*.java" \
     # Python files
     #  -o -name "*.py" \
+    # Perl files
+    #  -o -name "*.pl" \
     # OS Scripts 
     #  -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
     # Config files 
@@ -60,6 +62,7 @@ if [ "$1" == "init" ]; then
   #find `pwd`/AppLoaders/ `pwd`/Kits/ `pwd`/Platform/ `pwd`/Products/ \
   find `pwd` \
       -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" -o -name "*.inl"\
+      -o -name "*.pl" \
       -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
       -o -name "*.yaml" -o -name "*.xml" -o -name "*.json" -o -name "*.ini" \
       -o -name "*.cmake" -o -name "CMakeLists.txt" -o -name "*.in"\
