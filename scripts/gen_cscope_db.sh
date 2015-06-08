@@ -48,7 +48,7 @@ if [ "$1" == "init" ]; then
     # OS Scripts 
     #  -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
     # Config files 
-    #  -o -name "*.yaml" -o -name "*.xml" -o -name "*.json" \
+    #  -o -name "*.yaml" -o -name "*.xml" -o -name "*.json" -o -name "*.ini" \
     # Web files 
     #  -o -name "*.html" -o -name "*.php" -o -name "*.jsp"\
     # Build Scripts
@@ -61,9 +61,8 @@ if [ "$1" == "init" ]; then
   find `pwd` \
       -name "*.c" -o -name "*.cc" -o -name "*.h" -o -name "*.hpp" -o -name "*.cpp" -o -name "*.cxx" -o -name "*.inl"\
       -o -name "*.sh" -o -name "*.bat" -o -name "*.cmd" \
-      -o -name "*.yaml" -o -name "*.xml" -o -name "*.json" \
+      -o -name "*.yaml" -o -name "*.xml" -o -name "*.json" -o -name "*.ini" \
       -o -name "*.cmake" -o -name "CMakeLists.txt" -o -name "*.in"\
-      -o -name "*.ui" -o -name "*.qss" -o -name "*.qrc" -o -name "*.ts" \
       -o -name "*.ric" \
   | sed -e 's/^/"/g' -e 's/$/"/g' \
   > cscope.files
