@@ -21,6 +21,7 @@
  set tabstop=2     " Number of spaces that a <Tab> in the file counts for
  set softtabstop=2 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
  set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
+ " set noexpandtab
  set ruler         " Show the line and column number of the cursor position, separated by a comma
  set backspace=2   " Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode. 在 insert 也可用 backspace
  set ignorecase    " Ignore case in search patterns
