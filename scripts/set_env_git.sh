@@ -7,7 +7,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 
 usage() {
   echo "Usage: " && \
-  echo "./$0 [user.name] [user.email] [core.editor]" 
+  echo "$0 [user.name] [user.email] [core.editor]" 
 }
 
 if [ "$#" -lt 1 ]; then
