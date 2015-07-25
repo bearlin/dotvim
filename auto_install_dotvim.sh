@@ -31,8 +31,8 @@ byebye() {
 }
 usage() {
   echo "Usage: " && \
-  echo "./auto_install.sh" && \
-  echo "./auto_install.sh force (NOTE: this will force remove ~/.vim ~/.vimrc and ~/.gvimrc)" 
+  echo "./auto_install_dotvim.sh" && \
+  echo "./auto_install_dotvim.sh force (NOTE: this will force remove ~/.vim ~/.vimrc and ~/.gvimrc)" 
 }
 
 DOTVIMRC=~/.vimrc
