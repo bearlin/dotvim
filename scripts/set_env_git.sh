@@ -10,7 +10,7 @@ usage() {
   echo "$0 [user.name] [user.email] [core.editor]" 
 }
 
-if [ "$#" -lt 1 ]; then
+if [ "$#" -lt 3 ]; then
   usage
   byebye "$@"
 fi
