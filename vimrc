@@ -62,12 +62,13 @@
  filetype plugin on
 " -----------------------------------
 
-" Change mapleader to ';'
+" Change mapleader to ','
 " -----------------------------------
 " Learn Vimscript the Hard Way - Leaders http://learnvimscriptthehardway.stevelosh.com/chapters/06.html
 " http://stackoverflow.com/questions/1764263/what-is-the-leader-in-a-vimrc-file
 " https://github.com/yangyangwithgnu/use_vim_as_ide/blob/master/README.md
- let mapleader=";"
+" http://stackoverflow.com/questions/11122866/vim-default-leader-key-on-a-macbook
+ let mapleader=","
 " -----------------------------------
 
 " Easier split window navigations 
