@@ -18,26 +18,27 @@ https://github.com/tpope/vim-pathogen
 bundle/*  
 
 # Plugins pre-downloaded
-autocomplpop http://www.vim.org/scripts/script.php?script_id=1879  
-autoload_cscope http://vim.sourceforge.net/scripts/script.php?script_id=157  
-cscope_maps.vim http://cscope.sourceforge.net/cscope_vim_tutorial.html  
+[autocomplpop](http://www.vim.org/scripts/script.php?script_id=1879)  
+[autoload_cscope](http://vim.sourceforge.net/scripts/script.php?script_id=157)  
+[cscope_maps.vim](http://cscope.sourceforge.net/cscope_vim_tutorial.htm)  
 
 # Plugins need to be "git submodule init/update"
-supertab http://www.vim.org/scripts/script.php?script_id=1643  
-ctrlp.vim http://www.vim.org/scripts/script.php?script_id=3736  
-nerdtree http://www.vim.org/scripts/script.php?script_id=1658  
-taglist http://www.vim.org/scripts/script.php?script_id=273  
-srcexpl http://www.vim.org/scripts/script.php?script_id=2179  
-fugitive http://www.vim.org/scripts/script.php?script_id=2975  
-surround http://www.vim.org/scripts/script.php?script_id=1697  
-vim-cpp-enhanced-highlight http://www.vim.org/scripts/script.php?script_id=4617  
-DirDiff http://www.vim.org/scripts/script.php?script_id=102  
+[supertab](http://www.vim.org/scripts/script.php?script_id=1643)  
+[ctrlp.vim](http://www.vim.org/scripts/script.php?script_id=373)  
+[nerdtree](http://www.vim.org/scripts/script.php?script_id=1658)  
+[taglist](http://www.vim.org/scripts/script.php?script_id=273)  
+[srcexpl](http://www.vim.org/scripts/script.php?script_id=217)  
+[fugitive](http://www.vim.org/scripts/script.php?script_id=2975)  
+[surround](http://www.vim.org/scripts/script.php?script_id=1697)  
+[vim-cpp-enhanced-highlight](http://www.vim.org/scripts/script.php?script_id=4617)  
+[DirDiff](http://www.vim.org/scripts/script.php?script_id=102)  
 
 # Color colorschemes
-wombat http://www.vim.org/scripts/script.php?script_id=1778  
-apprentice http://www.vim.org/scripts/script.php?script_id=4905  
-grb256 https://github.com/garybernhardt/dotfiles/blob/master/.vim/colors/grb256.vim  
-jellybeans https://github.com/nanotech/jellybeans.vim  
+[wombat](http://www.vim.org/scripts/script.php?script_id=1778)  
+[apprentice](http://www.vim.org/scripts/script.php?script_id=4905)  
+[grb256](https://github.com/garybernhardt/dotfiles/blob/master/.vim/colors/grb256.vim)  
+[jellybeans](https://github.com/nanotech/jellybeans.vim)  
+[solarized](http://ethanschoonover.com/solarized)  
 Change colorscheme at runtime -> :colorscheme [apprentice|wombat|grb256|jellybeans]  
 
 # Before install:

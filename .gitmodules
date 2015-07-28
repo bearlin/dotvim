@@ -31,3 +31,6 @@
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "bundle/color.solarized"]
+	path = bundle/color.solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
