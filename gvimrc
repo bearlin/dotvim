@@ -162,6 +162,28 @@
 " https://github.com/fidian/hexmode
 " -----------------------------------
 
+" Insert current file/directory name/path
+" -----------------------------------
+" http://vim.wikia.com/wiki/Get_the_name_of_the_current_file
+" http://vim.wikia.com/wiki/VimTip193
+"
+" To insert the current directory name of current file:
+:inoremap <Leader>dnt <C-R>=expand("%:p:h:t")<CR>
+" Inserts the current filename with the extension
+:inoremap <Leader>fnt <C-R>=expand("%:t")<CR>
+" Inserts the current filename without the extension
+:inoremap <Leader>fne <C-R>=expand("%:t:r")<CR>
+
+" To insert the relative file path of current file:
+:inoremap <Leader>fnr <C-R>=expand("%")<CR>
+" To insert the absolute file path of current file:
+:inoremap <Leader>fna <C-R>=expand("%:p")<CR>
+" To insert the relative directory path of current file:
+:inoremap <Leader>dnr <C-R>=expand("%:h")<CR>
+" To insert the absolute directory path of current file:
+:inoremap <Leader>dna <C-R>=expand("%:p:h")<CR>
+" -----------------------------------
+
 " ************************************
 " ****** Plugins settings start ******
 " ************************************
