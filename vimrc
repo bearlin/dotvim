@@ -33,7 +33,12 @@
  set cursorline    " Highlight the screen line of the cursor with CursorLine
  set laststatus=2  " The value of this option influences when the last window will have a status line: 0:never 1:if there are 2 windows 2:always
 " set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
+
+" zsh Command-line completion style
  set wildmenu      " When 'wildmenu' is on, command-line completion operates in an enhanced mode
+ set wildmode=full
+" bash Command-line completion style
+ " set wildmode=longest,list
 " -----------------------------------
 
 " Enable mouse and line numbering
