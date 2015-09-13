@@ -56,7 +56,6 @@ git clone https://github.com/bearlin/dotvim.git "$DOTVIMHOME"
 
 cd "$DOTVIMHOME" 
 # ------------------------ 
-
 ./scripts/update_plugin_manager.sh
 
 # Disabled because migrated plugin manager from Pathogen to Vundle
@@ -68,10 +67,8 @@ cd "$DOTVIMHOME"
 
 ln -s $DOTVIMHOME/vimrc $DOTVIMRC
 ln -s $DOTVIMHOME/gvimrc $DOTGVIMRC
-
-# Install plugins using Vundle
-vim +PluginInstall +qall
 # ------------------------ 
+
 cd -
 byebye "$@" "bearlin's dotvim is installed!"
 

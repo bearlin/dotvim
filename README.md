@@ -1,45 +1,36 @@
 # dotvim
 This is my vim/gvim setting repo.  
 
-# For how I managed my plugins, please check below link
-Synchronizing plugins with git submodules and pathogen  
-http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/  
+# Plugins manager: Vundle
+https://github.com/VundleVim/Vundle.Vim
 
-# Very useful site to learn vim and plugins
-http://vimcasts.org/  
-https://pragprog.com/book/dnvim/practical-vim  
-https://github.com/yangyangwithgnu/use_vim_as_ide/blob/master/README.md  
-
-# Plugins manager: pathogen.vim
-http://www.vim.org/scripts/script.php?script_id=2332  
-https://github.com/tpope/vim-pathogen  
-
-# Plugins path(all managed by pathogen)
+# Plugins path(all managed by Vundle)
 bundle/*  
 
 # Plugins pre-downloaded
-[autocomplpop](http://www.vim.org/scripts/script.php?script_id=1879)  
-[autoload_cscope](http://vim.sourceforge.net/scripts/script.php?script_id=157)  
 [cscope_maps.vim](http://cscope.sourceforge.net/cscope_vim_tutorial.htm)  
 
 # Plugins need to be "git submodule init/update"
-[supertab](http://www.vim.org/scripts/script.php?script_id=1643)  
-[ctrlp.vim](http://www.vim.org/scripts/script.php?script_id=373)  
-[nerdtree](http://www.vim.org/scripts/script.php?script_id=1658)  
-[taglist](http://www.vim.org/scripts/script.php?script_id=273)  
-[srcexpl](http://www.vim.org/scripts/script.php?script_id=217)  
 [fugitive](http://www.vim.org/scripts/script.php?script_id=2975)  
-[surround](http://www.vim.org/scripts/script.php?script_id=1697)  
-[vim-cpp-enhanced-highlight](http://www.vim.org/scripts/script.php?script_id=4617)  
+[nerdtree](http://www.vim.org/scripts/script.php?script_id=1658)  
+[srcexpl](http://www.vim.org/scripts/script.php?script_id=217)  
+[taglist](http://www.vim.org/scripts/script.php?script_id=273)  
+[vim-commentary](https://github.com/tpope/vim-commentary)
 [DirDiff](http://www.vim.org/scripts/script.php?script_id=102)  
+[ctrlp.vim](http://www.vim.org/scripts/script.php?script_id=373)  
+[surround](http://www.vim.org/scripts/script.php?script_id=1697)  
+[supertab](http://www.vim.org/scripts/script.php?script_id=1643)  
+[vim-cpp-enhanced-highlight](http://www.vim.org/scripts/script.php?script_id=4617)  
+[autoload_cscope](http://vim.sourceforge.net/scripts/script.php?script_id=157)  
+[autocomplpop](http://www.vim.org/scripts/script.php?script_id=1879)  
 [snipMate](https://github.com/garbas/vim-snipmate)  
 
 # Color colorschemes
-[wombat](http://www.vim.org/scripts/script.php?script_id=1778)  
 [apprentice](http://www.vim.org/scripts/script.php?script_id=4905)  
-[grb256](https://github.com/garybernhardt/dotfiles/blob/master/.vim/colors/grb256.vim)  
 [jellybeans](https://github.com/nanotech/jellybeans.vim)  
 [solarized](http://ethanschoonover.com/solarized)  
+[wombat](http://www.vim.org/scripts/script.php?script_id=1778)  
+[grb256](https://github.com/garybernhardt/dotfiles/blob/master/.vim/colors/grb256.vim)  
 Change colorscheme at runtime -> :colorscheme [apprentice|wombat|grb256|jellybeans]  
 
 # Before install:
@@ -68,6 +59,10 @@ Or force remove ~/.vim, ~/.vimrc and ~/.gvimrc:
   chmod +x auto_install_dotvim.sh
   ./auto_install_dotvim.sh force
 ```
+Install plugins using Vundle:  
+```sh
+vim +PluginInstall +qall
+```
 Set git env(Optional):  
 ```sh
   ~/.vim/scripts/set_env_git.sh BearLin bear.lin.001@gmail.com vim 
@@ -82,18 +77,14 @@ ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
 
 cd ~/.vim
-git submodule init
-git submodule update
+./scripts/update_plugin_manager.sh
 ./scripts/update_pre_downloaded_plugins.sh
 ./scripts/cscope_maps_patch.sh
-./scripts/set_env_git.sh BearLin bear.lin.001@gmail.com vim   (Optional)
+vim +PluginInstall +qall
 ```
 
 # Some useful scripts
 ```sh
-scripts/update_pre_downloaded_plugins.sh:  
-  Update cscope_maps and autoload_cscope .vim files.  
-
 scripts/gen_cscope_db.sh:  
   Generate cscope files/database in `pwd`.  
 
@@ -111,7 +102,7 @@ scripts/cscope_maps_unpatch.sh:
 sachet:  
 http://yoursachet.com/  
 
-# Install new vim plugin as git submodule:
+# Install new vim plugin as git submodule (Only for using plugin manager Pathogen):
 ```sh
 cd ~/.vim
 git submodule add <github-plugin-clone-url> bundle/<plugin-name>
@@ -121,7 +112,7 @@ git commit -m "Install <plugin-name>"
 git push
 ```
 
-# Remove old vim plugin from git submodule:
+# Remove old vim plugin from git submodule (Only for using plugin manager Pathogen):
 For example, to remove colorscheme submodule "bundle/apprentice":  
 1. Go to ~/.vim/ directory:
 ```sh
@@ -158,6 +149,11 @@ git commit -m "Removed submodule bundle/apprentice"
 ```sh
 rm -rf bundle/apprentice
 ```
+
+# Very useful site to learn vim and plugins
+http://vimcasts.org/  
+https://pragprog.com/book/dnvim/practical-vim  
+https://github.com/yangyangwithgnu/use_vim_as_ide/blob/master/README.md  
 
 # References:  
   https://github.com/vgod/vimrc
