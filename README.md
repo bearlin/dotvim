@@ -8,9 +8,9 @@ https://github.com/VundleVim/Vundle.Vim
 bundle/*  
 
 # Plugins pre-downloaded
-[cscope_maps.vim](http://cscope.sourceforge.net/cscope_vim_tutorial.htm)  
+[cscope_maps.vim](http://cscope.sourceforge.net/cscope_vim_tutorial.html)  
 
-# Plugins need to be "git submodule init/update"
+# Plugins need to be ":PluginInstall" using Vundle
 [fugitive](http://www.vim.org/scripts/script.php?script_id=2975)  
 [nerdtree](http://www.vim.org/scripts/script.php?script_id=1658)  
 [srcexpl](http://www.vim.org/scripts/script.php?script_id=217)  
@@ -40,7 +40,7 @@ git, vim, exuberant-ctags, cscope, wget or curl, unzip
 If you are using MacOS, I suggest you use package manager Homebrew to install exuberant-ctags and cscope to support multiple languages(The default ctags version on Mac OS is not the exuberant one). Also install wget or curl for scripts updating.  
 
 # Auto install steps:  
-Reference from vgod's vim install steps.  
+Reference from [vgod's vim install steps](https://github.com/vgod/vimrc)  
 Get auto_install_dotvim.sh use curl (for Mac OS X):  
 ```sh
   curl -LSso "auto_install_dotvim.sh" "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install_dotvim.sh"
@@ -102,7 +102,7 @@ scripts/cscope_maps_unpatch.sh:
 sachet:  
 http://yoursachet.com/  
 
-# Install new vim plugin as git submodule (Only for using plugin manager Pathogen):
+# (Abandoned. Only for Pathogen) Install new vim plugin as git submodule:
 ```sh
 cd ~/.vim
 git submodule add <github-plugin-clone-url> bundle/<plugin-name>
@@ -112,7 +112,7 @@ git commit -m "Install <plugin-name>"
 git push
 ```
 
-# Remove old vim plugin from git submodule (Only for using plugin manager Pathogen):
+# (Abandoned. Only for Pathogen) Remove old vim plugin from git submodule:
 For example, to remove colorscheme submodule "bundle/apprentice":  
 1. Go to ~/.vim/ directory:
 ```sh
