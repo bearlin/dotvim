@@ -10,12 +10,12 @@ echo "Updating cscope_maps..."
 ./scripts/update_cscope_maps.sh
 
 # autoload_cscope
-echo "Updating autoload_cscope..."
-./scripts/update_autoload_cscope.sh
+# echo "Updating autoload_cscope..."
+# ./scripts/update_autoload_cscope.sh
 
 # autocomplpop 
-echo "Updating autocomplpop..."
-./scripts/update_autocomplpop.sh
+# echo "Updating autocomplpop..."
+# ./scripts/update_autocomplpop.sh
 
 # ------------------------ 
 cd -

@@ -6,8 +6,11 @@ cd "$DOTVIMHOME"
 # ------------------------ 
 
 # pathogen.vim 
-echo "Updating VIM plugins manager..."
-./scripts/update_pathogen.sh
+# echo "Updating VIM plugins manager..."
+# ./scripts/update_pathogen.sh
+
+# vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git $DOTVIMHOME/bundle/Vundle.vim
 
 # ------------------------ 
 cd -

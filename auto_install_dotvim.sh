@@ -46,7 +46,6 @@ if [ "$1" == "force" ]; then
   rm -rf $DOTVIMHOME $DOTVIMRC $DOTGVIMRC 
 fi
 
-
 [ -e "$DOTVIMHOME/vimrc" ] && warn "$DOTVIMHOME/vimrc already exists." && usage && die "exit!"
 [ -e "$DOTVIMHOME/gvimrc" ] && warn "$DOTVIMHOME/gvimrc already exists." && usage && die "exit!"
 [ -d "$DOTVIMHOME" ] && warn "$DOTVIMHOME already exists." && usage && die "exit!"
@@ -59,14 +58,19 @@ cd "$DOTVIMHOME"
 # ------------------------ 
 
 ./scripts/update_plugin_manager.sh
-git submodule init
-git submodule update
+
+# Disabled because migrated plugin manager from Pathogen to Vundle
+# git submodule init
+# git submodule update
+
 ./scripts/update_pre_downloaded_plugins.sh
 ./scripts/cscope_maps_patch.sh
 
 ln -s $DOTVIMHOME/vimrc $DOTVIMRC
 ln -s $DOTVIMHOME/gvimrc $DOTGVIMRC
 
+# Install plugins using Vundle
+vim +PluginInstall +qall
 # ------------------------ 
 cd -
 byebye "$@" "bearlin's dotvim is installed!"
