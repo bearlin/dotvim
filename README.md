@@ -24,13 +24,10 @@ bundle/*
 [autoload_cscope](http://vim.sourceforge.net/scripts/script.php?script_id=157)  
 [autocomplpop](http://www.vim.org/scripts/script.php?script_id=1879)  
 [snipMate](https://github.com/garbas/vim-snipmate)  
-
-# Color colorschemes
+Color colorschemes:  
 [apprentice](http://www.vim.org/scripts/script.php?script_id=4905)  
 [jellybeans](https://github.com/nanotech/jellybeans.vim)  
 [solarized](http://ethanschoonover.com/solarized)  
-[wombat](http://www.vim.org/scripts/script.php?script_id=1778)  
-[grb256](https://github.com/garybernhardt/dotfiles/blob/master/.vim/colors/grb256.vim)  
 Change colorscheme at runtime -> :colorscheme [apprentice|wombat|grb256|jellybeans]  
 
 # Before install:
@@ -49,19 +46,17 @@ Or use wget (for most UNIX platforms):
 ```sh
   wget "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install_dotvim.sh" -O "auto_install_dotvim.sh" 
 ```
-Then run the script:  
+Then run below scripts to install both .vimrc and its plugins via Vundle:  
 ```sh
   chmod +x auto_install_dotvim.sh
   ./auto_install_dotvim.sh
+  vim +PluginInstall +qall
 ```
 Or force remove ~/.vim, ~/.vimrc and ~/.gvimrc:  
 ```sh
   chmod +x auto_install_dotvim.sh
   ./auto_install_dotvim.sh force
-```
-Install plugins using Vundle:  
-```sh
-vim +PluginInstall +qall
+  vim +PluginInstall +qall
 ```
 Set git env(Optional):  
 ```sh
