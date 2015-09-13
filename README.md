@@ -32,7 +32,7 @@ bundle/*
 [surround](http://www.vim.org/scripts/script.php?script_id=1697)  
 [vim-cpp-enhanced-highlight](http://www.vim.org/scripts/script.php?script_id=4617)  
 [DirDiff](http://www.vim.org/scripts/script.php?script_id=102)  
-[snipMate](http://www.vim.org/scripts/script.php?script_id=2540)  
+[snipMate](https://github.com/garbas/vim-snipmate)  
 
 # Color colorschemes
 [wombat](http://www.vim.org/scripts/script.php?script_id=1778)  
