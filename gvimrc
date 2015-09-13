@@ -28,6 +28,11 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'romainl/Apprentice'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
+" For https://github.com/garbas/vim-snipmate
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'taglist.vim'
@@ -348,3 +353,9 @@ filetype plugin indent on    " required
 " #Don't flag files as different based on whitespace
  let g:DirDiffAddArgs = "-w"
 " ==============================================================================
+
+" To resolve conflict between snipmate + autocomplpop
+" ==============================================================================
+ let g:acp_behaviorSnipmateLength = 1
+" ==============================================================================
+
