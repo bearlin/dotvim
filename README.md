@@ -170,4 +170,5 @@ rm -rf bundle/apprentice
   http://technosavvy-vdk.blogspot.in/2012/01/ctags-and-cscope-for-java.html 
   http://davidwalsh.name/git-remove-submodule  
   http://stackoverflow.com/questions/1260748/how-do-i-remove-a-git-submodule  
+  http://www.bestofvim.com/
   
