@@ -1,6 +1,79 @@
-" pathogen.vim
+" Vundle Vim plugin manage
 " ==============================================================================
- execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'wesleyche/SrcExpl'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'ervandew/supertab'
+Plugin 'romainl/Apprentice'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'will133/vim-dirdiff'
+Plugin 'tpope/vim-commentary'
+Plugin 'altercation/vim-colors-solarized'
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+Plugin 'AutoComplPop'
+Plugin 'autoload_cscope.vim'
+Plugin 'taglist.vim'
+
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+"
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+"
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" Avoid a name conflict with L9
+" Plugin 'user/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+" Install Plugins:
+" Launch vim and run :PluginInstall
+" To install from command line: vim +PluginInstall +qall
+
+" References:
+" http://easwy.com/blog/archives/advanced-vim-skills-filetype-on/
+" https://github.com/VundleVim/Vundle.Vim
+" http://lepture.com/en/2012/vundle-vs-pathogen
+" http://mvnllife.blogspot.tw/2013/11/vim-to-ide1-vundlesnipmateautocomplpop.html
+" http://blog.chh.tw/posts/vim-vundle/
 " ==============================================================================
 
 " ************************************
@@ -56,15 +129,6 @@
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 " set ttymouse=xterm " Name of the terminal type for which mouse codes are to be recognized. Currently use xterm-like mouse handling
-" -----------------------------------
-
-" Enable filetype detection and plugins
-" -----------------------------------
-" https://github.com/yangyangwithgnu/use_vim_as_ide/blob/master/README.md
-" Enable file type detection
- filetype on
-" Load related plugins according to detected filetype
- filetype plugin on
 " -----------------------------------
 
 " Change mapleader to ','
@@ -284,9 +348,3 @@
 " #Don't flag files as different based on whitespace
  let g:DirDiffAddArgs = "-w"
 " ==============================================================================
-
-" pathogen.vim
-" ==============================================================================
- filetype plugin indent on
-" ==============================================================================
-
