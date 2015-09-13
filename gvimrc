@@ -28,6 +28,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'romainl/Apprentice'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'othree/vim-autocomplpop'
 " For https://github.com/garbas/vim-snipmate
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -35,10 +36,9 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
 Plugin 'taglist.vim'
 Plugin 'autoload_cscope.vim'
-Plugin 'AutoComplPop'
-" Plugin 'L9'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -356,6 +356,7 @@ filetype plugin indent on    " required
 
 " To resolve conflict between snipmate + autocomplpop
 " ==============================================================================
+" http://mvnllife.blogspot.tw/2013/11/vim-to-ide1-vundlesnipmateautocomplpop.html
  let g:acp_behaviorSnipmateLength = 1
 " ==============================================================================
 
