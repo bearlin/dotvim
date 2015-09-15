@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 " plugin on GitHub repo
+" ----------------------------------
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'wesleyche/SrcExpl'
@@ -29,16 +30,19 @@ Plugin 'romainl/Apprentice'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'othree/vim-autocomplpop'
-" For https://github.com/garbas/vim-snipmate
+" For github.com/garbas/vim-snipmate
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+" ----------------------------------
 
 " plugin from http://vim-scripts.org/vim/scripts.html
+" ----------------------------------
 Plugin 'L9'
 Plugin 'taglist.vim'
 Plugin 'autoload_cscope.vim'
+" ----------------------------------
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
