@@ -146,9 +146,12 @@ rm -rf bundle/apprentice
 ```
 
 # Very useful site to learn vim and plugins
-http://vimcasts.org/  
-https://pragprog.com/book/dnvim/practical-vim  
-https://github.com/yangyangwithgnu/use_vim_as_ide/blob/master/README.md  
+[vimcasts.org](http://vimcasts.org/)  
+[practical-vim](https://pragprog.com/book/dnvim/practical-vim)  
+[use_vim_as_ide](https://github.com/yangyangwithgnu/use_vim_as_ide/blob/master/README.md)  
+[Don’t tell people to use VIM (because) You’re Using It Wrong](http://antjanus.com/blog/thoughts-and-opinions/use-vim/)
+[Coming Home to Vim](http://stevelosh.com/blog/2010/09/coming-home-to-vim/)
+[Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
 
 # References:  
   https://github.com/vgod/vimrc
