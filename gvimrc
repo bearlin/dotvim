@@ -219,7 +219,7 @@ filetype plugin indent on    " required
 " -----------------------------------
 " http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
 " :colo[rscheme] {name} : Load color scheme {name}
-" colorscheme apprentice 
+colorscheme apprentice 
 " colorscheme solarized
 " colorscheme wombat
 " colorscheme grb256 
