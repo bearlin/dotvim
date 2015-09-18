@@ -25,12 +25,16 @@ Plugin 'will133/vim-dirdiff'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
+" Syntax highlight
 Plugin 'octol/vim-cpp-enhanced-highlight'
+" Colorschemes
 Plugin 'romainl/Apprentice'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tejr/sahara'
+" Auto completion
 Plugin 'othree/vim-autocomplpop'
-" For github.com/garbas/vim-snipmate
+" Snipmate from github.com/garbas/vim-snipmate
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
@@ -219,10 +223,11 @@ filetype plugin indent on    " required
 " -----------------------------------
 " http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
 " :colo[rscheme] {name} : Load color scheme {name}
-colorscheme apprentice 
+colorscheme sahara
+" colorscheme apprentice
 " colorscheme solarized
 " colorscheme wombat
-" colorscheme grb256 
+" colorscheme grb256
 " colorscheme jellybeans
 " -----------------------------------
 
