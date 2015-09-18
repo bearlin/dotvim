@@ -45,7 +45,6 @@ Plugin 'honza/vim-snippets'
 " ----------------------------------
 Plugin 'L9'
 Plugin 'taglist.vim'
-Plugin 'autoload_cscope.vim'
 " ----------------------------------
 
 " Git plugin not hosted on GitHub
@@ -369,3 +368,22 @@ colorscheme sahara
  let g:acp_behaviorSnipmateLength = 1
 " ==============================================================================
 
+" For auto loading ctags and cscope files
+" ==============================================================================
+" See :help rtp
+  set rtp+=~/.vim/bundle/cscope_maps
+
+" http://vim.wikia.com/wiki/Autoloading_Cscope_Database
+  set tags=tags;/
+
+  function! LoadCscope()
+    let db = findfile("cscope.out", ".;")
+    if (!empty(db))
+      let path = strpart(db, 0, match(db, "/cscope.out$"))
+      set nocscopeverbose " suppress 'duplicate connection' error
+      exe "cs add " . db . " " . path
+      set cscopeverbose
+    endif
+  endfunction
+  au BufEnter /* call LoadCscope()
+" ==============================================================================
