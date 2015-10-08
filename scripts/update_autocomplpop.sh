@@ -21,7 +21,7 @@ rm -rf `find bundle/autocomplpop/ -name "*zip*" -o -name "*autoload*" -o -name "
 if [ $hasWget == 1  ]; then
   wget "http://www.vim.org/scripts/download_script.php?src_id=11894" -O "bundle/autocomplpop/vim-autocomplpop.zip" 
 elif [ $hasCurl == 1  ]; then
-  curl -LSso "bundle/autocomplpop/vim-autocomplpop.zip" "http://www.vim.org/scripts/download_script.php?src_id=11894" 
+  curl -LSo "bundle/autocomplpop/vim-autocomplpop.zip" "http://www.vim.org/scripts/download_script.php?src_id=11894" 
 else
   die "Unknow parameters, exit"
 fi

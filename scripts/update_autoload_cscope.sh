@@ -22,7 +22,7 @@ mkdir bundle/autoload_cscope/plugin
 if [ $hasWget == 1  ]; then
   wget "http://vim.sourceforge.net/scripts/download_script.php?src_id=14884" -O "bundle/autoload_cscope/plugin/autoload_cscope.vim"
 elif [ $hasCurl == 1  ]; then
-  curl -LSso "bundle/autoload_cscope/plugin/autoload_cscope.vim" "http://vim.sourceforge.net/scripts/download_script.php?src_id=14884"
+  curl -LSo "bundle/autoload_cscope/plugin/autoload_cscope.vim" "http://vim.sourceforge.net/scripts/download_script.php?src_id=14884"
 else
   die "Unknow parameters, exit"
 fi
