@@ -22,7 +22,7 @@ mkdir bundle/cscope_maps/plugin
 if [ $hasWget == 1  ]; then
   wget "http://cscope.sourceforge.net/cscope_maps.vim" -O "bundle/cscope_maps/plugin/cscope_maps.vim"
 elif [ $hasCurl == 1  ]; then
-  curl -LSso "bundle/cscope_maps/plugin/cscope_maps.vim" "http://cscope.sourceforge.net/cscope_maps.vim"
+  curl -LSo "bundle/cscope_maps/plugin/cscope_maps.vim" "http://cscope.sourceforge.net/cscope_maps.vim"
 else
   die "Unknow parameters, exit"
 fi
