@@ -183,6 +183,7 @@ filetype plugin indent on    " required
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set listchars=eol:$,tab:\|_,trail:.,extends:>,precedes:<
  set listchars=eol:↲,tab:▸\ ,trail:·,extends:»,precedes:«
+" set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<  " For Cygwin
 " -----------------------------------
 
 " Easier Cut/Copy/Paste 
