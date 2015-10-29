@@ -101,11 +101,38 @@ filetype plugin indent on    " required
  " Editing settings
  syntax on         " This command switches on syntax highlighting, let Vim to overrule your settings with the defaults
  set nocompatible  " Make VIM not vi-compatible
- set autoindent    " Copy indent from current line when starting a new line
- set shiftwidth=2  " Number of spaces to use for each step of (auto)indent
- set tabstop=2     " Number of spaces that a <Tab> in the file counts for
- set softtabstop=2 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
- set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
+
+  " Default indentation/fileformat settings
+  " ----------------
+  set tabstop=2     " Number of spaces that a <Tab> in the file counts for
+  set softtabstop=2 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
+  set shiftwidth=2  " Number of spaces to use for each step of (auto)indent
+  set textwidth=79
+  set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
+  set autoindent    " Copy indent from current line when starting a new line
+  set fileformat=unix
+  " ----------------
+  " Python indentation/fileformat settings
+  " ----------------
+  " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
+  au BufNewFile,BufRead *.py
+  \ setlocal
+  \ tabstop=4
+  \ softtabstop=4
+  \ shiftwidth=4
+  \ textwidth=79
+  \ expandtab
+  \ autoindent
+  \ fileformat=unix
+  " ----------------
+  " JavaScript/HTML/CSS indentation settings
+  " ----------------
+  au BufNewFile,BufRead *.js, *.html, *.css
+  \ setlocal
+  \ tabstop=2
+  \ softtabstop=2
+  \ shiftwidth=2
+  " ----------------
  " set noexpandtab
  set ruler         " Show the line and column number of the cursor position, separated by a comma
  set backspace=2   " Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode. 在 insert 也可用 backspace
@@ -124,6 +151,7 @@ filetype plugin indent on    " required
  set wildmode=full
 " bash Command-line completion style
  " set wildmode=longest,list
+
 " -----------------------------------
 
 " Enable mouse and line numbering
