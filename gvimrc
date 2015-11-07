@@ -108,7 +108,7 @@ filetype plugin indent on    " required
   set softtabstop=2 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
   set shiftwidth=2  " Number of spaces to use for each step of (auto)indent
   set textwidth=79  " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
-  set formatoptions+=t " Auto-wrap text using textwidth
+  set formatoptions=tcroq " Auto-wrap text using textwidth
   set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
   set autoindent    " Copy indent from current line when starting a new line
   set fileformat=unix
