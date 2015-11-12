@@ -417,3 +417,46 @@ filetype plugin indent on    " required
   endfunction
   au BufEnter /* call LoadCscope()
 " ==============================================================================
+
+" For GNU GLOBAL (gtags) files
+" ==============================================================================
+" References:
+" Gtags-cscope : 
+"   http://www.gnu.org/software/global/globaldoc_toc.html#Gtags_002dcscope
+" Learn Vimscript the Hard Way - Functions :
+"   http://learnvimscriptthehardway.stevelosh.com/chapters/23.html
+
+" Switch cscope interface to use GNU GLOBAL (gtags) as search engine
+function! UseGtags()
+  " cscope settings
+  set cscopetag                  " Use cscope as tags command
+  set cscopeprg='gtags-cscope'   " Use gtags-cscope instead of cscope
+  cs kill 0
+  cs add GTAGS
+
+  " gtags settings
+  let GtagsCscope_Auto_Load = 1
+  let CtagsCscope_Auto_Map = 1
+  let GtagsCscope_Quiet = 1
+
+  echom "UseGtags!"
+endfunction
+
+function! UpdateGtags()
+  !global -u
+
+  echom "UpdateGtags!"
+endfunction
+
+" Switch cscope interface to use original cscope search engine
+function! UseCscope()
+  " cscope settings
+  set cscopetag           " Use cscope as tags command
+  set cscopeprg='cscope'  " Use cscope
+  cs kill 0
+  call LoadCscope()
+
+  echom "UseCscope!"
+endfunction
+" ==============================================================================
+
