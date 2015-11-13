@@ -6,6 +6,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 usage() {
   echo "Usage: " && \
   echo "Init gtags files: ./gen_gtags_db.sh init" && \
+  echo "Update gtags files: ./gen_gtags_db.sh update" && \
   echo "Clear gtags files: ./gen_gtags_db.sh clean"
 }
 
@@ -14,7 +15,7 @@ if [ "$#" -lt 1 ]; then
   byebye "$@"
 fi
 
-if [ "$1" == "init" ] || [ "$1" == "clean" ]; then
+if [ "$1" == "init" ] || [ "$1" == "update" ] || [ "$1" == "clean" ]; then
   echo "para=$1"
 else
   die "Unknow parameters \"$1\", exit!"
@@ -33,6 +34,9 @@ elif [ "$1" == "init" ]; then
   # brew install global : http://brewformulas.org/Global
   echo "Build the database with (gtags)..."
   gtags
+elif [ "$1" == "update" ]; then
+  echo "Update the database with (global -u)..."
+  global -u
 else
   usage
   byebye "$@"
