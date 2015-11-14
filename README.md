@@ -31,8 +31,9 @@ Color colorschemes:
 Change colorscheme at runtime -> :colorscheme [apprentice|wombat|grb256|jellybeans]  
 
 # Before install:
-Required below packages:  
-git, vim, exuberant-ctags, cscope, wget or curl, unzip  
+Install below packages:  
+(Required) git, vim, exuberant-ctags, cscope, wget or curl, unzip  
+(optional) GNU GLOBAL (gtags, global, gtags-cscope), cmake  
 
 If you are using MacOS, I suggest you use package manager Homebrew to install exuberant-ctags and cscope to support multiple languages(The default ctags version on Mac OS is not the exuberant one). Also install wget or curl for scripts updating.  
 
@@ -65,7 +66,11 @@ Set git env(Optional):
 
 # Manually install steps:  
 ```sh
-sudo apt-get install vim exuberant-ctags cscope wget curl unzip 
+(Ubuntu) sudo apt-get install git vim exuberant-ctags cscope cmake wget curl unzip 
+(MacOS) brew install git ctags cscope global cmake wget curl
+        brew install macvim --with-cscope --with-override-system-vim --with-python3
+        brew linkapps macvim
+
 (rename or backup your ~/.vim, ~/.vimrc and ~/.gvimrc)
 git clone https://github.com/bearlin/dotvim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
