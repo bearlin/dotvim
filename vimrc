@@ -458,5 +458,14 @@ function! UseCscope()
 
   echom "UseCscope!"
 endfunction
+
+" ==============================================================================
+
+" PATCH(s)
+" ==============================================================================
+  " PATCH 'formatoptions' at end of vimrc file to makesure its value won't be
+  " chaged by plugins to unwanted value (maybe bundle/tlib_vim/ or
+  " bundle/vim-autocomplpop)
+  " set formatoptions=tcroq " Auto-wrap text using textwidth
 " ==============================================================================
 
