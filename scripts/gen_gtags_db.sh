@@ -32,8 +32,10 @@ elif [ "$1" == "init" ]; then
   # References:
   # 在 Vim 中使用 Gtags 进行代码导航 : http://blog.wittyfox.me/p/use-gtags-for-source-code-navigation-in-vim/
   # brew install global : http://brewformulas.org/Global
-  echo "Build the database with (gtags)..."
-  gtags
+  # --skip-unreadable : Skip unreadable files.
+  # --statistics      : Print statistics information.
+  echo "Build the database with (gtags --skip-unreadable --statistics)..."
+  gtags --skip-unreadable --statistics
 elif [ "$1" == "update" ]; then
   echo "Update the database with (global -u)..."
   global -u
