@@ -45,6 +45,10 @@ elif [ "$1" == "update" ]; then
   global -u
 elif [ "$1" == "html" ]; then
   echo "Generate a hypertext from a set of source files with (htags --suggest)..."
+  hasHtags=0
+  setFlagsHasHtagsAndExitIfEqualZero "$@"
+  echo "hasHtags=$hasHtags"
+  echo ""
   echo "Htags generates a hypertext from a set of source files of C, C++, Yacc,
   Java, PHP and Assembly. In  advance  of  using  this  command, you should
   execute gtags(1) in the root directory of a source project.  Then you can
@@ -55,6 +59,7 @@ elif [ "$1" == "html" ]; then
   HTTP server. This command has so many options.  If you are new to htags, it
   is recommended to use the --suggest option.  With that option, htags chooses
   popular options on your behalf."
+
   htags --suggest
 else
   usage
