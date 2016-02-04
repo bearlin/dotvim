@@ -82,6 +82,15 @@ hasCommandGtags() {
   fi
   return "$retval"
 }
+hasCommandHtags() {
+  # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
+  retval=0
+  which htags &>/dev/null
+  if [ $? -eq 0 ]; then
+    retval=1
+  fi
+  return "$retval"
+}
 setFlagsHasWgetHasCurlAndExitIfBothEqualZero() {
   # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
   hasCommandWget
@@ -121,6 +130,14 @@ setFlagsHasGtagsAndExitIfEqualZero() {
   hasCommandGtags
   hasGtags=$?
   if [ $hasGtags == 0 ]; then
+    byebye "$@" "gtags commands not found, please install gtags first."
+  fi
+}
+setFlagsHasHtagsAndExitIfEqualZero() {
+  # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
+  hasCommandHtags
+  hasHtags=$?
+  if [ $hasHtags == 0 ]; then
     byebye "$@" "gtags commands not found, please install gtags first."
   fi
 }
