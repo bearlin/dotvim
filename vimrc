@@ -39,6 +39,10 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+" Powerline
+" Plugin 'Lokaltog/vim-powerline'
+" Plugin 'Lokaltog/powerline'
+Plugin 'powerline/powerline'
 " ----------------------------------
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -459,6 +463,35 @@ function! UseCscope()
   echom "UseCscope!"
 endfunction
 
+" ==============================================================================
+
+" For powerline status line
+" ==============================================================================
+" References:
+" https://powerline.readthedocs.org/en/latest/installation.html
+" https://pip.pypa.io/en/stable/installing/
+" https://github.com/powerline/fonts
+" https://powerline.readthedocs.org/en/latest/usage/other.html#vim-statusline
+" https://github.com/Lokaltog/vim-powerline
+" https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x
+"
+" Powerline installation directory can be retrieved via 'pip show powerline-status'
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+" set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim/
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set laststatus=2
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+if has("gui_running")
+   let s:uname = system("uname")
+   if s:uname == "Darwin\n"
+      set guifont=Inconsolata\ for\ Powerline:h15
+   endif
+endif
 " ==============================================================================
 
 " PATCH(s)
