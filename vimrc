@@ -493,6 +493,7 @@ if has("gui_running")
       set guifont=Inconsolata\ for\ Powerline:h15
    endif
 endif
+" TODO : Maybe migrate to vim Airline because Powerline is too heavy and its dependency in Python, details see http://jchain.github.io/blog/2013/07/17/fly-with-vim-airline/
 " ==============================================================================
 
 " PATCH(s)
