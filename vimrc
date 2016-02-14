@@ -34,6 +34,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tejr/sahara'
 " Auto completion
 Plugin 'othree/vim-autocomplpop'
+Plugin 'Rip-Rip/clang_complete'
 " Snipmate from github.com/garbas/vim-snipmate
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -494,6 +495,46 @@ if has("gui_running")
    endif
 endif
 " TODO : Maybe migrate to vim Airline because Powerline is too heavy and its dependency in Python, details see http://jchain.github.io/blog/2013/07/17/fly-with-vim-airline/
+" ==============================================================================
+
+" For clang_complete
+" ==============================================================================
+" References:
+" http://www.vim.org/scripts/script.php?script_id=3302
+" https://github.com/Rip-Rip/clang_complete
+" http://blog.csdn.net/logicworldzju/article/details/8738407
+" http://aknow-work.blogspot.tw/2013/04/vim-clangcomplete.html
+" https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt
+" http://stackoverflow.com/questions/20645920/adding-clang-complete-to-homebrew-installed-vim-on-mac
+
+let g:clang_complete_copen=1                  "If equal to 1, open quickfix window on error. Default: 0
+let g:clang_periodic_quickfix=1               "If equal to 1, it will periodically update the quickfix window. Default: 0
+let g:clang_snippets=1                        "If equal to 1, it will do some snippets magic on code placeholders like function argument, template parameters, etc. Default: 0
+let g:clang_snippets_engine='clang_complete'  "The snippets engine (clang_complete, ultisnips... see the snippets subdirectory). Default: 'clang_complete'
+let g:clang_close_preview=1                   "If equal to 1, the preview window will be close automatically after a completion. Default: 0
+let g:clang_use_library=1                     "Instead of calling the clang/clang++ tool use libclang directly. This gives
+                                              "access to many more clang features. Furthermore it automatically caches all
+                                              "includes in memory. Updates after changes in the same file will therefore be a
+                                              "lot faster.
+                                              "Note: This version doesn't support calling clang binary for completion. If you
+                                              "cannot use libclang, you should download clang_complete from vim.org website.
+                                              "Default: 1
+" let g:clang_user_options='-stdlib=libc++ -std=c++11 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
+" let g:clang_user_options='-I/usr/include -I/usr/local/include'
+                                                  "Additionnal compilation argument passed to libclang.
+                                                  "Example: >
+                                                  " " compile all sources as c++11 (just for example, use .clang_complete for
+                                                  " " setting version of the language per project)
+                                                  " let g:clang_user_options = '-std=c++11'
+                                                  "<
+                                                  "Default: ""
+let s:clang_library_path='/Applications/Xcode.app//Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/' "MacOS
+if isdirectory(s:clang_library_path)
+  let g:clang_library_path=s:clang_library_path   "If libclang is not in your library search path->set this to the absolute path
+                                                  "where libclang is available. This should either be a directory containing a
+                                                  "file named libclang.[dll/so/dylib] or the clang shared library file itself.
+                                                  "Default: ""
+endif
 " ==============================================================================
 
 " PATCH(s)
