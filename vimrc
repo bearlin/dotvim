@@ -474,6 +474,7 @@ endfunction
 " https://powerline.readthedocs.org/en/latest/usage/other.html#vim-statusline
 " https://github.com/Lokaltog/vim-powerline
 " https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x
+" http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
 "
 " Powerline installation directory also can be retrieved via "vim's plugin 'powerline/powerline'"
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
