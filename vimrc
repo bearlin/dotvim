@@ -475,7 +475,7 @@ endfunction
 " https://github.com/Lokaltog/vim-powerline
 " https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x
 "
-" Powerline installation directory can be retrieved via 'pip show powerline-status'
+" Powerline installation directory also can be retrieved via "vim's plugin 'powerline/powerline'"
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 " set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim/
 set guifont=Inconsolata\ for\ Powerline:h15
