@@ -7,7 +7,7 @@ usage() {
   echo "Usage: " && \
   echo "Init gtags files: ./gen_gtags_db.sh init" && \
   echo "Update gtags files: ./gen_gtags_db.sh update" && \
-  echo "Clear gtags files: ./gen_gtags_db.sh clean" \
+  echo "Clear gtags files: ./gen_gtags_db.sh clean" && \
   echo "Generate html files: ./gen_gtags_db.sh html"
 }
 
