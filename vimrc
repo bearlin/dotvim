@@ -519,15 +519,18 @@ let g:clang_use_library=1                     "Instead of calling the clang/clan
                                               "Note: This version doesn't support calling clang binary for completion. If you
                                               "cannot use libclang, you should download clang_complete from vim.org website.
                                               "Default: 1
+
+                                              " g:clang_user_options : 
+                                              "Additionnal compilation argument passed to libclang.
+                                              "Example: >
+                                              " " compile all sources as c++11 (just for example, use .clang_complete for
+                                              " " setting version of the language per project)
+                                              " let g:clang_user_options = '-std=c++11'
+                                              "<
+                                              "Default: ""
+let g:clang_user_options = '-std=c++11' "Compile all sources as c++11 (just for example, use .clang_complete for setting version of the language per project)
 " let g:clang_user_options='-stdlib=libc++ -std=c++11 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
-" let g:clang_user_options='-I/usr/include -I/usr/local/include'
-                                                  "Additionnal compilation argument passed to libclang.
-                                                  "Example: >
-                                                  " " compile all sources as c++11 (just for example, use .clang_complete for
-                                                  " " setting version of the language per project)
-                                                  " let g:clang_user_options = '-std=c++11'
-                                                  "<
-                                                  "Default: ""
+
 " let s:clang_library_path='/Applications/Xcode.app//Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/' "MacOS
 let s:clang_library_path='/usr/lib/llvm-3.6/lib/' "Ubuntu
 if isdirectory(s:clang_library_path)
@@ -536,6 +539,9 @@ if isdirectory(s:clang_library_path)
                                                   "file named libclang.[dll/so/dylib] or the clang shared library file itself.
                                                   "Default: ""
 endif
+
+" Completion is started with CTRL-X CTRL-U |i_CTRL-X_CTRL-U|, or automatically depending on the value of |clang_complete-auto|.
+:imap <Leader><Tab> <C-X><C-U>
 " ==============================================================================
 
 " PATCH(s)
