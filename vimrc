@@ -528,7 +528,8 @@ let g:clang_use_library=1                     "Instead of calling the clang/clan
                                                   " let g:clang_user_options = '-std=c++11'
                                                   "<
                                                   "Default: ""
-let s:clang_library_path='/Applications/Xcode.app//Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/' "MacOS
+" let s:clang_library_path='/Applications/Xcode.app//Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/' "MacOS
+let s:clang_library_path='/usr/lib/llvm-3.6/lib/' "Ubuntu
 if isdirectory(s:clang_library_path)
   let g:clang_library_path=s:clang_library_path   "If libclang is not in your library search path->set this to the absolute path
                                                   "where libclang is available. This should either be a directory containing a
