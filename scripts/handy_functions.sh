@@ -91,6 +91,15 @@ hasCommandHtags() {
   fi
   return "$retval"
 }
+hasCommandGit() {
+  # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
+  retval=0
+  which git &>/dev/null
+  if [ $? -eq 0 ]; then
+    retval=1
+  fi
+  return "$retval"
+}
 setFlagsHasWgetHasCurlAndExitIfBothEqualZero() {
   # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
   hasCommandWget
@@ -139,5 +148,13 @@ setFlagsHasHtagsAndExitIfEqualZero() {
   hasHtags=$?
   if [ $hasHtags == 0 ]; then
     byebye "$@" "gtags commands not found, please install gtags first."
+  fi
+}
+setFlagsHasGitAndExitIfEqualZero() {
+  # Ref: http://stackoverflow.com/questions/8742783/returning-value-from-called-function-in-shell-script
+  hasCommandGit
+  hasGit=$?
+  if [ $hasGit == 0 ]; then
+    byebye "$@" "git commands not found, please install git first."
   fi
 }
