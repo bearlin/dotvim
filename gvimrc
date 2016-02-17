@@ -1,3 +1,10 @@
+" ==============================================================================
+" bearlin's vimrc
+" Email : <bear.lin.001@gmail.com>
+" Repo : https://github.com/bearlin/dotvim
+" More info : https://github.com/bearlin/dotvim/blob/master/README.md
+" ==============================================================================
+
 " Vundle Vim plugin manage
 " ==============================================================================
 set nocompatible              " be iMproved, required
@@ -40,6 +47,9 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+
+"https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
+Plugin 'vim-scripts/indentpython.vim'
 " ----------------------------------
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -114,6 +124,18 @@ filetype plugin indent on    " required
   set autoindent    " Copy indent from current line when starting a new line
   set fileformat=unix
   " ----------------
+  " C/C++ indentation/fileformat settings
+  " ----------------
+  au BufNewFile,BufRead *.c *.h *.cpp *.cxx *.cc *.hpp *.inl
+  \ setlocal
+  \ tabstop=2
+  \ softtabstop=2
+  \ shiftwidth=2
+  \ textwidth=79
+  \ expandtab
+  \ autoindent
+  \ fileformat=unix
+  " ----------------
   " Python indentation/fileformat settings
   " ----------------
   " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
@@ -129,6 +151,7 @@ filetype plugin indent on    " required
   " ----------------
   " JavaScript/HTML/CSS indentation settings
   " ----------------
+  " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
   au BufNewFile,BufRead *.js, *.html, *.css
   \ setlocal
   \ tabstop=2
