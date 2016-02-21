@@ -24,6 +24,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub repo
 " ----------------------------------
+" Basic
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'wesleyche/SrcExpl'
@@ -32,21 +33,26 @@ Plugin 'will133/vim-dirdiff'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
-" Syntax highlight
+
+" Syntax highlight - C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
+
 " Colorschemes
 Plugin 'romainl/Apprentice'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tejr/sahara'
+
 " Auto completion
 Plugin 'othree/vim-autocomplpop'
 Plugin 'Rip-Rip/clang_complete'
+
 " Snipmate from github.com/garbas/vim-snipmate
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+
 "" Powerline
 "" Plugin 'Lokaltog/vim-powerline'
 "" Plugin 'Lokaltog/powerline'
@@ -55,6 +61,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" Python plugings
 "https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 Plugin 'vim-scripts/indentpython.vim'
 " ----------------------------------
