@@ -47,6 +47,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 "https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 Plugin 'vim-scripts/indentpython.vim'
@@ -485,6 +487,28 @@ endfunction
 
 " ==============================================================================
 
+" For vim-airline
+" ==============================================================================
+" The default setting of 'laststatus' is for the statusline to not appear until a split is created.
+" If you want it to appear all the time, add the following to your vimrc:
+set laststatus=2
+
+let g:airline#extensions#tabline#enabled = 1        " Enable tabline
+let g:airline#extensions#tabline#left_sep = ' '     " Set left separator
+let g:airline#extensions#tabline#left_alt_sep = '|' " Set left separator which are not editting
+let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer number
+
+" Enable/Disable automatic population of the `g:airline_symbols` dictionary with powerline symbols.
+" How to install powerline patched fonts : https://github.com/powerline/fonts
+let g:airline_powerline_fonts=0
+
+" Themes are automatically selected based on the matching colorscheme. this can be overridden by defining a value.
+" Note: Only the dark theme is distributed with vim-airline. For more themes, checkout (https://github.com/vim-airline/vim-airline-themes)
+" Change the vim-airline theme : https://github.com/vim-airline/vim-airline/wiki/Screenshots
+" let g:airline_theme='dark'
+" let g:airline_theme='light'
+let g:airline_theme='jellybeans'
+" ==============================================================================
 
 " For clang_complete
 " ==============================================================================
