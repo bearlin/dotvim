@@ -47,10 +47,10 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
-" Powerline
-" Plugin 'Lokaltog/vim-powerline'
-" Plugin 'Lokaltog/powerline'
-Plugin 'powerline/powerline'
+"" Powerline
+"" Plugin 'Lokaltog/vim-powerline'
+"" Plugin 'Lokaltog/powerline'
+"Plugin 'powerline/powerline'
 
 "https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 Plugin 'vim-scripts/indentpython.vim'
@@ -489,35 +489,35 @@ endfunction
 
 " ==============================================================================
 
-" For powerline status line
-" ==============================================================================
-" References:
-" https://powerline.readthedocs.org/en/latest/installation.html
-" https://pip.pypa.io/en/stable/installing/
-" https://github.com/powerline/fonts
-" https://powerline.readthedocs.org/en/latest/usage/other.html#vim-statusline
-" https://github.com/Lokaltog/vim-powerline
-" https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x
-" http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
-"
-" Powerline installation directory also can be retrieved via "vim's plugin 'powerline/powerline'"
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-" set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim/
-set guifont=Inconsolata\ for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set laststatus=2
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
-if has("gui_running")
-   let s:uname = system("uname")
-   if s:uname == "Darwin\n"
-      set guifont=Inconsolata\ for\ Powerline:h15
-   endif
-endif
-" TODO : Maybe migrate to vim Airline because Powerline is too heavy and its dependency in Python, details see http://jchain.github.io/blog/2013/07/17/fly-with-vim-airline/
+"" For powerline status line
+"" ==============================================================================
+"" References:
+"" https://powerline.readthedocs.org/en/latest/installation.html
+"" https://pip.pypa.io/en/stable/installing/
+"" https://github.com/powerline/fonts
+"" https://powerline.readthedocs.org/en/latest/usage/other.html#vim-statusline
+"" https://github.com/Lokaltog/vim-powerline
+"" https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x
+"" http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
+""
+"" Powerline installation directory also can be retrieved via "vim's plugin 'powerline/powerline'"
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
+"" set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim/
+"set guifont=Inconsolata\ for\ Powerline:h15
+"let g:Powerline_symbols = 'fancy'
+"set encoding=utf-8
+"set laststatus=2
+"set t_Co=256
+"set fillchars+=stl:\ ,stlnc:\
+"set term=xterm-256color
+"set termencoding=utf-8
+"if has("gui_running")
+"   let s:uname = system("uname")
+"   if s:uname == "Darwin\n"
+"      set guifont=Inconsolata\ for\ Powerline:h15
+"   endif
+"endif
+"" TODO : Maybe migrate to vim Airline because Powerline is too heavy and its dependency in Python, details see http://jchain.github.io/blog/2013/07/17/fly-with-vim-airline/
 " ==============================================================================
 
 " For clang_complete
