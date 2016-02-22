@@ -68,6 +68,11 @@ Plugin 'L9'
 Plugin 'taglist.vim'
 " ----------------------------------
 
+" vim-easymotion
+" ----------------------------------
+Plugin 'easymotion/vim-easymotion'
+" ----------------------------------
+
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
 "
