@@ -338,6 +338,23 @@ filetype plugin indent on    " required
 :inoremap <Leader>dna <C-R>=expand("%:p:h")<CR>
 " -----------------------------------
 
+" Buffers operations
+" -----------------------------------
+  " http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
+  " This allows buffers to be hidden if you've modified a buffer. This is almost a must if you wish to use buffers in this way.
+  set hidden
+  " To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
+  nmap <leader>B :enew<CR>
+  " Move to the next buffer
+  nmap <leader>bn :bnext<CR>
+  " Move to the previous buffer
+  nmap <leader>bp :bprevious<CR>
+  " Close the current buffer and move to the previous one. This replicates the idea of closing a tab
+  nmap <leader>bq :bprevious <BAR> bdelete #<CR>
+  " Show all open buffers and their status
+  nmap <leader>bl :buffers<CR>
+" -----------------------------------
+
 " ************************************
 " ****** Plugins settings start ******
 " ************************************
@@ -544,6 +561,7 @@ let g:airline#extensions#tabline#enabled = 1        " Enable tabline
 let g:airline#extensions#tabline#left_sep = ' '     " Set left separator
 let g:airline#extensions#tabline#left_alt_sep = '|' " Set left separator which are not editting
 let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer number
+let g:airline#extensions#tabline#fnamemod = ':t'    " Configure the formatting of filenames
 
 " Enable/Disable automatic population of the `g:airline_symbols` dictionary with powerline symbols.
 " How to install powerline patched fonts : https://github.com/powerline/fonts
