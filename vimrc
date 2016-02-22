@@ -53,10 +53,14 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
-"" Powerline
-"" Plugin 'Lokaltog/vim-powerline'
-"" Plugin 'Lokaltog/powerline'
-"Plugin 'powerline/powerline'
+" Powerline
+" Plugin 'Lokaltog/vim-powerline'
+" Plugin 'Lokaltog/powerline'
+Plugin 'powerline/powerline'
+" [Note]
+" Althought my vim changes to vim-airline, my tmux/bash still need powerline binding scripts 
+" in ~/.vim/bundle/powerline/powerline/bindings/*, so still need to install powerline plugin here.
+
 " vim-airline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -499,7 +503,7 @@ endfunction
 
 " ==============================================================================
 
-"" For powerline status line
+"" Enable powerline for vim
 "" ==============================================================================
 "" References:
 "" https://powerline.readthedocs.org/en/latest/installation.html
