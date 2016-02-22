@@ -340,19 +340,33 @@ filetype plugin indent on    " required
 
 " Buffers operations
 " -----------------------------------
-  " http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
-  " This allows buffers to be hidden if you've modified a buffer. This is almost a must if you wish to use buffers in this way.
-  set hidden
-  " To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
-  nmap <leader>B :enew<CR>
-  " Move to the next buffer
-  nmap <leader>bn :bnext<CR>
-  " Move to the previous buffer
-  nmap <leader>bp :bprevious<CR>
-  " Close the current buffer and move to the previous one. This replicates the idea of closing a tab
-  nmap <leader>bq :bprevious <BAR> bdelete #<CR>
-  " Show all open buffers and their status
-  nmap <leader>bl :buffers<CR>
+" http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
+" This allows buffers to be hidden if you've modified a buffer. This is almost a must if you wish to use buffers in this way.
+set hidden
+" To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
+nmap <leader>B :enew<CR>
+" Move to the next buffer
+nmap <leader>bn :bnext<CR>
+" Move to the previous buffer
+nmap <leader>bp :bprevious<CR>
+" Close the current buffer and move to the previous one. This replicates the idea of closing a tab
+nmap <leader>bq :bprevious <BAR> bdelete #<CR>
+" Show all open buffers and their status
+nmap <leader>bl :buffers<CR>
+" -----------------------------------
+
+" Useful mappings for managing tabs
+" -----------------------------------
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+" -----------------------------------
+
+" Treat long lines as break lines (useful when moving around in them)
+" -----------------------------------
+map j gj
+map k gk
 " -----------------------------------
 
 " ************************************
