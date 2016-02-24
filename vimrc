@@ -129,9 +129,11 @@ filetype plugin indent on    " required
 " Basic settings
 " -----------------------------------
 " http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/
+" http://www.cnblogs.com/soli/archive/2008/03/17/1109931.html
  " Encoding settings
  set encoding=utf-8
- set fileencodings=utf-8,cp950
+ set fileencodings=utf-8,cp950,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+ set termencoding=utf-8
  " Editing settings
  syntax on         " This command switches on syntax highlighting, let Vim to overrule your settings with the defaults
  set nocompatible  " Make VIM not vi-compatible
