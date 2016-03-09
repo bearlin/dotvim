@@ -27,8 +27,13 @@ fi
 echo "Beautiful colored and readable output..."
 # Git tip: Beautiful colored and readable output
 # http://www.leaseweblabs.com/2013/08/git-tip-beautiful-colored-and-readable-output/
+# http://www.jianshu.com/p/331cd9fdeae7
 echo "[alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	co = checkout
+	br = branch
+	rem = remote
+	ci = commit
 	st = status
 [color]
 	branch = auto
