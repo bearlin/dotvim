@@ -368,6 +368,18 @@ map j gj
 map k gk
 " -----------------------------------
 
+" Compile simple programs with vim in c and c++
+" -----------------------------------
+" References:
+" http://unix.stackexchange.com/questions/52559/how-to-compile-a-c-program-without-leaving-the-editor
+" http://stackoverflow.com/questions/2627886/how-do-i-run-a-c-program-from-vim
+" https://www.reddit.com/r/vim/comments/3fdd7l/compile_simple_programs_with_vim_in_c/
+au FileType c set makeprg=gcc\ %
+au FileType cpp set makeprg=g++\ %
+map <leader><leader>f5 :make<CR> <bar> :cwindow<CR>
+map <leader><leader>f7 :!./a.out<CR>
+" -----------------------------------
+
 " ************************************
 " ****** Plugins settings start ******
 " ************************************
