@@ -618,8 +618,9 @@ let g:airline_theme='jellybeans'
 " https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt
 " http://stackoverflow.com/questions/20645920/adding-clang-complete-to-homebrew-installed-vim-on-mac
 
-let g:clang_complete_copen=1                  "If equal to 1, open quickfix window on error. Default: 0
-let g:clang_periodic_quickfix=1               "If equal to 1, it will periodically update the quickfix window. Default: 0
+let g:clang_complete_copen=0                  "If equal to 1, open quickfix window on error. Default: 0
+let g:clang_hl_errors=1                       "If equal to 1, it will highlight the warnings and errors the same way clang does it. Default: 1
+let g:clang_periodic_quickfix=0               "If equal to 1, it will periodically update the quickfix window. Default: 0
 let g:clang_snippets=1                        "If equal to 1, it will do some snippets magic on code placeholders like function argument, template parameters, etc. Default: 0
 let g:clang_snippets_engine='clang_complete'  "The snippets engine (clang_complete, ultisnips... see the snippets subdirectory). Default: 'clang_complete'
 let g:clang_close_preview=1                   "If equal to 1, the preview window will be close automatically after a completion. Default: 0
@@ -652,7 +653,7 @@ if isdirectory(s:clang_library_path)
 endif
 
 " Completion is started with CTRL-X CTRL-U |i_CTRL-X_CTRL-U|, or automatically depending on the value of |clang_complete-auto|.
-:imap <Leader><Tab> <C-X><C-U>
+:imap <Leader><Leader><Tab> <C-X><C-U>
 " ==============================================================================
 
 " PATCH(s)
