@@ -59,10 +59,6 @@ Or force remove ~/.vim, ~/.vimrc and ~/.gvimrc:
   ./auto_install_dotvim.sh force
   vim +PluginInstall +qall
 ```
-Set git env(Optional):  
-```sh
-  ~/.vim/scripts/set_env_git.sh BearLin bear.lin.001@gmail.com vim 
-```
 
 # Manually install steps:  
 ```sh
