@@ -376,16 +376,21 @@ map j gj
 map k gk
 " -----------------------------------
 
-" Compile simple programs with vim in c and c++
+" Compile single file with gcc/g++ in vim
 " -----------------------------------
+" [20160308]
+" Disable this section because I am learning how to write Makefile now, so
+" current I prefer just add a Makefile and compile your project with :make
+"
+" au FileType c set makeprg=gcc\ %
+" au FileType cpp set makeprg=g++\ %
+" map <leader><leader>f5 :make<CR> <bar> :cwindow<CR>
+" map <leader><leader>f7 :!./a.out<CR>
+"
 " References:
 " http://unix.stackexchange.com/questions/52559/how-to-compile-a-c-program-without-leaving-the-editor
 " http://stackoverflow.com/questions/2627886/how-do-i-run-a-c-program-from-vim
 " https://www.reddit.com/r/vim/comments/3fdd7l/compile_simple_programs_with_vim_in_c/
-au FileType c set makeprg=gcc\ %
-au FileType cpp set makeprg=g++\ %
-map <leader><leader>f5 :make<CR> <bar> :cwindow<CR>
-map <leader><leader>f7 :!./a.out<CR>
 " -----------------------------------
 
 " ************************************
