@@ -31,7 +31,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-commentary'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 "Plugin 'vim-scripts/matchit.zip' " Disable because it has bug while matching simple (), [] in large html file.
 
@@ -705,6 +705,35 @@ endif
 " http://www.d0u9.xyz/vimcha-jian-jie-shao-fugitive/
 " http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/
 " http://quickteckiteasy.blogspot.tw/2013/11/vim-plugin-fugative-vim-git.html
+" ==============================================================================
+
+" NERD Commenter
+" ==============================================================================
+" Specifies whether to add extra spaces around delimiters when commenting, and
+" whether to remove them when uncommenting.
+let g:NERDSpaceDelims=1
+
+" Functionality summary:
+"<Leader>cc       "Comment out the current line or text selected in visual mode.
+"<Leader>cl       "Same as <Leader>cc except that the delimiters are aligned down the
+"<Leader>cb       "left side (<Leader>cl) or both sides (<Leader>cb).
+"<Leader>ca       "Switches to the alternative set of delimiters.
+"<Leader>cu       "Uncomments the selected line(s).
+"<Leader>cA       "Adds comment delimiters to the end of line and goes into insert mode between them.
+"<Leader>cs       "Comments out the selected lines ``sexily''
+"<Leader>c<space> "Toggles the comment state of the selected line(s). If the topmost selected
+                  "line is commented, all selected lines are uncommented and vice versa.
+"<Leader>cn       "Same as <Leader>cc but forces nesting.
+"<Leader>cm       "Comments the given lines using only one set of multipart delimiters.
+"<Leader>ci       "Toggles the comment state of the selected line(s) individually.
+"<Leader>cy       "Same as <Leader>cc except that the commented line(s) are yanked first.
+"<Leader>c$       "Comments the current line from the cursor to the end of line.
+"
+" References:
+" :h NERDComFunctionalitySummary
+" https://github.com/scrooloose/nerdcommenter
+" http://www.wklken.me/posts/2015/06/07/vim-plugin-nerdcommenter.html
+" http://www.dutor.net/index.php/2010/05/vim-the-nerd-commenter/
 " ==============================================================================
 
 " PATCH(s)
