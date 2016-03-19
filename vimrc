@@ -26,14 +26,16 @@ Plugin 'VundleVim/Vundle.vim'
 " ------------------------------------------------------------------------------
 " Source code browsing
 " ----------------------------------
-" TODO: Add more useful plugins from http://www.slideshare.net/chenkaie/vim-rocks
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
+
+" Text alignment
 "Plugin 'vim-scripts/matchit.zip' " Disable because it has bug while matching simple (), [] in large html file.
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'godlygeek/tabular'
 
 " Text objects
 Plugin 'michaeljsmith/vim-indent-object'
@@ -344,8 +346,8 @@ filetype plugin indent on    " required
 " Hex editing using xxd tool
 " -----------------------------------
 " http://nion.modprobe.de/blog/archives/628-vim-as-hex-editor.html
- noremap <Leader>hon :%!xxd<CR>
- noremap <Leader>hof :%!xxd -r<CR>
+ noremap <Leader><Leader>hon :%!xxd<CR>
+ noremap <Leader><Leader>hof :%!xxd -r<CR>
 
 " Considering adding advanced hex editing plugins in the future:
 " http://usevim.com/2012/06/20/vim-binary-files/
@@ -361,20 +363,20 @@ filetype plugin indent on    " required
 " http://vim.wikia.com/wiki/VimTip193
 "
 " To insert the current directory name of current file:
-:inoremap <Leader>dnt <C-R>=expand("%:p:h:t")<CR>
+:inoremap <Leader><Leader>dnt <C-R>=expand("%:p:h:t")<CR>
 " Inserts the current filename with the extension
-:inoremap <Leader>fnt <C-R>=expand("%:t")<CR>
+:inoremap <Leader><Leader>fnt <C-R>=expand("%:t")<CR>
 " Inserts the current filename without the extension
-:inoremap <Leader>fne <C-R>=expand("%:t:r")<CR>
+:inoremap <Leader><Leader>fne <C-R>=expand("%:t:r")<CR>
 
 " To insert the relative file path of current file:
-:inoremap <Leader>fnr <C-R>=expand("%")<CR>
+:inoremap <Leader><Leader>fnr <C-R>=expand("%")<CR>
 " To insert the absolute file path of current file:
-:inoremap <Leader>fna <C-R>=expand("%:p")<CR>
+:inoremap <Leader><Leader>fna <C-R>=expand("%:p")<CR>
 " To insert the relative directory path of current file:
-:inoremap <Leader>dnr <C-R>=expand("%:h")<CR>
+:inoremap <Leader><Leader>dnr <C-R>=expand("%:h")<CR>
 " To insert the absolute directory path of current file:
-:inoremap <Leader>dna <C-R>=expand("%:p:h")<CR>
+:inoremap <Leader><Leader>dna <C-R>=expand("%:p:h")<CR>
 " -----------------------------------
 
 " Buffers operations
@@ -383,23 +385,23 @@ filetype plugin indent on    " required
 " This allows buffers to be hidden if you've modified a buffer. This is almost a must if you wish to use buffers in this way.
 set hidden
 " To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
-nmap <leader>B :enew<CR>
+nmap <leader><Leader>bB :enew<CR>
 " Move to the next buffer
-nmap <leader>bn :bnext<CR>
+nmap <leader><Leader>bn :bnext<CR>
 " Move to the previous buffer
-nmap <leader>bp :bprevious<CR>
+nmap <leader><Leader>bp :bprevious<CR>
 " Close the current buffer and move to the previous one. This replicates the idea of closing a tab
-nmap <leader>bq :bprevious <BAR> bdelete #<CR>
+nmap <leader><Leader>bq :bprevious <BAR> bdelete #<CR>
 " Show all open buffers and their status
-nmap <leader>bl :buffers<CR>
+nmap <leader><Leader>bl :buffers<CR>
 " -----------------------------------
 
 " Useful mappings for managing tabs
 " -----------------------------------
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+map <leader><Leader>tn :tabnew<cr>
+map <leader><Leader>to :tabonly<cr>
+map <leader><Leader>tc :tabclose<cr>
+map <leader><Leader>tm :tabmove
 " -----------------------------------
 
 " Treat long lines as break lines (useful when moving around in them)
@@ -734,6 +736,31 @@ let g:NERDSpaceDelims=1
 " https://github.com/scrooloose/nerdcommenter
 " http://www.wklken.me/posts/2015/06/07/vim-plugin-nerdcommenter.html
 " http://www.dutor.net/index.php/2010/05/vim-the-nerd-commenter/
+" ==============================================================================
+
+" tabular
+" ==============================================================================
+" if exists(":Tabularize") " Disable according to http://stackoverflow.com/questions/8540232/why-doesnt-my-vim-mapping-work
+    nmap <Leader><Leader>a= :Tabularize /=<CR>
+    vmap <Leader><Leader>a= :Tabularize /=<CR>
+    nmap <Leader><Leader>a: :Tabularize /:\zs<CR>
+    vmap <Leader><Leader>a: :Tabularize /:\zs<CR>
+" endif
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+function! s:align()
+    let p = '^\s*|\s.*\s|\s*$'
+    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+        let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+        let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+        Tabularize/|/l1
+        normal! 0
+        call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+    endif
+endfunction
+
+" References:
+" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 " ==============================================================================
 
 " PATCH(s)
