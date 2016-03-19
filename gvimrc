@@ -5,7 +5,7 @@
 " More info : https://github.com/bearlin/dotvim/blob/master/README.md
 " ==============================================================================
 
-" Vundle Vim plugin manage
+" Section for Vundle Vim plugin manage
 " ==============================================================================
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -23,61 +23,86 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 " plugin on GitHub repo
+" ------------------------------------------------------------------------------
+" Source code browsing
 " ----------------------------------
-" Basic
-Plugin 'tpope/vim-fugitive'
+" TODO: Add more useful plugins from http://www.slideshare.net/chenkaie/vim-rocks
 Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'will133/vim-dirdiff'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
 " Plugin 'wesleyche/SrcExpl'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
 
-" Syntax highlight - C++
+" Git
+Plugin 'tpope/vim-fugitive'
+" Diff
+Plugin 'will133/vim-dirdiff'
+" C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
+" Python
+Plugin 'vim-scripts/indentpython.vim'
+" ----------------------------------
 
+" Code completion
+" ----------------------------------
+" TODO: Use YouCompleteMe to replace above completion plugins
+" YouCompleteMe obsoletes the following Vim plugins because it has all of their features plus extra
+" clang_complete
+" AutoComplPop
+" Supertab
+" neocomplcache
+Plugin 'ervandew/supertab'
+Plugin 'othree/vim-autocomplpop'
+Plugin 'Rip-Rip/clang_complete'
+" ----------------------------------
+
+" Snipmate engine
+" ----------------------------------
+" From github.com/garbas/vim-snipmate
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+" ----------------------------------
+
+" Colorful vim
+" ----------------------------------
 " Colorschemes
 Plugin 'romainl/Apprentice'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tejr/sahara'
 
-" Auto completion
-Plugin 'ervandew/supertab'
-Plugin 'othree/vim-autocomplpop'
-Plugin 'Rip-Rip/clang_complete'
-
-" Snipmate from github.com/garbas/vim-snipmate
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-
 " vim-airline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-" Python plugings
-"https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-Plugin 'vim-scripts/indentpython.vim'
 " ----------------------------------
+
+" ------------------------------------------------------------------------------
 
 " plugin from http://vim-scripts.org/vim/scripts.html
+" ------------------------------------------------------------------------------
+" Source code browsing
+" ----------------------------------
+Plugin 'taglist.vim'  " Source code browser
+" ----------------------------------
+
+" Vim-script library
 " ----------------------------------
 Plugin 'L9'
-Plugin 'taglist.vim'
 " ----------------------------------
-
-" vim-easymotion
-" ----------------------------------
-Plugin 'easymotion/vim-easymotion'
-" ----------------------------------
+" ------------------------------------------------------------------------------
 
 " Git plugin not hosted on GitHub
+" ------------------------------------------------------------------------------
 " Plugin 'git://git.wincent.com/command-t.git'
+" ------------------------------------------------------------------------------
 "
 " git repos on your local machine (i.e. when working on your own plugin)
+" ------------------------------------------------------------------------------
 " Plugin 'file:///home/gmarik/path/to/plugin'
+" ------------------------------------------------------------------------------
 "
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
