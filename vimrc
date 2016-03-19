@@ -28,9 +28,9 @@ Plugin 'VundleVim/Vundle.vim'
 " ----------------------------------
 " TODO: Add more useful plugins from http://www.slideshare.net/chenkaie/vim-rocks
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'wesleyche/SrcExpl'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 
@@ -52,6 +52,7 @@ Plugin 'vim-scripts/indentpython.vim'
 " AutoComplPop
 " Supertab
 " neocomplcache
+"
 Plugin 'ervandew/supertab'
 Plugin 'othree/vim-autocomplpop'
 Plugin 'Rip-Rip/clang_complete'
@@ -93,11 +94,6 @@ Plugin 'powerline/powerline'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " ------------------------------------------------------------------------------
-" Source code browsing
-" ----------------------------------
-Plugin 'taglist.vim'  " Source code browser
-" ----------------------------------
-
 " Vim-script library
 " ----------------------------------
 Plugin 'L9'
@@ -423,53 +419,6 @@ map k gk
 " ************************************
 " ****** Plugins settings start ******
 " ************************************
-" Source Explorer
-" ==============================================================================
-" // The switch of the Source Explorer                                         " 
-" nmap <F10> :SrcExplToggle<CR> 
-"                                                                              " 
-" // Set the height of Source Explorer window                                  " 
-" let g:SrcExpl_winHeight = 8 
-"                                                                              " 
-" // Set 100 ms for refreshing the Source Explorer                             " 
-" let g:SrcExpl_refreshTime = 100 
-"                                                                              " 
-" // Set "Enter" key to jump into the exact definition context                 " 
-" let g:SrcExpl_jumpKey = "<ENTER>" 
-"                                                                              " 
-" // Set "Space" key for back from the definition context                      " 
-" let g:SrcExpl_gobackKey = "<SPACE>" 
-"                                                                              " 
-" // In order to avoid conflicts, the Source Explorer should know what plugins " 
-" // except itself are using buffers. And you need add their buffer names into " 
-" // below listaccording to the command ":buffers!"                            " 
-" let g:SrcExpl_pluginList = [ 
-"         \ "__Tag_List__", 
-"         \ "_NERD_tree_" 
-"     \ ] 
-"                                                                              " 
-" // Enable/Disable the local definition searching, and note that this is not  " 
-" // guaranteed to work, the Source Explorer doesn't check the syntax for now. " 
-" // It only searches for a match with the keyword according to command 'gd'   " 
-" let g:SrcExpl_searchLocalDef = 1 
-"                                                                              " 
-" // Do not let the Source Explorer update the tags file when opening          " 
-" let g:SrcExpl_isUpdateTags = 0 
-"                                                                              " 
-" // Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to " 
-" //  create/update a tags file                                                " 
-" let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
-"                                                                              " 
-" // Set "<F12>" key for updating the tags file artificially                   " 
-" let g:SrcExpl_updateTagsKey = "<F12>" 
-"                                                                              " 
-" // Set "<F3>" key for displaying the previous definition in the jump list    " 
-" let g:SrcExpl_prevDefKey = "<F3>" 
-"                                                                              " 
-" // Set "<F4>" key for displaying the next definition in the jump list        " 
-" let g:SrcExpl_nextDefKey = "<F4>" 
-" ==============================================================================
-
 " NERD_tree
 " ==============================================================================
 " Open and close the NERD_tree.vim separately                                  " 
@@ -485,10 +434,15 @@ map k gk
  let NERDTreeWinSize=35
 " ==============================================================================
 
-" Taglist
+" tagbar
 " ==============================================================================
 " Open and close the taglist.vim separately                                    " 
- nmap <silent> <F9> :TlistToggle<CR>
+ nmap <silent> <F9> :TagbarToggle<CR>
+ let g:tagbar_ctags_bin = 'ctags'
+ let g:tagbar_width = 30
+" References:
+" http://blog.jasonding.top/2015/04/29/Developer%20Kits/%E3%80%90Vim%E3%80%91%E4%BD%BF%E7%94%A8Vundle%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AEVim%E5%9F%BA%E6%9C%AC%E6%8F%92%E4%BB%B6/
+" http://www.vimer.cn/2011/03/%E6%9B%B4%E9%80%82%E5%90%88%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%BE%E7%A4%BA%E5%87%BD%E6%95%B0%E5%88%97%E8%A1%A8%E6%8F%92%E4%BB%B6-tagbar-vim.html
 " ==============================================================================
 
 " vim-cpp-enhanced-highlight
