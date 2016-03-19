@@ -222,6 +222,8 @@ filetype plugin indent on    " required
 " bash Command-line completion style
  " set wildmode=longest,list
 
+" Set diffsplit/diffthis/diffpatch to vertical style
+ set diffopt=filler,vertical
 " -----------------------------------
 
 " Enable mouse and line numbering
@@ -643,6 +645,25 @@ endif
 "   <Leader>N            | Jump to latest "/" or "?" backward. See |N|.
 "   <Leader>s            | Find(Search) {char} forward and backward.
 "                        | See |f| and |F|.
+" ==============================================================================
+
+" For vim-fugitive
+" ==============================================================================
+" | git             | fugitive  | action
+" |-----------------|-----------|-----------------------------------------------
+" | :Git add %      | :Gwrite   | Stage the current file to the index
+" | :Git checkout % | :Gread    | Revert current file to last checked in version
+" | :Git rm %       | :Gremove  | Delete the current file and the corresponding Vim buffer
+" | :Git mv %       | :Gmove    | Rename the current file and the corresponding Vim buffer
+" | :Git commit     | :Gcommit  | Open commit window, can use Vim’s keyword autocompletion when composing commit message
+" | :Git blame      | :Gblame   | Open blame window, each line with: the last commit, author and timestamp
+" |-----------------|-----------|-----------------------------------------------
+"   NOTE : More commands please use :h fugitive-commands
+"
+" References:
+" http://www.d0u9.xyz/vimcha-jian-jie-shao-fugitive/
+" http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/
+" http://quickteckiteasy.blogspot.tw/2013/11/vim-plugin-fugative-vim-git.html
 " ==============================================================================
 
 " PATCH(s)

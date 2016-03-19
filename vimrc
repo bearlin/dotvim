@@ -232,6 +232,8 @@ filetype plugin indent on    " required
 " bash Command-line completion style
  " set wildmode=longest,list
 
+" Set diffsplit/diffthis/diffpatch to vertical style
+ set diffopt=filler,vertical
 " -----------------------------------
 
 " Enable mouse and line numbering
@@ -694,8 +696,8 @@ endif
 " | :Git checkout % | :Gread    | Revert current file to last checked in version
 " | :Git rm %       | :Gremove  | Delete the current file and the corresponding Vim buffer
 " | :Git mv %       | :Gmove    | Rename the current file and the corresponding Vim buffer
-" | :Git commit     | :Gcommit  | 提交，可以使用ctrl+n来补全
-" | :Git blame      | :Gblame   | 查看当前文件每一行的最后一次修改都是谁完成的
+" | :Git commit     | :Gcommit  | Open commit window, can use Vim’s keyword autocompletion when composing commit message
+" | :Git blame      | :Gblame   | Open blame window, each line with: the last commit, author and timestamp
 " |-----------------|-----------|-----------------------------------------------
 "   NOTE : More commands please use :h fugitive-commands
 "
