@@ -686,6 +686,25 @@ endif
 "                        | See |f| and |F|.
 " ==============================================================================
 
+" For vim-fugitive
+" ==============================================================================
+" | git             | fugitive  | action
+" |-----------------|-----------|-----------------------------------------------
+" | :Git add %      | :Gwrite   | Stage the current file to the index
+" | :Git checkout % | :Gread    | Revert current file to last checked in version
+" | :Git rm %       | :Gremove  | Delete the current file and the corresponding Vim buffer
+" | :Git mv %       | :Gmove    | Rename the current file and the corresponding Vim buffer
+" | :Git commit     | :Gcommit  | 提交，可以使用ctrl+n来补全
+" | :Git blame      | :Gblame   | 查看当前文件每一行的最后一次修改都是谁完成的
+" |-----------------|-----------|-----------------------------------------------
+"   NOTE : More commands please use :h fugitive-commands
+"
+" References:
+" http://www.d0u9.xyz/vimcha-jian-jie-shao-fugitive/
+" http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/
+" http://quickteckiteasy.blogspot.tw/2013/11/vim-plugin-fugative-vim-git.html
+" ==============================================================================
+
 " PATCH(s)
 " ==============================================================================
   " PATCH 'formatoptions' at end of vimrc file to makesure its value won't be
