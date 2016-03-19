@@ -518,8 +518,11 @@ map k gk
 
 " To resolve conflict between snipmate + autocomplpop
 " ==============================================================================
+" (Update) othree/vim-autocomplpop already support arbas/vim-snipmate, so this
+" blow can be removed, more details at https://github.com/othree/vim-autocomplpop
+"
 " http://mvnllife.blogspot.tw/2013/11/vim-to-ide1-vundlesnipmateautocomplpop.html
- let g:acp_behaviorSnipmateLength = 1
+" let g:acp_behaviorSnipmateLength = 1
 " ==============================================================================
 
 " For auto loading ctags and cscope files
