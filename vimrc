@@ -75,7 +75,7 @@ Plugin 'honza/vim-snippets'
 
 " Colorful vim
 " ----------------------------------
-" Colorschemes
+" vim colorschemes
 Plugin 'romainl/Apprentice'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -86,7 +86,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax
-Plugin 'lilydjwg/colorizer' " http://vimawesome.com/plugin/colorizer-sparks-fly
+Plugin 'lilydjwg/colorizer' " colorizer: Highlight #rrggbb or #rgb color (http://vimawesome.com/plugin/colorizer-sparks-fly)
 " ----------------------------------
 
 " Powerline (not for vim, only for my tmux/bash, see below [Note] for more details)
@@ -459,6 +459,10 @@ map k gk
 
 " colorizer
 " ==============================================================================
+" Examples:
+" #ff0000 or #f00 will be display with red color
+" #00ff00 or #0f0 will be display with green color
+" #0000ff or #00f will be display with blue color
 " By default, <leader>tc is mapped to ColorToggle. If you want to use another key map, do like this:
    nmap <leader><leader>ct <Plug>Colorizer
 " References : http://www.vim.org/scripts/script.php?script_id=3567
