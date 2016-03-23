@@ -778,8 +778,10 @@ endfunction
 " https://nixtricks.wordpress.com/2009/11/02/vim-save-and-use-vim-sessions/
 " http://easwy.com/blog/archives/advanced-vim-skills-session-file-and-viminfo/
 " http://vim.wikia.com/wiki/Go_away_and_come_back
+"
 function! SessionSave()
-  let l:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  "let l:sessiondir = $HOME . "/.vim/vimsessions" . getcwd()
+  let l:sessiondir = "./.vimsession"
   if (filewritable(l:sessiondir) != 2)
     exe 'silent !mkdir -p ' l:sessiondir
     redraw!
@@ -789,7 +791,8 @@ function! SessionSave()
   echom "Session \"" . l:sessionfile . "\" Saved!"
 endfunction
 function! SessionLoad()
-  let l:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  "let l:sessiondir = $HOME . "/.vim/vimsessions" . getcwd()
+  let l:sessiondir = "./.vimsession"
   let l:sessionfile = l:sessiondir . "/session.vim"
   if (filereadable(l:sessionfile))
     exe 'source ' l:sessionfile
@@ -800,7 +803,8 @@ function! SessionLoad()
 endfunction
 
 function! ViminfoSave()
-  let l:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  "let l:sessiondir = $HOME . "/.vim/vimsessions" . getcwd()
+  let l:sessiondir = "./.vimsession"
   if (filewritable(l:sessiondir) != 2)
     exe 'silent !mkdir -p ' l:sessiondir
     redraw!
@@ -810,7 +814,8 @@ function! ViminfoSave()
   echom "viminfo \"" . l:viminfofile . "\" Saved!"
 endfunction
 function! ViminfoLoad()
-  let l:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  "let l:sessiondir = $HOME . "/.vim/vimsessions" . getcwd()
+  let l:sessiondir = "./.vimsession"
   let l:viminfofile = l:sessiondir . '/viminfo.vim'
   if (filereadable(l:viminfofile))
     exe "rviminfo! " . l:viminfofile
