@@ -507,10 +507,13 @@ map k gk
 " See :help rtp
   set rtp+=~/.vim/bundle/cscope_maps
 
-" http://vim.wikia.com/wiki/Autoloading_Cscope_Database
+" Vim will look for tags file everywhere starting from the current directory up
+" to the root. Ref : http://vim.wikia.com/wiki/Autoloading_Cscope_Database
   set tags=tags;/
 
   function! LoadCscope()
+    " Searches from the directory of the current file upwards until it finds
+    " the file "cscope.out", see :h file-searching for ".;".
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
       let path = strpart(db, 0, match(db, "/cscope.out$"))
@@ -773,5 +776,104 @@ endfunction
   " chaged by plugins to unwanted value (maybe bundle/tlib_vim/ or
   " bundle/vim-autocomplpop)
   " set formatoptions=tcroq " Auto-wrap text using textwidth
+" ==============================================================================
+
+" Handy functions
+" ==============================================================================
+" Load my favorite colorscheme
+" ------------------------------------------------------------------------
+function! FavoriteColorSchemeLoad()
+  let l:colorscheme = "sahara"
+  exe "colorscheme ". l:colorscheme
+endfunction
+" ------------------------------------------------------------------------
+
+" session/viminfo managements
+" ------------------------------------------------------------------------
+" [Session]
+" A Session keeps the Views for all windows, plus the global settings.  You can
+" save a Session and when you restore it later the window layout looks the same.
+" You can use a Session to quickly switch between different projects,
+" automatically loading the files you were last working on in that project.
+" Views and Sessions are a nice addition to viminfo-files, which are used to
+" remember information for all Views and Sessions together |viminfo-file|.
+"
+" [viminfo]
+" If you exit Vim and later start it again, you would normally lose a lot of
+" information.  The viminfo file can be used to remember that information, which
+" enables you to continue where you left off. The viminfo file is used to store:
+" - The command line history.
+" - The search string history.
+" - The input-line history.
+" - Contents of non-empty registers.
+" - Marks for several files.
+" - File marks, pointing to locations in files.
+" - Last search/substitute pattern (for 'n' and '&').
+" - The buffer list.
+" - Global variables.
+"
+" [References]
+" :h session
+" :h viminfo
+" :h internal-variables
+" https://nixtricks.wordpress.com/2009/11/02/vim-save-and-use-vim-sessions/
+" http://easwy.com/blog/archives/advanced-vim-skills-session-file-and-viminfo/
+" http://vim.wikia.com/wiki/Go_away_and_come_back
+function! SessionSave()
+  let l:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  if (filewritable(l:sessiondir) != 2)
+    exe 'silent !mkdir -p ' l:sessiondir
+    redraw!
+  endif
+  let l:sessionfile = l:sessiondir . '/session.vim'
+  exe "mksession! " . l:sessionfile
+  echom "Session \"" . l:sessionfile . "\" Saved!"
+endfunction
+function! SessionLoad()
+  let l:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let l:sessionfile = l:sessiondir . "/session.vim"
+  if (filereadable(l:sessionfile))
+    exe 'source ' l:sessionfile
+  else
+    echo "No session loaded."
+  endif
+  echom "Session \"" . l:sessionfile . "\" Loaded!"
+endfunction
+
+function! ViminfoSave()
+  let l:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  if (filewritable(l:sessiondir) != 2)
+    exe 'silent !mkdir -p ' l:sessiondir
+    redraw!
+  endif
+  let l:viminfofile = l:sessiondir . '/viminfo.vim'
+  exe "wviminfo! " . l:viminfofile
+  echom "viminfo \"" . l:viminfofile . "\" Saved!"
+endfunction
+function! ViminfoLoad()
+  let l:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let l:viminfofile = l:sessiondir . '/viminfo.vim'
+  if (filereadable(l:viminfofile))
+    exe "rviminfo! " . l:viminfofile
+  else
+    echo "No viminfo loaded."
+  endif
+  echom "viminfo \"" . l:viminfofile . "\" Loaded!"
+endfunction
+
+function! VimSave()
+  call SessionSave()
+  call ViminfoSave()
+  echom "VimSave() done!"
+endfunction
+function! VimLoad()
+  call SessionLoad()
+  call ViminfoLoad()
+  call FavoriteColorSchemeLoad()
+  echom "VimLoad() done!"
+endfunction
+" au VimEnter * nested :call VimLoad()
+" au VimLeave * :call VimSave()
+" ------------------------------------------------------------------------
 " ==============================================================================
 
