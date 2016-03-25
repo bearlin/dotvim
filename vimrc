@@ -782,7 +782,12 @@ let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always w
 let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
 let g:ConqueTerm_StartMessages = 1 " display warning messages if conqueTerm is configured incorrectly
 let g:ConqueTerm_ReadUnfocused = 1 " conque buffers will continue to update after you've switched to another buffer.
+" Set the leader key mapping:
+" We may not use ConqueGDB quite often, and the same leader character may conflict with
+" other options of vim or other plugins. So use '\' instead of '<Leader>'
+" References: https://jianfengwang.wordpress.com/2015/11/06/tips-of-gdb-with-vim/
 let g:ConqueGdb_Leader = '\'
+
 " Key mappings
 let g:ConqueGdb_Run         = g:ConqueGdb_Leader . 'r'
 let g:ConqueGdb_Continue    = g:ConqueGdb_Leader . 'c'
@@ -808,6 +813,7 @@ nmap <leader><Leader>dbt :ConqueGdbTab<CR>
 "
 " References:
 " http://vi.stackexchange.com/questions/2046/how-can-i-integrate-gdb-with-vim
+" https://jianfengwang.wordpress.com/2015/11/06/tips-of-gdb-with-vim/
 " :h conque_gdb.txt
 " :h conque_term.txt
 " ==============================================================================
