@@ -50,6 +50,11 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/indentpython.vim'
 " ----------------------------------
 
+" Debugging
+" ----------------------------------
+Plugin 'vim-scripts/Conque-GDB'
+" ----------------------------------
+
 " Code completion
 " ----------------------------------
 " TODO: Use YouCompleteMe to replace above completion plugins
@@ -728,6 +733,37 @@ endfunction
 
 " References:
 " http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+" ==============================================================================
+
+" Conque-GDB
+" ==============================================================================
+let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
+let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
+let g:ConqueTerm_StartMessages = 1 " display warning messages if conqueTerm is configured incorrectly
+let g:ConqueTerm_ReadUnfocused = 1 " conque buffers will continue to update after you've switched to another buffer.
+let g:ConqueGdb_Leader = '<Leader><Leader>'
+" Key mappings
+let g:ConqueGdb_Run         = g:ConqueGdb_Leader . 'r'
+let g:ConqueGdb_Continue    = g:ConqueGdb_Leader . 'c'
+let g:ConqueGdb_Next        = g:ConqueGdb_Leader . 'n'
+let g:ConqueGdb_Step        = g:ConqueGdb_Leader . 's'
+let g:ConqueGdb_Print       = g:ConqueGdb_Leader . 'p'
+let g:ConqueGdb_ToggleBreak = g:ConqueGdb_Leader . 'b'
+let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
+let g:ConqueGdb_Finish      = g:ConqueGdb_Leader . 'f'
+let g:ConqueGdb_Backtrace   = g:ConqueGdb_Leader . 't'
+"Type :ConqueGdb <gdb-arguments> to launch GDB in the current window. E.g.:
+"    :ConqueGdb
+"    :ConqueGdb program
+"    :ConqueGdb -d dir --args program [arguments]
+"Open GDB in a new horizontal:
+"    :ConqueGdbSplit
+"    :ConqueGdbVSplit
+"
+" References:
+" http://vi.stackexchange.com/questions/2046/how-can-i-integrate-gdb-with-vim
+" :h conque_gdb.txt
+" :h conque_term.txt
 " ==============================================================================
 
 " PATCH(s)
