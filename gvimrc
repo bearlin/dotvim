@@ -341,8 +341,8 @@ colorscheme sahara
 " Hex editing using xxd tool
 " -----------------------------------
 " http://nion.modprobe.de/blog/archives/628-vim-as-hex-editor.html
- noremap <Leader><Leader>hon :%!xxd<CR>
- noremap <Leader><Leader>hof :%!xxd -r<CR>
+ noremap <Leader>hexon :%!xxd<CR>
+ noremap <Leader>hexof :%!xxd -r<CR>
 
 " Considering adding advanced hex editing plugins in the future:
 " http://usevim.com/2012/06/20/vim-binary-files/
@@ -460,7 +460,7 @@ map k gk
 " #00ff00 or #0f0 will be display with green color
 " #0000ff or #00f will be display with blue color
 " By default, <leader>tc is mapped to ColorToggle. If you want to use another key map, do like this:
-   nmap <leader><leader>ct <Plug>Colorizer
+"  nmap <leader><leader>colort <Plug>Colorizer
 " References : http://www.vim.org/scripts/script.php?script_id=3567
 " ==============================================================================
 
@@ -633,13 +633,13 @@ if isdirectory(s:clang_library_path)
 endif
 
 " Completion is started with CTRL-X CTRL-U |i_CTRL-X_CTRL-U|, or automatically depending on the value of |clang_complete-auto|.
-:imap <Leader><Leader><Tab> <C-X><C-U>
+"  imap <Leader><Leader><Tab> <C-X><C-U>
 " ==============================================================================
 
 " For easymotion
 " ==============================================================================
 " Below info from :h easymotion-default-mappings
-  map <Leader><Leader> <Plug>(easymotion-prefix)
+  map <Leader><Leader>em <Plug>(easymotion-prefix)
 "   Default Mapping      | Details
 "   ---------------------|----------------------------------------------
 "   <Leader>f{char}      | Find {char} to the right. See |f|.
@@ -713,10 +713,10 @@ let g:NERDSpaceDelims=1
 " tabular
 " ==============================================================================
 " if exists(":Tabularize") " Disable according to http://stackoverflow.com/questions/8540232/why-doesnt-my-vim-mapping-work
-    nmap <Leader><Leader>a= :Tabularize /=<CR>
-    vmap <Leader><Leader>a= :Tabularize /=<CR>
-    nmap <Leader><Leader>a: :Tabularize /:\zs<CR>
-    vmap <Leader><Leader>a: :Tabularize /:\zs<CR>
+  nmap <Leader><Leader>tabu= :Tabularize /=<CR>
+  vmap <Leader><Leader>tabu= :Tabularize /=<CR>
+  nmap <Leader><Leader>tabu: :Tabularize /:\zs<CR>
+  vmap <Leader><Leader>tabu: :Tabularize /:\zs<CR>
 " endif
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -741,7 +741,7 @@ let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always w
 let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
 let g:ConqueTerm_StartMessages = 1 " display warning messages if conqueTerm is configured incorrectly
 let g:ConqueTerm_ReadUnfocused = 1 " conque buffers will continue to update after you've switched to another buffer.
-let g:ConqueGdb_Leader = '<Leader><Leader>'
+let g:ConqueGdb_Leader = '\'
 " Key mappings
 let g:ConqueGdb_Run         = g:ConqueGdb_Leader . 'r'
 let g:ConqueGdb_Continue    = g:ConqueGdb_Leader . 'c'
@@ -752,6 +752,7 @@ let g:ConqueGdb_ToggleBreak = g:ConqueGdb_Leader . 'b'
 let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
 let g:ConqueGdb_Finish      = g:ConqueGdb_Leader . 'f'
 let g:ConqueGdb_Backtrace   = g:ConqueGdb_Leader . 't'
+" Start the ConqueGdb
 "Type :ConqueGdb <gdb-arguments> to launch GDB in the current window. E.g.:
 "    :ConqueGdb
 "    :ConqueGdb program
@@ -759,6 +760,10 @@ let g:ConqueGdb_Backtrace   = g:ConqueGdb_Leader . 't'
 "Open GDB in a new horizontal:
 "    :ConqueGdbSplit
 "    :ConqueGdbVSplit
+nmap <leader><Leader>dbs :ConqueGdbSplit<CR>
+nmap <leader><Leader>dbv :ConqueGdbVSplit<CR>
+nmap <leader><Leader>dbt :ConqueGdbTab<CR>
+
 "
 " References:
 " http://vi.stackexchange.com/questions/2046/how-can-i-integrate-gdb-with-vim
