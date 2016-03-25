@@ -408,8 +408,9 @@ map k gk
 "
 " au FileType c set makeprg=gcc\ %
 " au FileType cpp set makeprg=g++\ %
-" map <leader><leader>f5 :make<CR> <bar> :cwindow<CR>
-" map <leader><leader>f7 :!./a.out<CR>
+" au FileType cpp set makeprg=cd\ ~/ws/geo/\ &&\ ./build_navkit.sh\ geo\ debug\ &&\ cd\ ~/ws/geo/navkit_geo/
+" map <leader><leader>make :make<CR> <bar> :cwindow<CR>
+" map <leader><leader>run :!./a.out<CR>
 "
 " References:
 " http://unix.stackexchange.com/questions/52559/how-to-compile-a-c-program-without-leaving-the-editor
