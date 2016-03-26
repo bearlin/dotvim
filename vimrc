@@ -366,6 +366,37 @@ filetype plugin indent on    " required
 " -----------------------------------
 " http://vim.wikia.com/wiki/Get_the_name_of_the_current_file
 " http://vim.wikia.com/wiki/VimTip193
+" :h expand
+"
+" expand() conecpts:
+" When {expr} starts with '%', '#' or '<', the expansion is done
+" like for the |cmdline-special| variables with their associated
+" modifiers.  Here is a short overview:
+"        %             current file name
+"        #             alternate file name
+"        #n            alternate file name n
+"        <cfile>       file name under the cursor
+"        <afile>       autocmd file name
+"        <abuf>        autocmd buffer number (as a String!)
+"        <amatch>      autocmd matched name
+"        <sfile>       sourced script file or function name
+"        <slnum>       sourced script file line number
+"        <cword>       word under the cursor
+"        <cWORD>       WORD under the cursor
+"        <client>      the {clientid} of the last received
+" Modifiers:
+"        :p            expand to full path
+"        :h            head (last path component removed)
+"        :t            tail (last path component only)
+"        :r            root (one extension removed)
+"        :e            extension only
+" For example a file /abc/def/my.txt:
+" :echo @%                    def/my.txt        directory/name of file (relative to the current working directory of /abc)
+" :echo expand('%:t')         my.txt            name of file ('tail')
+" :echo expand('%:p')         /abc/def/my.txt   full path
+" :echo expand('%:p:h')       /abc/def          directory containing file ('head')
+" :echo expand('%:p:h:t')     def               First get the full path with :p (/abc/def/my.txt), then get the head of 
+"                                               that with :h (/abc/def), then get the tail of that with :t (def)
 "
 " To insert the current directory name of current file:
 :inoremap <Leader><Leader>dnt <C-R>=expand("%:p:h:t")<CR>
@@ -421,11 +452,17 @@ map k gk
 " Disable this section because I am learning how to write Makefile now, so
 " current I prefer just add a Makefile and compile your project with :make
 "
-" au FileType c set makeprg=gcc\ %
-" au FileType cpp set makeprg=g++\ %
-" au FileType cpp set makeprg=cd\ ~/ws/geo/\ &&\ ./build_navkit.sh\ geo\ debug\ &&\ cd\ ~/ws/geo/navkit_geo/
+" [:make with makeprg]
+" au FileType c set makeprg=gcc\ -g\ -Wall\ %
+" au FileType cpp set makeprg=g++\ -g\ -Wall\ %
+" " au FileType cpp set makeprg=cd\ ~/ws/geo/\ &&\ ./build_navkit.sh\ geo\ debug\ &&\ cd\ ~/ws/geo/navkit_geo/
 " map <leader><leader>make :make<CR> <bar> :cwindow<CR>
 " map <leader><leader>run :!./a.out<CR>
+" map <leader><leader>cln :!rm -r a.out*<CR>
+" [:make without makeprg]
+" map <leader><leader>make :!g++ -g -Wall % -o %:r.out<CR>
+" map <leader><leader>run :!./%:r.out<CR>
+" map <leader><leader>cln :!rm -r %:r.out*<CR>
 "
 " References:
 " http://unix.stackexchange.com/questions/52559/how-to-compile-a-c-program-without-leaving-the-editor
