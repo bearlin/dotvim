@@ -214,6 +214,7 @@ filetype plugin indent on    " required
  set ruler         " Show the line and column number of the cursor position, separated by a comma
  set backspace=2   " Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode. 在 insert 也可用 backspace
  set ignorecase    " Ignore case in search patterns
+ set smartcase     " Override the 'ignorecase' option if the search pattern contains upper case characters
  set hlsearch      " When there is a previous search pattern, highlight all its matches
  set incsearch     " While typing a search command, show where the pattern, as it was typed so far, matches
  set smartindent   " Do smart autoindenting when starting a new line
@@ -266,11 +267,24 @@ filetype plugin indent on    " required
 " Easier split navigations 
 " We can use different key mappings for easy navigation between splits to save a keystroke. So instead of ctrl-w then j, it’s just ctrl-j:
 " About nmap and nnoremap: http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
- nnoremap <C-J> <C-W><C-J>
- nnoremap <C-K> <C-W><C-K>
- nnoremap <C-L> <C-W><C-L>
- nnoremap <C-H> <C-W><C-H>
-
+  nnoremap <C-J> <C-W><C-J>
+  nnoremap <C-K> <C-W><C-K>
+  nnoremap <C-L> <C-W><C-L>
+  nnoremap <C-H> <C-W><C-H>
+  nnoremap - <C-W>-
+  nnoremap + <C-W>+
+  if has("autocmd")
+    function! SetWindowHOperation()
+      if winnr() == 1
+        nnoremap < <C-W><
+        nnoremap > <C-W>>
+      else
+        nnoremap < <C-W>>
+        nnoremap > <C-W><
+      endif
+    endfunction
+    autocmd BufEnter,BufLeave /* call SetWindowHOperation()
+  endif
 " More natural split opening
 " Open new split panes to right and bottom, which feels more natural than Vim’s default:
  set splitbelow       " When on, splitting a window will put the new window below the current one
