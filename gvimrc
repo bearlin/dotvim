@@ -301,13 +301,16 @@ filetype plugin indent on    " required
 " 'list' : List mode: Show tabs as CTRL-I is displayed, display $ after end of line
 " 'listchars' 'lcs' : Strings to use in 'list' mode and for the |:list| command.  It is a comma separated list of string settings
  set list
-" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-" set listchars=eol:$,tab:\|_,trail:.,extends:>,precedes:<
- set listchars=eol:↲,tab:▸\ ,trail:·,extends:»,precedes:«
-" set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<  " For Cygwin
+if has('win32unix') " Cygwin
+  set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
+else
+  " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+  " set listchars=eol:$,tab:\|_,trail:.,extends:>,precedes:<
+  set listchars=eol:↲,tab:▸\ ,trail:·,extends:»,precedes:«
+endif
 " -----------------------------------
 
-" Easier Cut/Copy/Paste 
+" Easier Cut/Copy/Paste
 " -----------------------------------
 " http://serverfault.com/questions/27917/configure-vim-for-text-selection-with-shift-and-copy-paste-via-ctrlc-ctrlv
 " http://vim.cybermirror.org/runtime/mswin.vim
@@ -344,12 +347,12 @@ filetype plugin indent on    " required
 " -----------------------------------
 " http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
 " :colo[rscheme] {name} : Load color scheme {name}
-colorscheme sahara
-" colorscheme apprentice
-" colorscheme solarized
-" colorscheme wombat
-" colorscheme grb256
-" colorscheme jellybeans
+:silent! colorscheme sahara
+":silent! colorscheme apprentice
+":silent! colorscheme solarized
+":silent! colorscheme wombat
+":silent! colorscheme grb256
+":silent! colorscheme jellybeans
 " -----------------------------------
 
 " Hex editing using xxd tool
@@ -673,9 +676,17 @@ let g:clang_use_library=1                     "Instead of calling the clang/clan
                                               "Default: ""
 let g:clang_user_options = '-std=c++11' "Compile all sources as c++11 (just for example, use .clang_complete for setting version of the language per project)
 " let g:clang_user_options='-stdlib=libc++ -std=c++11 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
-
-" let s:clang_library_path='/Applications/Xcode.app//Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/' "MacOS
-let s:clang_library_path='/usr/lib/llvm-3.6/lib/' "Ubuntu
+if has('win32unix') " Cygwin
+  let s:clang_library_path='/lib/'
+elseif has('win32') || has('win64') " Windows
+  let s:clang_library_path='D:\Sourcen\LLVM\build\bin\Debug'
+elseif has('mac') " MacOS 
+  let s:clang_library_path='/Applications/Xcode.app//Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
+elseif has('unix') " Ubuntu
+  let s:clang_library_path='/usr/lib/llvm-3.6/lib/'
+else
+  let s:clang_library_path='/usr/lib/'
+endif
 if isdirectory(s:clang_library_path)
   let g:clang_library_path=s:clang_library_path   "If libclang is not in your library search path->set this to the absolute path
                                                   "where libclang is available. This should either be a directory containing a
