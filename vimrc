@@ -36,6 +36,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " Text objects
 Plugin 'michaeljsmith/vim-indent-object'
@@ -231,6 +232,7 @@ filetype plugin indent on    " required
  set confirm       " When unsaved changes to a buffer, e.g. ":q" and ":e", raise a |dialog| asking if you wish to save the current file(s)
  set history=200   " A history of ":" commands, and a history of previous search patterns, how many will be remembered
  set cursorline    " Highlight the screen line of the cursor with CursorLine
+ " set cursorcolumn  " Highlight the screen column of the cursor with CursorColumn
  set laststatus=2  " The value of this option influences when the last window will have a status line: 0:never 1:if there are 2 windows 2:always
 " set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
 
@@ -878,6 +880,21 @@ nmap <leader><Leader>dbt :ConqueGdbTab<CR>
 " https://jianfengwang.wordpress.com/2015/11/06/tips-of-gdb-with-vim/
 " :h conque_gdb.txt
 " :h conque_term.txt
+" ==============================================================================
+
+"vim-indent-guides
+" ==============================================================================
+" 随 vim 自启动
+let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始可视化显示缩进
+let g:indent_guides_start_level=2
+" 色块宽度
+let g:indent_guides_guide_size=1
+" 快捷键 i 开/关缩进可视化
+:nmap <silent> <Leader><Leader>ii <Plug>IndentGuidesToggle
+" References:
+" https://github.com/yangyangwithgnu/use_vim_as_ide#4.2
+" http://foocoder.com/blog/mei-ri-vimcha-jian-suo-jin-xian-shi-vim-indent-guides.html/
 " ==============================================================================
 
 " PATCH(s)
