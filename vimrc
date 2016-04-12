@@ -495,7 +495,8 @@ map k gk
 " NERD_tree
 " ==============================================================================
 " Open and close the NERD_tree.vim separately                                  " 
- nmap <F8>  :NERDTreeToggle<CR>
+ nmap <F8> :NERDTreeToggle<CR>
+ nmap <Leader><leader>nf :NERDTreeFind<CR>
 "                                                                              " 
 " This option tells vim whether to display hidden files by default             ".
  let NERDTreeShowHidden=1
