@@ -189,7 +189,7 @@ filetype plugin indent on    " required
   " ----------------
   " C/C++ indentation/fileformat settings
   " ----------------
-  au BufNewFile,BufRead *.c *.h *.cpp *.cxx *.cc *.hpp *.inl
+  autocmd BufNewFile,BufRead *.c *.h *.cpp *.cxx *.cc *.hpp *.inl
   \ setlocal
   \ tabstop=2
   \ softtabstop=2
@@ -202,7 +202,7 @@ filetype plugin indent on    " required
   " Python indentation/fileformat settings
   " ----------------
   " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-  au BufNewFile,BufRead *.py
+  autocmd BufNewFile,BufRead *.py
   \ setlocal
   \ tabstop=4
   \ softtabstop=4
@@ -215,7 +215,7 @@ filetype plugin indent on    " required
   " JavaScript/HTML/CSS indentation settings
   " ----------------
   " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-  au BufNewFile,BufRead *.js, *.html, *.css
+  autocmd BufNewFile,BufRead *.js, *.html, *.css
   \ setlocal
   \ tabstop=2
   \ softtabstop=2
@@ -283,20 +283,20 @@ filetype plugin indent on    " required
   nnoremap <C-K> <C-W><C-K>
   nnoremap <C-L> <C-W><C-L>
   nnoremap <C-H> <C-W><C-H>
-  nnoremap - <C-W>-
-  nnoremap + <C-W>+
-  if has("autocmd")
-    function! SetWindowHOperation()
-      if winnr() == 1
-        nnoremap < <C-W><
-        nnoremap > <C-W>>
-      else
-        nnoremap < <C-W>>
-        nnoremap > <C-W><
-      endif
-    endfunction
-    autocmd BufEnter,BufLeave /* call SetWindowHOperation()
-  endif
+  " nnoremap - <C-W>-
+  " nnoremap + <C-W>+
+  " if has("autocmd")
+  "   function! SetWindowHOperation()
+  "     if winnr() == 1
+  "       nnoremap < <C-W><
+  "       nnoremap > <C-W>>
+  "     else
+  "       nnoremap < <C-W>>
+  "       nnoremap > <C-W><
+  "     endif
+  "   endfunction
+  "   autocmd BufEnter,BufLeave /* call SetWindowHOperation()
+  " endif
 " More natural split opening
 " Open new split panes to right and bottom, which feels more natural than Vim’s default:
  set splitbelow       " When on, splitting a window will put the new window below the current one
@@ -472,9 +472,9 @@ map k gk
 " current I prefer just add a Makefile and compile your project with :make
 "
 " [:make with makeprg]
-" au FileType c set makeprg=gcc\ -g\ -Wall\ %
-" au FileType cpp set makeprg=g++\ -g\ -Wall\ %
-" " au FileType cpp set makeprg=cd\ ~/ws/geo/\ &&\ ./build_navkit.sh\ geo\ debug\ &&\ cd\ ~/ws/geo/navkit_geo/
+" autocmd FileType c set makeprg=gcc\ -g\ -Wall\ %
+" autocmd FileType cpp set makeprg=g++\ -g\ -Wall\ %
+" " autocmd FileType cpp set makeprg=cd\ ~/ws/geo/\ &&\ ./build_navkit.sh\ geo\ debug\ &&\ cd\ ~/ws/geo/navkit_geo/
 " map <leader><leader>make :make<CR> <bar> :cwindow<CR>
 " map <leader><leader>run :!./a.out<CR>
 " map <leader><leader>cln :!rm -r a.out*<CR>
@@ -585,7 +585,7 @@ map k gk
       set cscopeverbose
     endif
   endfunction
-  au BufEnter /* call LoadCscope()
+  autocmd BufEnter /* call LoadCscope()
 " ==============================================================================
 
 " For GNU GLOBAL (gtags) files
@@ -1005,8 +1005,8 @@ function! VimLoad()
   call FavoriteColorSchemeLoad()
   echom "VimLoad() done!"
 endfunction
-" au VimEnter * nested :call VimLoad()
-" au VimLeave * :call VimSave()
+" autocmd VimEnter * nested :call VimLoad()
+" autocmd VimLeave * :call VimSave()
 " ------------------------------------------------------------------------
 " ==============================================================================
 
