@@ -428,7 +428,7 @@ endif
 " -----------------------------------
 " http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
 " This allows buffers to be hidden if you've modified a buffer. This is almost a must if you wish to use buffers in this way.
-set hidden
+" set hidden
 " To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
 nmap <leader><Leader>bB :enew<CR>
 " Move to the next buffer
@@ -446,7 +446,9 @@ nmap <leader><Leader>bl :buffers<CR>
 map <leader><Leader>tn :tabnew<cr>
 map <leader><Leader>to :tabonly<cr>
 map <leader><Leader>tc :tabclose<cr>
-map <leader><Leader>tm :tabmove
+" map <leader><Leader>tm :tabmove
+map <leader><Leader>tml :tabmove -1<cr>
+map <leader><Leader>tmr :tabmove +1<cr>
 " -----------------------------------
 
 " Treat long lines as break lines (useful when moving around in them)
