@@ -45,6 +45,8 @@ Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'tpope/vim-fugitive'
 " Diff
 Plugin 'will133/vim-dirdiff'
+" Ack
+Plugin 'mileszs/ack.vim' " Need to install Ack before use this plugin
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
 " Python
