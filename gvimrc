@@ -483,6 +483,13 @@ map k gk
 " https://www.reddit.com/r/vim/comments/3fdd7l/compile_simple_programs_with_vim_in_c/
 " -----------------------------------
 
+" Press <F2> to insert timestamp
+" -----------------------------------
+imap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
+" References:
+" man strftime
+" -----------------------------------
+
 " ************************************
 " ****** Plugins settings start ******
 " ************************************
