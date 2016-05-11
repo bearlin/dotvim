@@ -446,9 +446,9 @@ nmap <leader><Leader>bl :buffers<CR>
 " Useful mappings for managing tabs
 " -----------------------------------
 map <leader><Leader>tn :tabnew<cr>
-map <leader><Leader>to :tabonly<cr>
+map <leader><Leader>te :tabedit %<cr>
 map <leader><Leader>tc :tabclose<cr>
-" map <leader><Leader>tm :tabmove
+map <leader><Leader>to :tabonly<cr>
 map <leader><Leader>tml :tabmove -1<cr>
 map <leader><Leader>tmr :tabmove +1<cr>
 " -----------------------------------
