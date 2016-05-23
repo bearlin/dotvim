@@ -41,6 +41,10 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Text objects
 Plugin 'michaeljsmith/vim-indent-object'
 
+" php
+Plugin 'stanangeloff/php.vim'       " http://vimawesome.com/plugin/php-vim-shouldve-said-no
+Plugin 'shawncplus/phpcomplete.vim' " http://vimawesome.com/plugin/phpcomplete-vim
+
 " Git
 Plugin 'tpope/vim-fugitive'
 " Diff
