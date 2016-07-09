@@ -6,6 +6,7 @@ source $DOTVIMHOME/scripts/handy_functions.sh
 usage() {
   echo "Usage: " && \
   echo "Init gtags files: ./gen_gtags_db.sh init" && \
+  echo "Init gtags files with ctags as backend: ./gen_gtags_db.sh init-gctags" && \
   echo "Update gtags files: ./gen_gtags_db.sh update" && \
   echo "Clear gtags files: ./gen_gtags_db.sh clean" && \
   echo "Generate html files: ./gen_gtags_db.sh html"
@@ -17,6 +18,7 @@ if [ "$#" -lt 1 ]; then
 fi
 
 if [ "$1" == "init" ] || 
+   [ "$1" == "init-gctags" ] || 
    [ "$1" == "update" ] || 
    [ "$1" == "clean" ] || 
    [ "$1" == "html" ]; then
@@ -29,6 +31,7 @@ hasGtags=0
 setFlagsHasGtagsAndExitIfEqualZero "$@"
 echo "hasGtags=$hasGtags"
 
+
 if [ "$1" == "clean" ]; then
   echo "clean generated gtags files in current folder..."
   rm GPATH GRTAGS GTAGS
@@ -40,6 +43,24 @@ elif [ "$1" == "init" ]; then
   # --skip-unreadable : Skip unreadable files.
   # --statistics      : Print statistics information.
   echo "Build the database with (gtags --skip-unreadable --statistics)..."
+  gtags --skip-unreadable --statistics
+elif [ "$1" == "init-gctags" ]; then
+  # Configure Global to use exuberant ctagss backend
+  # -----------------------------
+  # https://github.com/leoliu/ggtags/wiki/Install-Global-with-support-for-exuberant-ctags
+  # https://gist.github.com/leoliu/7314772
+  export GTAGSLABEL=ctags
+
+  if [ -r $PWD/.globalrc ]; then
+      GTAGSCONF=$PWD/.globalrc
+  elif [ -r $HOME/.globalrc ]; then
+      GTAGSCONF=$HOME/.globalrc
+  elif [ -r /usr/local/share/gtags/gtags.conf ]; then
+      GTAGSCONF=/usr/local/share/gtags/gtags.conf
+  fi
+  export GTAGSCONF
+  # -----------------------------
+  echo "Build the database with ctags backend! (gtags --skip-unreadable --statistics)..."
   gtags --skip-unreadable --statistics
 elif [ "$1" == "update" ]; then
   echo "Update the database with (global -u)..."

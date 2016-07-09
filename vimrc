@@ -607,11 +607,11 @@ inoremap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
 " ==============================================================================
 " References:
 " Gtags-cscope : 
-"   http://www.gnu.org/software/global/globaldoc_toc.html#Gtags_002dcscope
+"   https://www.gnu.org/software/global/globaldoc_toc.html#gtags_002dcscope
 " Learn Vimscript the Hard Way - Functions :
 "   http://learnvimscriptthehardway.stevelosh.com/chapters/23.html
 
-" Switch cscope interface to use GNU GLOBAL (gtags) as search engine
+" Switch VIM's cscope interface to use 'gtags-cscope' (cscope port for GNU GLOBAL) as search engine
 function! UseGtags()
   " cscope settings
   set cscopetag                  " Use cscope as tags command
