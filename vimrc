@@ -32,10 +32,10 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
 
 " Text alignment
-"Plugin 'vim-scripts/matchit.zip' " Disable because it has bug while matching simple (), [] in large html file.
+" Plugin 'vim-scripts/matchit.zip' " Disable because it has bug while matching simple (), [] in large html file.
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'godlygeek/tabular'
+" Plugin 'godlygeek/tabular'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 " Text objects
@@ -376,8 +376,8 @@ endif
 " Hex editing using xxd tool
 " -----------------------------------
 " http://nion.modprobe.de/blog/archives/628-vim-as-hex-editor.html
- noremap <Leader>hexon :%!xxd<CR>
- noremap <Leader>hexof :%!xxd -r<CR>
+ nnoremap <Leader>hexon :%!xxd<CR>
+ nnoremap <Leader>hexof :%!xxd -r<CR>
 
 " Considering adding advanced hex editing plugins in the future:
 " http://usevim.com/2012/06/20/vim-binary-files/
@@ -446,31 +446,31 @@ endif
 " This allows buffers to be hidden if you've modified a buffer. This is almost a must if you wish to use buffers in this way.
 " set hidden
 " To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
-nmap <leader><Leader>bB :enew<CR>
+nnoremap <leader><Leader>bB :enew<CR>
 " Move to the next buffer
-nmap <leader><Leader>bn :bnext<CR>
+nnoremap <leader><Leader>bn :bnext<CR>
 " Move to the previous buffer
-nmap <leader><Leader>bp :bprevious<CR>
+nnoremap <leader><Leader>bp :bprevious<CR>
 " Close the current buffer and move to the previous one. This replicates the idea of closing a tab
-nmap <leader><Leader>bq :bprevious <BAR> bdelete #<CR>
+nnoremap <leader><Leader>bq :bprevious <BAR> bdelete #<CR>
 " Show all open buffers and their status
-nmap <leader><Leader>bl :buffers<CR>
+nnoremap <leader><Leader>bl :buffers<CR>
 " -----------------------------------
 
 " Useful mappings for managing tabs
 " -----------------------------------
-map <leader><Leader>tn :tabnew<cr>
-map <leader><Leader>te :tabedit %<cr>
-map <leader><Leader>tc :tabclose<cr>
-map <leader><Leader>to :tabonly<cr>
-map <leader><Leader>tml :tabmove -1<cr>
-map <leader><Leader>tmr :tabmove +1<cr>
+nnoremap <leader><Leader>tn :tabnew<cr>
+nnoremap <leader><Leader>te :tabedit %<cr>
+nnoremap <leader><Leader>tc :tabclose<cr>
+nnoremap <leader><Leader>to :tabonly<cr>
+nnoremap <leader><Leader>tml :tabmove -1<cr>
+nnoremap <leader><Leader>tmr :tabmove +1<cr>
 " -----------------------------------
 
 " Treat long lines as break lines (useful when moving around in them)
 " -----------------------------------
-map j gj
-map k gk
+nnoremap j gj
+nnoremap k gk
 " -----------------------------------
 
 " Compile single file with gcc/g++ in vim
@@ -483,13 +483,13 @@ map k gk
 " autocmd FileType c set makeprg=gcc\ -g\ -Wall\ %
 " autocmd FileType cpp set makeprg=g++\ -g\ -Wall\ %
 " " autocmd FileType cpp set makeprg=cd\ ~/ws/geo/\ &&\ ./build_navkit.sh\ geo\ debug\ &&\ cd\ ~/ws/geo/navkit_geo/
-" map <leader><leader>make :make<CR> <bar> :cwindow<CR>
-" map <leader><leader>run :!./a.out<CR>
-" map <leader><leader>cln :!rm -r a.out*<CR>
+" nnoremap <leader><leader>make :make<CR> <bar> :cwindow<CR>
+" nnoremap <leader><leader>run :!./a.out<CR>
+" nnoremap <leader><leader>cln :!rm -r a.out*<CR>
 " [:make without makeprg]
-" map <leader><leader>make :!g++ -g -Wall % -o %:r.out<CR>
-" map <leader><leader>run :!./%:r.out<CR>
-" map <leader><leader>cln :!rm -r %:r.out*<CR>
+" nnoremap <leader><leader>make :!g++ -g -Wall % -o %:r.out<CR>
+" nnoremap <leader><leader>run :!./%:r.out<CR>
+" nnoremap <leader><leader>cln :!rm -r %:r.out*<CR>
 "
 " References:
 " http://unix.stackexchange.com/questions/52559/how-to-compile-a-c-program-without-leaving-the-editor
@@ -499,7 +499,7 @@ map k gk
 
 " Press <F2> to insert timestamp
 " -----------------------------------
-imap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
+inoremap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
 " References:
 " man strftime
 " -----------------------------------
@@ -510,8 +510,8 @@ imap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
 " NERD_tree
 " ==============================================================================
 " Open and close the NERD_tree.vim separately                                  " 
- nmap <F8> :NERDTreeToggle<CR>
- nmap <Leader><leader>nf :NERDTreeFind<CR>
+ nnoremap <F8> :NERDTreeToggle<CR>
+ nnoremap <Leader><leader>nf :NERDTreeFind<CR>
 "                                                                              " 
 " This option tells vim whether to display hidden files by default             ".
  let NERDTreeShowHidden=1
@@ -526,7 +526,7 @@ imap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
 " tagbar
 " ==============================================================================
 " Open and close the taglist.vim separately                                    " 
- nmap <silent> <F9> :TagbarToggle<CR>
+ nnoremap <silent> <F9> :TagbarToggle<CR>
  let g:tagbar_ctags_bin = 'ctags'
  let g:tagbar_width = 30
  let g:tagbar_left = 1
@@ -542,7 +542,7 @@ imap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
 " #00ff00 or #0f0 will be display with green color
 " #0000ff or #00f will be display with blue color
 " By default, <leader>tc is mapped to ColorToggle. If you want to use another key map, do like this:
-"  nmap <leader><leader>colort <Plug>Colorizer
+"  nnoremap <leader><leader>colort <Plug>Colorizer
 " References : http://www.vim.org/scripts/script.php?script_id=3567
 " ==============================================================================
 
@@ -754,13 +754,15 @@ if isdirectory(s:clang_library_path)
 endif
 
 " Completion is started with CTRL-X CTRL-U |i_CTRL-X_CTRL-U|, or automatically depending on the value of |clang_complete-auto|.
-"  imap <Leader><Leader><Tab> <C-X><C-U>
+"  inoremap <Leader><Leader><Tab> <C-X><C-U>
 " ==============================================================================
 
 " For easymotion
 " ==============================================================================
 " Below info from :h easymotion-default-mappings
   map <Leader><Leader>em <Plug>(easymotion-prefix)
+  " noremap <Leader><Leader>em <Plug>(easymotion-prefix) " Non-recursive mapping won't working here
+
 "   Default Mapping      | Details
 "   ---------------------|----------------------------------------------
 "   <Leader>f{char}      | Find {char} to the right. See |f|.
@@ -833,27 +835,27 @@ let g:NERDSpaceDelims=1
 
 " tabular
 " ==============================================================================
-" if exists(":Tabularize") " Disable according to http://stackoverflow.com/questions/8540232/why-doesnt-my-vim-mapping-work
-  nmap <Leader><Leader>tabu= :Tabularize /=<CR>
-  vmap <Leader><Leader>tabu= :Tabularize /=<CR>
-  nmap <Leader><Leader>tabu: :Tabularize /:\zs<CR>
-  vmap <Leader><Leader>tabu: :Tabularize /:\zs<CR>
-" endif
-
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-function! s:align()
-    let p = '^\s*|\s.*\s|\s*$'
-    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-        let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-        let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-        Tabularize/|/l1
-        normal! 0
-        call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-    endif
-endfunction
-
-" References:
-" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+"" if exists(":Tabularize") " Disable according to http://stackoverflow.com/questions/8540232/why-doesnt-my-vim-mapping-work
+"  nmap <Leader><Leader>tabu= :Tabularize /=<CR>
+"  vmap <Leader><Leader>tabu= :Tabularize /=<CR>
+"  nmap <Leader><Leader>tabu: :Tabularize /:\zs<CR>
+"  vmap <Leader><Leader>tabu: :Tabularize /:\zs<CR>
+"" endif
+"
+"inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+"function! s:align()
+"    let p = '^\s*|\s.*\s|\s*$'
+"    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+"        let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+"        let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+"        Tabularize/|/l1
+"        normal! 0
+"        call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+"    endif
+"endfunction
+"
+"" References:
+"" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 " ==============================================================================
 
 " Conque-GDB
