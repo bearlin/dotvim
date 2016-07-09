@@ -50,7 +50,7 @@ Plugin 'tpope/vim-fugitive'
 " Diff
 Plugin 'will133/vim-dirdiff'
 " Ack
-Plugin 'mileszs/ack.vim' " Need to install Ack before use this plugin
+Plugin 'mileszs/ack.vim'            " Need to install Ack before use this plugin
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
 " Python
@@ -597,11 +597,11 @@ inoremap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
 " ==============================================================================
 " References:
 " Gtags-cscope : 
-"   http://www.gnu.org/software/global/globaldoc_toc.html#Gtags_002dcscope
+"   https://www.gnu.org/software/global/globaldoc_toc.html#gtags_002dcscope
 " Learn Vimscript the Hard Way - Functions :
 "   http://learnvimscriptthehardway.stevelosh.com/chapters/23.html
 
-" Switch cscope interface to use GNU GLOBAL (gtags) as search engine
+" Switch VIM's cscope interface to use 'gtags-cscope' (cscope port for GNU GLOBAL) as search engine
 function! UseGtags()
   " cscope settings
   set cscopetag                  " Use cscope as tags command
@@ -859,7 +859,7 @@ nmap <leader><Leader>dbt :ConqueGdbTab<CR>
 " :h conque_term.txt
 " ==============================================================================
 
-"vim-indent-guides
+" vim-indent-guides
 " ==============================================================================
 " 随 vim 自启动
 let g:indent_guides_enable_on_vim_startup=1
@@ -872,6 +872,53 @@ let g:indent_guides_guide_size=1
 " References:
 " https://github.com/yangyangwithgnu/use_vim_as_ide#4.2
 " http://foocoder.com/blog/mei-ri-vimcha-jian-suo-jin-xian-shi-vim-indent-guides.html/
+" ==============================================================================
+
+" mileszs/ack.vim
+" ==============================================================================
+" Just like where you use :grep, :grepadd, :lgrep, and :lgrepadd, you can use
+" :Ack, :AckAdd, :LAck, and :LAckAdd respectively. (See :help Ack after
+" installing, or doc/ack.txt in the repo, for more information.)
+"
+" Keyboard Shortcuts
+" The quickfix results window is augmented with these convenience mappings:
+" ?    a quick summary of these keys, repeat to close
+" o    to open (same as Enter)
+" O    to open and close the quickfix window
+" go   to preview file, open but maintain focus on ack.vim results
+" t    to open in new tab
+" T    to open in new tab without moving to it
+" h    to open in horizontal split
+" H    to open in horizontal split, keeping focus on the results
+" v    to open in vertical split
+" gv   to open in vertical split, keeping focus on the results
+" q    to close the quickfix window
+
+" let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" The default behavior of :Ack will jump to first result, see below if you
+" don't want this.
+" nnoremap <Leader><Leader>a :Ack<Space>
+
+" I don't want to jump to the first result automatically.~
+"     Use `:Ack!`, with bang. If you want this behavior most of the time, you
+"     might like an abbreviation or mapping in your personal config, something
+"     like these:
+" >
+"         cnoreabbrev Ack Ack!
+"         nnoremap <Leader>a :Ack!<Space>
+" <
+"     Most of the `:[L]Ack*` commands support this. Note that this behavior
+"     follows the convention of Vim's built-in |:grep| and |:make| commands.
+"
+" ack pattern to 'quickfix-window'
+nnoremap <Leader><Leader>aq :Ack!<Space><C-R><C-W>
+" ack pattern to 'location-list-window'
+nnoremap <Leader><Leader>al :LAck!<Space><C-R><C-W>
+
+" References:
+" https://github.com/mileszs/ack.vim
+" http://harttle.com/2015/12/21/vim-search.html
 " ==============================================================================
 
 " PATCH(s)
