@@ -1079,7 +1079,8 @@ endfunction
 function! ReadCMacros()
     r ~/.vim/scripts/handy_text/c_logger_macro.txt
 endfunction
-" nnoremap <Leader><Leader>rm :call ReadCMacros()<CR>
+nnoremap <Leader><Leader>rcm :call ReadCMacros()<CR>
+nnoremap <Leader><Leader>acm :%s/^{/{BEGIN_FUNC("@@@")/gc<CR>
 " ------------------------------------------------------------------------
 " ==============================================================================
 
