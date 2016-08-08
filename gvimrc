@@ -64,16 +64,18 @@ Plugin 'vim-scripts/Conque-GDB'
 
 " Code completion
 " ----------------------------------
-" TODO: Use YouCompleteMe to replace above completion plugins
+" TODO: Use YouCompleteMe to replace below completion plugins
 " YouCompleteMe obsoletes the following Vim plugins because it has all of their features plus extra
 " clang_complete
 " AutoComplPop
 " Supertab
 " neocomplcache
 "
-Plugin 'ervandew/supertab'
-Plugin 'othree/vim-autocomplpop'
-Plugin 'Rip-Rip/clang_complete'
+" Plugin 'ervandew/supertab'        " Replaced by YouCompleteMe
+" Plugin 'othree/vim-autocomplpop'  " Replaced by YouCompleteMe
+" Plugin 'Rip-Rip/clang_complete'   " Replaced by YouCompleteMe
+
+Plugin 'Valloric/YouCompleteMe'     " To enable, follow instructions of 'http://valloric.github.io/YouCompleteMe/#full-installation-guide'
 " ----------------------------------
 
 " Snipmate engine
@@ -929,6 +931,18 @@ nnoremap <Leader><Leader>al :LAck!<Space><C-R><C-W>
   " set formatoptions=tcroq " Auto-wrap text using textwidth
 " ==============================================================================
 
+" Valloric/YouCompleteMe
+" ==============================================================================
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+nnoremap <Leader><Leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <Leader><Leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader><Leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <F6> :YcmDiags<CR>
+" References:
+" http://blog.jobbole.com/58978/
+" ==============================================================================
+
 " Handy functions
 " ==============================================================================
 " Load my favorite colorscheme
@@ -1030,6 +1044,16 @@ function! VimLoad()
 endfunction
 " autocmd VimEnter * nested :call VimLoad()
 " autocmd VimLeave * :call VimSave()
+" ------------------------------------------------------------------------
+
+" Add C language logger macros
+" http://stackoverflow.com/questions/690386/writing-a-vim-function-to-insert-a-block-of-static-text
+" ------------------------------------------------------------------------
+function! ReadCMacros()
+    r ~/.vim/scripts/handy_text/c_logger_macro.txt
+endfunction
+nnoremap <Leader><Leader>rcm :call ReadCMacros()<CR>
+nnoremap <Leader><Leader>acm :%s/^{/{BEGIN_FUNC("@@@")/gc<CR>
 " ------------------------------------------------------------------------
 " ==============================================================================
 
