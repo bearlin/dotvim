@@ -1,0 +1,5 @@
+#if !defined(BEGIN_FUNC) && !defined(END_FUNC)
+    // Loggers
+    #define BEGIN_FUNC(TAG) zbapp_printf(TAG ">>> %s \n", __func__);
+    #define END_FUNC(TAG)   zbapp_printf(TAG "<<< %s \n", __func__);
+#endif
