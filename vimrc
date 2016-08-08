@@ -1072,5 +1072,14 @@ endfunction
 " autocmd VimEnter * nested :call VimLoad()
 " autocmd VimLeave * :call VimSave()
 " ------------------------------------------------------------------------
+
+" Add C language logger macros
+" http://stackoverflow.com/questions/690386/writing-a-vim-function-to-insert-a-block-of-static-text
+" ------------------------------------------------------------------------
+function! ReadCMacros()
+    r ~/.vim/scripts/handy_text/c_logger_macro.txt
+endfunction
+" nnoremap <Leader><Leader>rm :call ReadCMacros()<CR>
+" ------------------------------------------------------------------------
 " ==============================================================================
 
