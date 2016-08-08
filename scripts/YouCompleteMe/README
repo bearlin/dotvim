@@ -1,0 +1,32 @@
+[References]
+http://valloric.github.io/YouCompleteMe/#full-installation-guide
+https://github.com/Valloric/YouCompleteMe
+http://blog.jobbole.com/58978/
+http://zuyunfei.com/2013/05/16/killer-plugin-of-vim-youcompleteme/
+https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py
+
+[General installation steps]
+1. Ensure that your version of Vim is at least 7.3.598 and that it has support for Python 2 or Python 3 scripting.
+    :version
+    :echo has('python') || has('python3')
+
+2. Install YCM with Vundle. This would mean adding a Plugin 'Valloric/YouCompleteMe' line to your vimrc.
+
+3. Download the latest version of libclang. We recommend using the official binaries from (http://llvm.org/releases/download.html) if at all possible. Make sure you download the correct archive file for your OS.
+
+4. Compile the ycm_core library that YCM needs. This library is the C++ engine that YCM uses to get fast completions. (CMAKE needed)
+
+5. Set up support for additional languages, as desired:
+    * C# support: install Mono on non-Windows platforms. Navigate to YouCompleteMe/third_party/ycmd/third_party/OmniSharpServer and run msbuild (Windows) or xbuild (other platforms, using Mono) depending on your platform. On Windows, be sure that the build utility msbuild is in your PATH.
+    Go support: install Go and add it to your path. Navigate to YouCompleteMe/third_party/ycmd/third_party/gocode and run go build.
+    TypeScript support: as with the quick installation, simply npm install -g typescript after successfully installing Node.js and npm.
+    JavaScript support: install Node.js and npm. Then navigate to YouCompleteMe/third_party/ycmd/third_party/tern_runtime and run npm install --production
+    Rust support: install Rust. Navigate to YouCompleteMe/third_party/ycmd/third_party/racerd and run cargo build --release.
+
+[User Guide]
+C-family Semantic Completion
+YCM looks for a .ycm_extra_conf.py file in the directory of the opened file or in any directory above it in the hierarchy (recursively); when the file is found, it is loaded (only once!) as a Python module.
+
+See YCM's own .ycm_extra_conf.py for details on how this works. Your project needs different flags. Hint: just replace the strings in the flags variable with compilation flags necessary for your project. That should be enough for 99% of projects.
+
+
