@@ -34,6 +34,10 @@ https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py
 7. Open cmd.exe and generate VisualStudio project files: 1. 'cd C:\cygwin64\home\sl888213\.vim\bundle\YouCompleteMe\tmp\build' 2. 'cmake -G "Visual Studio 14 Win64" -DPATH_TO_LLVM_ROOT="C:\Program Files\LLVM" . "C:\cygwin64\home\sl888213\.vim\bundle\YouCompleteMe\third_party\ycmd\cpp"'  
 8. Click on the generated 'YouCompleteMe.sln' and compile the ycm_core library, output will be 'build\ycm\Debug\ycm_core.lib'  
 
+[Instructions for Cygwin64 (with clang)]
+1. From 'https://github.com/Valloric/YouCompleteMe/wiki/Windows-Installation-Guide-for-Unix%E2%80%90like-Environments'  
+2. TODO.
+
 [User Guide]
 C-family Semantic Completion
 YCM looks for a .ycm_extra_conf.py file in the directory of the opened file or in any directory above it in the hierarchy (recursively); when the file is found, it is loaded (only once!) as a Python module.  
