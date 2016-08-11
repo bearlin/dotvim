@@ -70,7 +70,7 @@ cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=$YOUCOMPLETEME_PREBUILT_LLVM_CLANG
 echo "@@@ Execute: cmake --build . --target ycm_core --config Release"
 cmake --build . --target ycm_core --config Release
 
-# Get configuration template
+# Get configuration template to tmp folder
 # ------------------------
 cd "$YOUCOMPLETEME_TEMP_ROOT"
 if [ $hasWget == 1  ]; then
