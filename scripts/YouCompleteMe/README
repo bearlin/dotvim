@@ -1,9 +1,15 @@
-[References]
-http://valloric.github.io/YouCompleteMe/#full-installation-guide
-https://github.com/Valloric/YouCompleteMe
-http://blog.jobbole.com/58978/
-http://zuyunfei.com/2013/05/16/killer-plugin-of-vim-youcompleteme/
-https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py
+[Intro]
+YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim. It has several completion engines:
+
+an identifier-based engine that works with every programming language,
+a Clang-based engine that provides native semantic code completion for C/C++/Objective-C/Objective-C++ (from now on referred to as "the C-family languages"),
+a Jedi-based completion engine for Python 2 and 3 (using the JediHTTP wrapper),
+an OmniSharp-based completion engine for C#,
+a combination of Gocode and Godef semantic engines for Go,
+a TSServer-based completion engine for TypeScript,
+a Tern-based completion engine for JavaScript,
+a racer-based completion engine for Rust,
+and an omnifunc-based completer that uses data from Vim's omnicomplete system to provide semantic completions for many other languages (Ruby, PHP etc.).
 
 [General installation steps]
 1. Ensure that your version of Vim is at least 7.3.598 and that it has support for Python 2 or Python 3 scripting.
@@ -23,23 +29,15 @@ https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py
     JavaScript support: install Node.js and npm. Then navigate to YouCompleteMe/third_party/ycmd/third_party/tern_runtime and run npm install --production
     Rust support: install Rust. Navigate to YouCompleteMe/third_party/ycmd/third_party/racerd and run cargo build --release.
 
-[Tricky parts for Windows]  
-1. In vim check :version and :echo has('python') || has('python3')  
-2. Install YCM with Vundle  
-3. Download and install the free Microsoft Visual Studio Express 2015 for Windows Desktop  
-3. Download and install the latest version of libclang 'LLVM-3.8.1-win64.exe' and install to e.g. 'C:\Program Files\LLVM'  
-4. Download and install the latest version of cmake 'cmake-3.6.1-win64-x64.msi' to e.g. 'C:\Program Files\CMake'  
-5. Download and install Python 2 or Python 3 'python-2.7.12.amd64.msi' to e.g. 'C:\Python27'  
-6. Add system PATH : 'C:\Python27;C:\Program Files\CMake\bin;'  
-7. Open cmd.exe and generate VisualStudio project files: 1. 'cd C:\cygwin64\home\sl888213\.vim\bundle\YouCompleteMe\tmp\build' 2. 'cmake -G "Visual Studio 14 Win64" -DPATH_TO_LLVM_ROOT="C:\Program Files\LLVM" . "C:\cygwin64\home\sl888213\.vim\bundle\YouCompleteMe\third_party\ycmd\cpp"'  
-8. Click on the generated 'YouCompleteMe.sln' and compile the ycm_core library, output will be 'build\ycm\Debug\ycm_core.lib'  
-
-[Instructions for Cygwin64 (with clang)]
-1. From 'https://github.com/Valloric/YouCompleteMe/wiki/Windows-Installation-Guide-for-Unix%E2%80%90like-Environments'  
-2. TODO.
-
 [User Guide]
 C-family Semantic Completion
 YCM looks for a .ycm_extra_conf.py file in the directory of the opened file or in any directory above it in the hierarchy (recursively); when the file is found, it is loaded (only once!) as a Python module.  
 
 See YCM's own .ycm_extra_conf.py for details on how this works. Your project needs different flags. Hint: just replace the strings in the flags variable with compilation flags necessary for your project. That should be enough for 99% of projects.  
+
+[References]
+http://valloric.github.io/YouCompleteMe/#full-installation-guide
+https://github.com/Valloric/YouCompleteMe
+http://blog.jobbole.com/58978/
+http://zuyunfei.com/2013/05/16/killer-plugin-of-vim-youcompleteme/
+https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py
