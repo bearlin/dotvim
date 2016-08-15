@@ -93,7 +93,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'romainl/Apprentice'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'tejr/sahara'
+Plugin 'https://sanctum.geek.nz/code/sahara.git'
 
 " vim-airline
 Plugin 'vim-airline/vim-airline'
