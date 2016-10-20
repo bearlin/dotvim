@@ -49,22 +49,22 @@ fi
 mkdir -p $YOUCOMPLETEME_BUILD_OUTPUT_ROOT
 mkdir -p $YOUCOMPLETEME_PREBUILT_LLVM_CLANG_ROOT
 
-# Get and extract clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz
+# Get and extract clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz
 # ------------------------
 cd "$YOUCOMPLETEME_PREBUILT_LLVM_CLANG_ROOT"
 if [ $hasWget == 1  ]; then
-  wget "http://llvm.org/releases/3.8.0/clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz" -O "clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz"
+  wget "http://llvm.org/releases/3.9.0/clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz" -O "clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz"
 elif [ $hasCurl == 1  ]; then
-  curl -LSo "clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz" "http://llvm.org/releases/3.8.0/clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz"
+  curl -LSo "clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz" "http://llvm.org/releases/3.9.0/clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz"
 else
   die "Unknow parameters, exit"
 fi
-echo "@@@ Execute: tar Jxvf clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz --strip-components=1"
-tar Jxvf clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz --strip-components=1
+echo "@@@ Execute: tar Jxvf clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz --strip-components=1"
+tar Jxvf clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz --strip-components=1
 if [ $? -ne 0 ]; then
   die "extract clang+llvm error, exit"
 fi
-rm clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz
+rm clang+llvm-3.9.0-x86_64-apple-darwin.tar.xz
 
 # Compile the ycm_core library that YCM needs
 # ------------------------
