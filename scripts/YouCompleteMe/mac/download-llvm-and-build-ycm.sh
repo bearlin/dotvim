@@ -26,6 +26,10 @@ which tar &>/dev/null
 if [ $? -ne 0 ]; then
   die "missing tar tool, exit"
 fi
+which cmake &>/dev/null
+if [ $? -ne 0 ]; then
+  die "missing cmake tool, exit"
+fi
 
 hasWget=0
 hasCurl=0
@@ -64,7 +68,7 @@ rm clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz
 
 # Compile the ycm_core library that YCM needs
 # ------------------------
-cd "$YOUCOMPLETEME_BUILD_OUTPUT_ROOT"
+cd "$YOUCOMPLETEME_BUILD_OUTPUT_ROOT" # goto build/ folder
 echo "@@@ Execute: cmake -G \"Unix Makefiles\" -DPATH_TO_LLVM_ROOT=$YOUCOMPLETEME_PREBUILT_LLVM_CLANG_ROOT . $YOUCOMPLETEME_ROOT/third_party/ycmd/cpp"
 cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=$YOUCOMPLETEME_PREBUILT_LLVM_CLANG_ROOT . $YOUCOMPLETEME_ROOT/third_party/ycmd/cpp
 echo "@@@ Execute: cmake --build . --target ycm_core --config Release"
@@ -80,6 +84,7 @@ elif [ $hasCurl == 1  ]; then
 else
   die "Unknow parameters, exit"
 fi
+echo "YCM configuration template file was downloaded to $YOUCOMPLETEME_TEMP_ROOT/.ycm_extra_conf.py"
 
 # ------------------------
 cd -
