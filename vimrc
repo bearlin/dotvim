@@ -64,7 +64,6 @@ Plugin 'vim-scripts/Conque-GDB'
 
 " Code completion
 " ----------------------------------
-" TODO: Use YouCompleteMe to replace below completion plugins
 " YouCompleteMe obsoletes the following Vim plugins because it has all of their features plus extra
 " clang_complete
 " AutoComplPop
@@ -75,7 +74,8 @@ Plugin 'vim-scripts/Conque-GDB'
 " Plugin 'othree/vim-autocomplpop'  " Replaced by YouCompleteMe
 " Plugin 'Rip-Rip/clang_complete'   " Replaced by YouCompleteMe
 
-Plugin 'Valloric/YouCompleteMe'     " To enable, follow instructions of 'http://valloric.github.io/YouCompleteMe/#full-installation-guide'
+Plugin 'Valloric/YouCompleteMe'     " A code-completion engine for Vim. To enable, follow instructions in http://valloric.github.io/YouCompleteMe/#full-installation-guide
+Plugin 'rdnetto/YCM-Generator'      " Generates config files '.ycm_extra_conf.py' for YouCompleteMe (Usage : ./config_gen.py PROJECT_DIRECTORY)
 " ----------------------------------
 
 " Snipmate engine
