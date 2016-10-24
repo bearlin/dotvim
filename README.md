@@ -32,7 +32,7 @@ Change colorscheme at runtime -> :colorscheme [apprentice|wombat|grb256|jellybea
 
 # Before install:
 Install below packages:  
-(Required) git, vim, exuberant-ctags, cscope, wget or curl, unzip  
+(Required) git, vim/macvim, exuberant-ctags, cscope, wget or curl, unzip  
 (optional) GNU GLOBAL (gtags, global, gtags-cscope), cmake  
 
 If you are using MacOS, I suggest you use package manager Homebrew to install exuberant-ctags and cscope to support multiple languages(The default ctags version on Mac OS is not the exuberant one). Also install wget or curl for scripts updating.  
