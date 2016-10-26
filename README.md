@@ -64,9 +64,11 @@ Or force remove ~/.vim, ~/.vimrc and ~/.gvimrc:
 ```sh
 (Ubuntu) sudo apt-get install git vim exuberant-ctags cscope cmake wget curl unzip 
 (MacOS) brew install git ctags cscope global cmake wget curl
-        brew install macvim --with-cscope --with-override-system-vim --with-python3
-        brew linkapps python3  
-        brew linkapps macvim
+        # ---------IMPORTANT: make sure system using VIM from /usr/local/bin/Cellar/macvim/8.0-113/bin/mvim ---------
+        #brew install macvim --with-cscope --with-override-system-vim --with-eython3
+        brew install macvim
+        brew link --overwrite macvim
+        #------------------------------------------------------------------------------------------------------------
 
 (rename or backup your ~/.vim, ~/.vimrc and ~/.gvimrc)
 git clone https://github.com/bearlin/dotvim.git ~/.vim
