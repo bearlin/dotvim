@@ -332,6 +332,7 @@ endif
 
 " Easier Cut/Copy/Paste
 " -----------------------------------
+" http://vim.wikia.com/wiki/Accessing_the_system_clipboard
 " http://serverfault.com/questions/27917/configure-vim-for-text-selection-with-shift-and-copy-paste-via-ctrlc-ctrlv
 " http://vim.cybermirror.org/runtime/mswin.vim
 " About vmap and vnoremap: http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
