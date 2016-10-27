@@ -8,12 +8,14 @@ LISTNAME_HPP="hpp-list"
 LISTNAME_MERGED="h+hpp-list"
 DOT_OUT=".out"
 DOT_DIRNAME=".dirname"
+DBG_DIRNAME=".dirname.dbg"
 DOT_UNIQUE=".unique"
 
 FILE_H_LIST=$RESULT_PREFIX$LISTNAME_H$DOT_OUT
 FILE_HPP_LIST=$RESULT_PREFIX$LISTNAME_HPP$DOT_OUT
 FILE_H_HPP_LIST=$RESULT_PREFIX$LISTNAME_MERGED$DOT_OUT
 FILE_DIRNAME=$FILE_H_HPP_LIST$DOT_DIRNAME
+FILE_DIRNAME_DBG=$FILE_H_HPP_LIST$DBG_DIRNAME
 FILE_UNIQUE=$FILE_H_HPP_LIST$DOT_UNIQUE
 
 echo "This script will try to get all C/C++ headers' path(s) under ./, this will be very usefull for YouCompleteMe's .ycm_extra_conf.py file"
@@ -29,13 +31,16 @@ cat $FILE_HPP_LIST >> $FILE_H_HPP_LIST
 
 echo "Get directory path(s) by stripping filenames from full path(s)..."
 ln=0
-for line in `cat $FILE_H_HPP_LIST`; do
+# http://www.cyberciti.biz/faq/unix-howto-read-line-by-line-from-file/
+while IFS= read -r line
+do
   ln=$((ln+1))
   if ! ((ln % 50)); then
     echo "[$ln] $line"
   fi
-  dirname $line >> $FILE_DIRNAME
-done
+  echo "$line" >> $FILE_DIRNAME_DBG
+  dirname "$line" >> $FILE_DIRNAME
+done < "$FILE_H_HPP_LIST"
 
 echo "Sort the path(s) to unique result..."
 sort -u $FILE_DIRNAME > $FILE_UNIQUE
@@ -45,6 +50,7 @@ rm $FILE_H_LIST
 rm $FILE_HPP_LIST
 rm $FILE_H_HPP_LIST
 rm $FILE_DIRNAME
+# rm $DBG_DIRNAME
 
 echo "Convert path to .ycm_extra_conf.py format (conver to '-I{PATH}',)..."
 cp $FILE_UNIQUE $FILE_UNIQUE.before
