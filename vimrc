@@ -28,8 +28,8 @@ Plugin 'VundleVim/Vundle.vim'
 " ----------------------------------
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'kien/ctrlp.vim'
+" Plugin 'easymotion/vim-easymotion'
+" Plugin 'kien/ctrlp.vim'
 
 " Text alignment
 " Plugin 'vim-scripts/matchit.zip' " Disable because it has bug while matching simple (), [] in large html file.
@@ -41,9 +41,9 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Text objects
 Plugin 'michaeljsmith/vim-indent-object'
 
-" php
-Plugin 'stanangeloff/php.vim'       " http://vimawesome.com/plugin/php-vim-shouldve-said-no
-Plugin 'shawncplus/phpcomplete.vim' " http://vimawesome.com/plugin/phpcomplete-vim
+" PHP
+" Plugin 'stanangeloff/php.vim'       " http://vimawesome.com/plugin/php-vim-shouldve-said-no
+" Plugin 'shawncplus/phpcomplete.vim' " http://vimawesome.com/plugin/phpcomplete-vim
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -59,7 +59,7 @@ Plugin 'vim-scripts/indentpython.vim'
 
 " Debugging
 " ----------------------------------
-Plugin 'vim-scripts/Conque-GDB'
+" Plugin 'vim-scripts/Conque-GDB'
 " ----------------------------------
 
 " Code completion
@@ -81,10 +81,10 @@ Plugin 'rdnetto/YCM-Generator'      " Generates config files '.ycm_extra_conf.py
 " Snipmate engine
 " ----------------------------------
 " From github.com/garbas/vim-snipmate
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
 " ----------------------------------
 
 " Colorful vim
@@ -94,6 +94,7 @@ Plugin 'romainl/Apprentice'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'https://sanctum.geek.nz/code/sahara.git'
+Plugin 'cseelus/vim-colors-lucid'
 
 " vim-airline
 Plugin 'vim-airline/vim-airline'
@@ -359,15 +360,16 @@ endif
 " 'background' 'bg' : When set to "dark", Vim will try to use colors that look good on a dark background
 "                     When set to "light", Vim will try to use colors that look good on a light background
 "                     Any other value is illegal
- set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
-" set background=light
- set background=dark
+set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+"set background=light
+set background=dark
 " -----------------------------------
 
 " Color schemes
 " -----------------------------------
 " http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
 " :colo[rscheme] {name} : Load color scheme {name}
+":silent! colorscheme lucid
 :silent! colorscheme sahara
 ":silent! colorscheme apprentice
 ":silent! colorscheme solarized
