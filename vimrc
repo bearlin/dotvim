@@ -95,6 +95,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'https://sanctum.geek.nz/code/sahara.git'
 Plugin 'cseelus/vim-colors-lucid'
+Plugin 'vim-scripts/wombat256.vim'
 
 " vim-airline
 Plugin 'vim-airline/vim-airline'
