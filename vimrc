@@ -55,6 +55,8 @@ Plugin 'mileszs/ack.vim'            " Need to install Ack before use this plugin
 Plugin 'octol/vim-cpp-enhanced-highlight'
 " Python
 Plugin 'vim-scripts/indentpython.vim'
+" golang
+Plugin 'fatih/vim-go'
 " ----------------------------------
 
 " Debugging
