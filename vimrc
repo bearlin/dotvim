@@ -722,13 +722,13 @@ let g:airline_theme='jellybeans'
 " https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt
 " http://stackoverflow.com/questions/20645920/adding-clang-complete-to-homebrew-installed-vim-on-mac
 
-let g:clang_complete_copen=0                  "If equal to 1, open quickfix window on error. Default: 0
-let g:clang_hl_errors=1                       "If equal to 1, it will highlight the warnings and errors the same way clang does it. Default: 1
-let g:clang_periodic_quickfix=0               "If equal to 1, it will periodically update the quickfix window. Default: 0
-let g:clang_snippets=1                        "If equal to 1, it will do some snippets magic on code placeholders like function argument, template parameters, etc. Default: 0
-let g:clang_snippets_engine='clang_complete'  "The snippets engine (clang_complete, ultisnips... see the snippets subdirectory). Default: 'clang_complete'
-let g:clang_close_preview=1                   "If equal to 1, the preview window will be close automatically after a completion. Default: 0
-let g:clang_use_library=1                     "Instead of calling the clang/clang++ tool use libclang directly. This gives
+" let g:clang_complete_copen=0                  "If equal to 1, open quickfix window on error. Default: 0
+" let g:clang_hl_errors=1                       "If equal to 1, it will highlight the warnings and errors the same way clang does it. Default: 1
+" let g:clang_periodic_quickfix=0               "If equal to 1, it will periodically update the quickfix window. Default: 0
+" let g:clang_snippets=1                        "If equal to 1, it will do some snippets magic on code placeholders like function argument, template parameters, etc. Default: 0
+" let g:clang_snippets_engine='clang_complete'  "The snippets engine (clang_complete, ultisnips... see the snippets subdirectory). Default: 'clang_complete'
+" let g:clang_close_preview=1                   "If equal to 1, the preview window will be close automatically after a completion. Default: 0
+" let g:clang_use_library=1                     "Instead of calling the clang/clang++ tool use libclang directly. This gives
                                               "access to many more clang features. Furthermore it automatically caches all
                                               "includes in memory. Updates after changes in the same file will therefore be a
                                               "lot faster.
@@ -744,25 +744,25 @@ let g:clang_use_library=1                     "Instead of calling the clang/clan
                                               " let g:clang_user_options = '-std=c++11'
                                               "<
                                               "Default: ""
-let g:clang_user_options = '-std=c++11' "Compile all sources as c++11 (just for example, use .clang_complete for setting version of the language per project)
-" let g:clang_user_options='-stdlib=libc++ -std=c++11 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
-if has('win32unix') " Cygwin
-  let s:clang_library_path='/lib/'
-elseif has('win32') || has('win64') " Windows
-  let s:clang_library_path='D:\Sourcen\LLVM\build\bin\Debug'
-elseif has('mac') " MacOS 
-  let s:clang_library_path='/Applications/Xcode.app//Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
-elseif has('unix') " Ubuntu
-  let s:clang_library_path='/usr/lib/llvm-3.6/lib/'
-else
-  let s:clang_library_path='/usr/lib/'
-endif
-if isdirectory(s:clang_library_path)
-  let g:clang_library_path=s:clang_library_path   "If libclang is not in your library search path->set this to the absolute path
-                                                  "where libclang is available. This should either be a directory containing a
-                                                  "file named libclang.[dll/so/dylib] or the clang shared library file itself.
-                                                  "Default: ""
-endif
+" let g:clang_user_options = '-std=c++11' "Compile all sources as c++11 (just for example, use .clang_complete for setting version of the language per project)
+" " let g:clang_user_options='-stdlib=libc++ -std=c++11 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
+" if has('win32unix') " Cygwin
+  " let s:clang_library_path='/lib/'
+" elseif has('win32') || has('win64') " Windows
+  " let s:clang_library_path='D:\Sourcen\LLVM\build\bin\Debug'
+" elseif has('mac') " MacOS 
+  " let s:clang_library_path='/Applications/Xcode.app//Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
+" elseif has('unix') " Ubuntu
+  " let s:clang_library_path='/usr/lib/llvm-3.6/lib/'
+" else
+  " let s:clang_library_path='/usr/lib/'
+" endif
+" if isdirectory(s:clang_library_path)
+  " let g:clang_library_path=s:clang_library_path   "If libclang is not in your library search path->set this to the absolute path
+                                                  " "where libclang is available. This should either be a directory containing a
+                                                  " "file named libclang.[dll/so/dylib] or the clang shared library file itself.
+                                                  " "Default: ""
+" endif
 
 " Completion is started with CTRL-X CTRL-U |i_CTRL-X_CTRL-U|, or automatically depending on the value of |clang_complete-auto|.
 "  inoremap <Leader><Leader><Tab> <C-X><C-U>
@@ -771,7 +771,7 @@ endif
 " For easymotion
 " ==============================================================================
 " Below info from :h easymotion-default-mappings
-  map <Leader><Leader>em <Plug>(easymotion-prefix)
+  " map <Leader><Leader>em <Plug>(easymotion-prefix)
   " noremap <Leader><Leader>em <Plug>(easymotion-prefix) " Non-recursive mapping won't working here
 
 "   Default Mapping      | Details
@@ -871,26 +871,26 @@ let g:NERDSpaceDelims=1
 
 " Conque-GDB
 " ==============================================================================
-let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
-let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
-let g:ConqueTerm_StartMessages = 1 " display warning messages if conqueTerm is configured incorrectly
-let g:ConqueTerm_ReadUnfocused = 1 " conque buffers will continue to update after you've switched to another buffer.
+" let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
+" let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
+" let g:ConqueTerm_StartMessages = 1 " display warning messages if conqueTerm is configured incorrectly
+" let g:ConqueTerm_ReadUnfocused = 1 " conque buffers will continue to update after you've switched to another buffer.
 " Set the leader key mapping:
 " We may not use ConqueGDB quite often, and the same leader character may conflict with
 " other options of vim or other plugins. So use '\' instead of '<Leader>'
 " References: https://jianfengwang.wordpress.com/2015/11/06/tips-of-gdb-with-vim/
-let g:ConqueGdb_Leader = '\'
+" let g:ConqueGdb_Leader = '\'
 
 " Key mappings
-let g:ConqueGdb_Run         = g:ConqueGdb_Leader . 'r'
-let g:ConqueGdb_Continue    = g:ConqueGdb_Leader . 'c'
-let g:ConqueGdb_Next        = g:ConqueGdb_Leader . 'n'
-let g:ConqueGdb_Step        = g:ConqueGdb_Leader . 's'
-let g:ConqueGdb_Print       = g:ConqueGdb_Leader . 'p'
-let g:ConqueGdb_ToggleBreak = g:ConqueGdb_Leader . 'b'
-let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
-let g:ConqueGdb_Finish      = g:ConqueGdb_Leader . 'f'
-let g:ConqueGdb_Backtrace   = g:ConqueGdb_Leader . 't'
+" let g:ConqueGdb_Run         = g:ConqueGdb_Leader . 'r'
+" let g:ConqueGdb_Continue    = g:ConqueGdb_Leader . 'c'
+" let g:ConqueGdb_Next        = g:ConqueGdb_Leader . 'n'
+" let g:ConqueGdb_Step        = g:ConqueGdb_Leader . 's'
+" let g:ConqueGdb_Print       = g:ConqueGdb_Leader . 'p'
+" let g:ConqueGdb_ToggleBreak = g:ConqueGdb_Leader . 'b'
+" let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
+" let g:ConqueGdb_Finish      = g:ConqueGdb_Leader . 'f'
+" let g:ConqueGdb_Backtrace   = g:ConqueGdb_Leader . 't'
 " Start the ConqueGdb
 "Type :ConqueGdb <gdb-arguments> to launch GDB in the current window. E.g.:
 "    :ConqueGdb
@@ -899,9 +899,9 @@ let g:ConqueGdb_Backtrace   = g:ConqueGdb_Leader . 't'
 "Open GDB in a new horizontal:
 "    :ConqueGdbSplit
 "    :ConqueGdbVSplit
-nmap <leader><Leader>dbs :ConqueGdbSplit<CR>
-nmap <leader><Leader>dbv :ConqueGdbVSplit<CR>
-nmap <leader><Leader>dbt :ConqueGdbTab<CR>
+" nmap <leader><Leader>dbs :ConqueGdbSplit<CR>
+" nmap <leader><Leader>dbv :ConqueGdbVSplit<CR>
+" nmap <leader><Leader>dbt :ConqueGdbTab<CR>
 
 "
 " References:
