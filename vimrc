@@ -57,6 +57,8 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/indentpython.vim'
 " golang
 Plugin 'fatih/vim-go'
+" Yocto bitbake
+Plugin 'kergoth/vim-bitbake'
 " ----------------------------------
 
 " Debugging
@@ -76,8 +78,8 @@ Plugin 'fatih/vim-go'
 " Plugin 'othree/vim-autocomplpop'  " Replaced by YouCompleteMe
 " Plugin 'Rip-Rip/clang_complete'   " Replaced by YouCompleteMe
 
-Plugin 'Valloric/YouCompleteMe'     " A code-completion engine for Vim. To enable, follow instructions in http://valloric.github.io/YouCompleteMe/#full-installation-guide
-Plugin 'rdnetto/YCM-Generator'      " Generates config files '.ycm_extra_conf.py' for YouCompleteMe (Usage : ./config_gen.py PROJECT_DIRECTORY)
+" Plugin 'Valloric/YouCompleteMe'     " A code-completion engine for Vim. To enable, follow instructions in http://valloric.github.io/YouCompleteMe/#full-installation-guide
+" Plugin 'rdnetto/YCM-Generator'      " Generates config files '.ycm_extra_conf.py' for YouCompleteMe (Usage : ./config_gen.py PROJECT_DIRECTORY)
 " ----------------------------------
 
 " Snipmate engine
@@ -104,7 +106,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax
-Plugin 'lilydjwg/colorizer' " colorizer: Highlight #rrggbb or #rgb color (http://vimawesome.com/plugin/colorizer-sparks-fly)
+" Plugin 'lilydjwg/colorizer' " colorizer: Highlight #rrggbb or #rgb color (http://vimawesome.com/plugin/colorizer-sparks-fly)
 " ----------------------------------
 
 " Powerline (not for vim, only for my tmux/bash, see below [Note] for more details)
@@ -980,12 +982,12 @@ nnoremap <Leader><Leader>al :LAck!<Space><C-R><C-W>
 
 " Plugin 'Valloric/YouCompleteMe'
 " ==============================================================================
-let g:ycm_error_symbol = '>>'
-let g:ycm_warning_symbol = '>*'
-nnoremap <Leader><Leader>gl :YcmCompleter GoToDeclaration<CR>
-nnoremap <Leader><Leader>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <Leader><Leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <F6> :YcmDiags<CR>
+" let g:ycm_error_symbol = '>>'
+" let g:ycm_warning_symbol = '>*'
+" nnoremap <Leader><Leader>gl :YcmCompleter GoToDeclaration<CR>
+" nnoremap <Leader><Leader>gf :YcmCompleter GoToDefinition<CR>
+" nnoremap <Leader><Leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" nmap <F6> :YcmDiags<CR>
 " References:
 " http://blog.jobbole.com/58978/
 " ==============================================================================
