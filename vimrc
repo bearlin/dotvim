@@ -36,7 +36,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 " Plugin 'godlygeek/tabular'
-Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'nathanaelkane/vim-indent-guides'
 
 " Text objects
 Plugin 'michaeljsmith/vim-indent-object'
@@ -914,13 +914,13 @@ let g:NERDSpaceDelims=1
 " vim-indent-guides
 " ==============================================================================
 " 随 vim 自启动
-let g:indent_guides_enable_on_vim_startup=1
+" let g:indent_guides_enable_on_vim_startup=1
 " 从第二层开始可视化显示缩进
-let g:indent_guides_start_level=2
+" let g:indent_guides_start_level=2
 " 色块宽度
-let g:indent_guides_guide_size=1
+" let g:indent_guides_guide_size=1
 " 快捷键 i 开/关缩进可视化
-:nmap <silent> <Leader><Leader>ii <Plug>IndentGuidesToggle
+" :nmap <silent> <Leader><Leader>ii <Plug>IndentGuidesToggle
 " References:
 " https://github.com/yangyangwithgnu/use_vim_as_ide#4.2
 " http://foocoder.com/blog/mei-ri-vimcha-jian-suo-jin-xian-shi-vim-indent-guides.html/
@@ -1004,59 +1004,59 @@ nnoremap <Leader><Leader>al :LAck!<Space><C-R><C-W>
 " https://github.com/fatih/vim-go-tutorial/blob/master/vimrc
 
 " vim-go
-let g:go_fmt_command = "goimports"
-let g:go_autodetect_gopath = 1
-let g:go_list_type = "quickfix"
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
+" let g:go_fmt_command = "goimports"
+" let g:go_autodetect_gopath = 1
+" let g:go_list_type = "quickfix"
+" let g:go_highlight_types = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_functions = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_extra_types = 1
+" let g:go_highlight_generate_tags = 1
 
 " Open :GoDeclsDir with ctrl-g
-nmap <C-g> :GoDeclsDir<cr>
-imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
+" nmap <C-g> :GoDeclsDir<cr>
+" imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
-augroup go
-  autocmd!
-  " Show by default 4 spaces for a tab
-  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-  " :GoBuild and :GoTestCompile
-  autocmd FileType go nmap <Leader><Leader>gb :<C-u>call <SID>build_go_files()<CR>
-  " :GoTest
-  autocmd FileType go nmap <Leader><Leader>gt  <Plug>(go-test)
-  " :GoRun
-  autocmd FileType go nmap <Leader><Leader>gr  <Plug>(go-run)
-  " :GoDoc
-  autocmd FileType go nmap <Leader><Leader>gd <Plug>(go-doc)
-  " :GoCoverageToggle
-  autocmd FileType go nmap <Leader><Leader>gc <Plug>(go-coverage-toggle)
-  " :GoInfo
-  autocmd FileType go nmap <Leader><Leader>gi <Plug>(go-info)
-  " :GoMetaLinter
-  autocmd FileType go nmap <Leader><Leader>gl <Plug>(go-metalinter)
-  " :GoDef but opens in a vertical split
-  autocmd FileType go nmap <Leader><Leader>gv <Plug>(go-def-vertical)
-  " :GoDef but opens in a horizontal split
-  autocmd FileType go nmap <Leader><Leader>gs <Plug>(go-def-split)
-  " :GoAlternate  commands :A, :AV, :AS and :AT
-  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-augroup END
+" augroup go
+  " autocmd!
+  " " Show by default 4 spaces for a tab
+  " autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+  " " :GoBuild and :GoTestCompile
+  " autocmd FileType go nmap <Leader><Leader>gb :<C-u>call <SID>build_go_files()<CR>
+  " " :GoTest
+  " autocmd FileType go nmap <Leader><Leader>gt  <Plug>(go-test)
+  " " :GoRun
+  " autocmd FileType go nmap <Leader><Leader>gr  <Plug>(go-run)
+  " " :GoDoc
+  " autocmd FileType go nmap <Leader><Leader>gd <Plug>(go-doc)
+  " " :GoCoverageToggle
+  " autocmd FileType go nmap <Leader><Leader>gc <Plug>(go-coverage-toggle)
+  " " :GoInfo
+  " autocmd FileType go nmap <Leader><Leader>gi <Plug>(go-info)
+  " " :GoMetaLinter
+  " autocmd FileType go nmap <Leader><Leader>gl <Plug>(go-metalinter)
+  " " :GoDef but opens in a vertical split
+  " autocmd FileType go nmap <Leader><Leader>gv <Plug>(go-def-vertical)
+  " " :GoDef but opens in a horizontal split
+  " autocmd FileType go nmap <Leader><Leader>gs <Plug>(go-def-split)
+  " " :GoAlternate  commands :A, :AV, :AS and :AT
+  " autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  " autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  " autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  " autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+" augroup END
 
 " build_go_files is a custom function that builds or compiles the test file.
 " It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#cmd#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
+" function! s:build_go_files()
+  " let l:file = expand('%')
+  " if l:file =~# '^\f\+_test\.go$'
+    " call go#cmd#Test(0, 1)
+  " elseif l:file =~# '^\f\+\.go$'
+    " call go#cmd#Build(0)
+  " endif
+" endfunction
 
 " References:
 " https://github.com/fatih/vim-go
