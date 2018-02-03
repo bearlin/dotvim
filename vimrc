@@ -56,7 +56,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 " Python
 Plugin 'vim-scripts/indentpython.vim'
 " golang
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 " Yocto bitbake
 Plugin 'kergoth/vim-bitbake'
 " ----------------------------------
@@ -189,6 +189,7 @@ filetype plugin indent on    " required
  " Editing settings
  syntax on         " This command switches on syntax highlighting, let Vim to overrule your settings with the defaults
  set nocompatible  " Make VIM not vi-compatible
+ set t_Co=256
 
   " Default indentation/fileformat settings
   " ----------------
@@ -964,8 +965,13 @@ let g:indent_guides_guide_size=1
 "
 " ack pattern to 'quickfix-window'
 nnoremap <Leader><Leader>aq :Ack!<Space><C-R><C-W>
+" nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/G1/Release<Space><C-R><C-W>
+" nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/Release<Space><C-R><C-W>
+
 " ack pattern to 'location-list-window'
 nnoremap <Leader><Leader>al :LAck!<Space><C-R><C-W>
+" nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/G1/Release<Space><C-R><C-W>
+" nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/Release<Space><C-R><C-W>
 
 " References:
 " https://github.com/mileszs/ack.vim
