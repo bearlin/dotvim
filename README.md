@@ -48,6 +48,9 @@ sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \
     libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
     python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev git
     
+# Remove vim if you have it already
+sudo apt remove vim vim-runtime gvim
+
 # Clone and make Vim
 cd ~
 git clone https://github.com/vim/vim.git
