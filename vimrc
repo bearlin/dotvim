@@ -204,37 +204,37 @@ filetype plugin indent on    " required
   " ----------------
   " C/C++ indentation/fileformat settings
   " ----------------
-  autocmd BufNewFile,BufRead *.c *.h *.cpp *.cxx *.cc *.hpp *.inl *.mm
-  \ setlocal
-  \ tabstop=4
-  \ softtabstop=4
-  \ shiftwidth=4
-  \ textwidth=79
-  \ expandtab
-  \ autoindent
-  \ fileformat=unix
+  " autocmd BufNewFile,BufRead *.c *.h *.cpp *.cxx *.cc *.hpp *.inl *.mm
+  " \ setlocal
+  " \ tabstop=4
+  " \ softtabstop=4
+  " \ shiftwidth=4
+  " \ textwidth=79
+  " \ expandtab
+  " \ autoindent
+  " \ fileformat=unix
   " ----------------
   " Python indentation/fileformat settings
   " ----------------
   " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-  autocmd BufNewFile,BufRead *.py
-  \ setlocal
-  \ tabstop=4
-  \ softtabstop=4
-  \ shiftwidth=4
-  \ textwidth=79
-  \ expandtab
-  \ autoindent
-  \ fileformat=unix
+  " autocmd BufNewFile,BufRead *.py
+  " \ setlocal
+  " \ tabstop=4
+  " \ softtabstop=4
+  " \ shiftwidth=4
+  " \ textwidth=79
+  " \ expandtab
+  " \ autoindent
+  " \ fileformat=unix
   " ----------------
   " JavaScript/HTML/CSS indentation settings
   " ----------------
   " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-  autocmd BufNewFile,BufRead *.js, *.html, *.css
-  \ setlocal
-  \ tabstop=2
-  \ softtabstop=2
-  \ shiftwidth=2
+  " autocmd BufNewFile,BufRead *.js, *.html, *.css
+  " \ setlocal
+  " \ tabstop=2
+  " \ softtabstop=2
+  " \ shiftwidth=2
   " ----------------
  " set noexpandtab
  set ruler         " Show the line and column number of the cursor position, separated by a comma
