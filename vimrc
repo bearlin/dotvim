@@ -58,7 +58,7 @@ Plugin 'vim-scripts/indentpython.vim'
 " golang
 " Plugin 'fatih/vim-go'
 " Yocto bitbake
-Plugin 'kergoth/vim-bitbake'
+" Plugin 'kergoth/vim-bitbake'
 " ----------------------------------
 
 " Debugging
@@ -189,7 +189,7 @@ filetype plugin indent on    " required
  " Editing settings
  syntax on         " This command switches on syntax highlighting, let Vim to overrule your settings with the defaults
  set nocompatible  " Make VIM not vi-compatible
- set t_Co=256
+ set t_Co=256      " Make terminal VIM support 256 colors, not just 16 colors
 
   " Default indentation/fileformat settings
   " ----------------
