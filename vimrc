@@ -36,7 +36,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 " Plugin 'godlygeek/tabular'
-" Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " Text objects
 Plugin 'michaeljsmith/vim-indent-object'
@@ -106,7 +106,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Syntax
-" Plugin 'lilydjwg/colorizer' " colorizer: Highlight #rrggbb or #rgb color (http://vimawesome.com/plugin/colorizer-sparks-fly)
+Plugin 'lilydjwg/colorizer' " colorizer: Highlight #rrggbb or #rgb color (http://vimawesome.com/plugin/colorizer-sparks-fly)
+
+" CSV file
+Plugin 'mechatroner/rainbow_csv'
 " ----------------------------------
 
 " Powerline (not for vim, only for my tmux/bash, see below [Note] for more details)
@@ -346,17 +349,17 @@ endif
 "
 " <Leader>x are Cut in visual mode
 " vnoremap <S-X>  "+x
- vnoremap <Leader>x "+x
+ " vnoremap <Leader>x "+x
 
 " <Leader>y are Copy in visual mode
 " vnoremap <S-C>  "+y
- vnoremap <Leader>y "+y
+ " vnoremap <Leader>y "+y
 
 " <Leader>p are Paste in normal mode and command line mode
 " noremap <S-V>   "+gp
 " cnoremap <S-V>  <C-R>+
- nnoremap <Leader>p "+p
- cnoremap <Leader>p <C-R>+
+ " nnoremap <Leader>p "+p
+ " cnoremap <Leader>p <C-R>+
 " -----------------------------------
 
 " Statusline and background color
@@ -914,11 +917,11 @@ let g:NERDSpaceDelims=1
 " vim-indent-guides
 " ==============================================================================
 " 随 vim 自启动
-" let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=1
 " 从第二层开始可视化显示缩进
-" let g:indent_guides_start_level=2
+let g:indent_guides_start_level=2
 " 色块宽度
-" let g:indent_guides_guide_size=1
+let g:indent_guides_guide_size=1
 " 快捷键 i 开/关缩进可视化
 " :nmap <silent> <Leader><Leader>ii <Plug>IndentGuidesToggle
 " References:
@@ -964,12 +967,12 @@ let g:NERDSpaceDelims=1
 "     follows the convention of Vim's built-in |:grep| and |:make| commands.
 "
 " ack pattern to 'quickfix-window'
-nnoremap <Leader><Leader>aq :Ack!<Space><C-R><C-W>
+nnoremap <Leader><Leader>aq :Ack! -i<Space><C-R><C-W>
 " nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/G1/Release<Space><C-R><C-W>
 " nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/Release<Space><C-R><C-W>
 
 " ack pattern to 'location-list-window'
-nnoremap <Leader><Leader>al :LAck!<Space><C-R><C-W>
+nnoremap <Leader><Leader>al :LAck! -i<Space><C-R><C-W>
 " nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/G1/Release<Space><C-R><C-W>
 " nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/Release<Space><C-R><C-W>
 
