@@ -36,7 +36,7 @@ usage() {
 }
 
 DOTVIMRC=~/.vimrc
-DOTGVIMRC=~/.gvimrc
+DOTGVIMRC=~/.vimrc #~/.gvimrc
 #echo "DOTVIMHOME=$DOTVIMHOME"
 #echo "DOTVIMRC=$DOTVIMRC"
 #echo "DOTGVIMRC=$DOTGVIMRC"
@@ -56,11 +56,8 @@ git clone https://github.com/bearlin/dotvim.git "$DOTVIMHOME"
 
 cd "$DOTVIMHOME" 
 # ------------------------ 
-./scripts/update_plugin_manager.sh
-
-# Disabled because migrated plugin manager from Pathogen to Vundle
-# git submodule init
-# git submodule update
+# Disabled because migrated plugin manager from Vundle to vim-plug
+# ./scripts/update_plugin_manager.sh #// Repleced by vim-plug
 
 ./scripts/update_pre_downloaded_plugins.sh
 ./scripts/cscope_maps_patch.sh
