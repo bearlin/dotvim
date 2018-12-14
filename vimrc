@@ -40,10 +40,33 @@ Plug 'will133/vim-dirdiff'
 Plug 'mileszs/ack.vim'            " Need to install Ack before use this plugin
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/indentpython.vim'
+Plug 'StanAngeloff/php.vim'
 " ----------------------------------
 
 " Code completion
 " ----------------------------------
+" PHP Autocompletion plugins
+    "Requirements
+    "Vim 8
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'} " PHP completion, refactoring and introspection tool.
+    "Requirements
+    "PHP 7.1+
+    "Composer
+Plug 'ncm2/ncm2' " Slim, Fast and Hackable Completion Framework for Neovim
+    "Requirements
+    ":echo has("nvim-0.2.2") prints 1. Older versions has not been tested
+    ":echo has("python3") prints 1
+    "Plugin nvim-yarp
+    "For vim8 user, read the nvim-yarp README. Note that vim8 support is simply a bonus. It's not the goal of NCM2.
+Plug 'roxma/nvim-yarp' " Yet Another Remote Plugin Framework for Neovim
+    "Requirements
+    "has('python3')
+    "For Vim 8:
+    "roxma/vim-hug-neovim-rpc
+    "g:python3_host_prog pointed to your python3 executable, or echo exepath('python3') is not empty.
+    "neovim python client (pip3 install neovim)
+Plug 'roxma/vim-hug-neovim-rpc' " experimental project : a compatibility layer for neovim rpc client working on vim8
+Plug 'phpactor/ncm2-phpactor' " NCM2 Integration for Phpactor
 " ----------------------------------
 
 " Colorful vim
@@ -56,6 +79,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'brafales/vim-desert256'
 Plug 'cseelus/vim-colors-lucid'
 Plug 'vim-scripts/wombat256.vim'
+
+" Status line
 Plug 'itchyny/lightline.vim'
 
 " Syntax
@@ -552,3 +577,42 @@ nnoremap <Leader><Leader>al :LAck! -i<Space><C-R><C-W>
 " http://harttle.com/2015/12/21/vim-search.html
 " ==============================================================================
 
+" PHP Autocompletion plugins
+" ==============================================================================
+" enable ncm2 for all buffers
+  autocmd BufEnter * call ncm2#enable_for_buffer()
+" IMPORTANTE: :help Ncm2PopupOpen for more information
+  set completeopt=noinsert,menuone,noselect
+
+" Phpactor : Keyboard Mappings
+" ----------------------------------
+" https://phpactor.github.io/phpactor/vim-plugin.html
+" Include use statement
+nmap <Leader><Leader>pua :call phpactor#UseAdd()<CR>
+
+" Invoke the context menu
+nmap <Leader><Leader>pcm :call phpactor#ContextMenu()<CR>
+" Invoke the navigation menu
+nmap <Leader><Leader>pnv :call phpactor#Navigate()<CR>
+
+" Goto definition of class or class member under the cursor
+nmap <Leader><Leader>pgd :call phpactor#GotoDefinition()<CR>
+" Scan for all references to a class member in the project
+nmap <Leader><Leader>pgr :call phpactor#FindReferences()<CR>
+" Show brief information about the symbol under the cursor
+nmap <Leader><Leader>pii :call phpactor#Hover()<CR>
+
+" Transform the classes in the current file
+nmap <Leader><Leader>ptf :call phpactor#Transform()<CR>
+" Generate a new class (replacing the current file)
+nmap <Leader><Leader>pcn :call phpactor#ClassNew()<CR>
+
+" Extract expression (normal mode)
+nmap <silent><Leader><Leader>pee :call phpactor#ExtractExpression(v:false)<CR>
+" Extract expression from selection
+vmap <silent><Leader><Leader>pes :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+" Extract method from selection
+vmap <silent><Leader><Leader>pem :<C-U>call phpactor#ExtractMethod()<CR>
+" ----------------------------------
+
+" ==============================================================================
