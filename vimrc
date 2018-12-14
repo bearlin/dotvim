@@ -353,6 +353,17 @@ nnoremap k gk
  let g:tagbar_left = 1
 " ==============================================================================
 
+" vim-cpp-enhanced-highlight
+" ==============================================================================
+" Optional features
+" Highlighting of class scope if disabled by default. To enable set
+" let g:cpp_class_scope_highlight = 1
+
+" Highlighting of template functions is enabled by setting
+" let g:cpp_experimental_template_highlight = 1
+" Note: C++ template syntax is notoriously difficult to parse, so don't expect this feature to be perfect."
+" ==============================================================================
+
 " DirDiff
 " ==============================================================================
 " http://myvicommandhelp.blogspot.tw/2010/10/dirdiff-compare-two-folders.html
@@ -365,6 +376,15 @@ nnoremap k gk
 "
 " #Don't flag files as different based on whitespace
  let g:DirDiffAddArgs = "-w"
+" ==============================================================================
+
+" To resolve conflict between snipmate + autocomplpop
+" ==============================================================================
+" (Update) othree/vim-autocomplpop already support arbas/vim-snipmate, so this
+" blow can be removed, more details at https://github.com/othree/vim-autocomplpop
+"
+" http://mvnllife.blogspot.tw/2013/11/vim-to-ide1-vundlesnipmateautocomplpop.html
+" let g:acp_behaviorSnipmateLength = 1
 " ==============================================================================
 
 " For auto loading ctags and cscope files
@@ -436,6 +456,33 @@ endfunction
 " For lightline.vim
 " ==============================================================================
 set laststatus=2
+" ==============================================================================
+
+" NERD Commenter
+" ==============================================================================
+let g:NERDSpaceDelims=1
+
+" Functionality summary:
+"<Leader>cc       "Comment out the current line or text selected in visual mode.
+"<Leader>cl       "Same as <Leader>cc except that the delimiters are aligned down the
+"<Leader>cb       "left side (<Leader>cl) or both sides (<Leader>cb).
+"<Leader>ca       "Switches to the alternative set of delimiters.
+"<Leader>cu       "Uncomments the selected line(s).
+"<Leader>cA       "Adds comment delimiters to the end of line and goes into insert mode between them.
+"<Leader>cs       "Comments out the selected lines ``sexily''
+"<Leader>c<space> "Toggles the comment state of the selected line(s). If the topmost selected
+                  "line is commented, all selected lines are uncommented and vice versa.
+"<Leader>cn       "Same as <Leader>cc but forces nesting.
+"<Leader>cm       "Comments the given lines using only one set of multipart delimiters.
+"<Leader>ci       "Toggles the comment state of the selected line(s) individually.
+"<Leader>cy       "Same as <Leader>cc except that the commented line(s) are yanked first.
+"<Leader>c$       "Comments the current line from the cursor to the end of line.
+"
+" References:
+" :h NERDComFunctionalitySummary
+" https://github.com/scrooloose/nerdcommenter
+" http://www.wklken.me/posts/2015/06/07/vim-plugin-nerdcommenter.html
+" http://www.dutor.net/index.php/2010/05/vim-the-nerd-commenter/
 " ==============================================================================
 
 " vim-indent-guides
