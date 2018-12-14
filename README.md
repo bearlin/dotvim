@@ -1,16 +1,16 @@
 # dotvim
 This is my vim/gvim setting repo.  
 
-# Plugins manager: Vundle
-https://github.com/VundleVim/Vundle.Vim
+# Plugins manager: vim-plug
+https://github.com/junegunn/vim-plug
 
-# Plugins path(all managed by Vundle)
-bundle/*  
+# Plugins path(all managed by vim-plug)
+plugged/*  
 
 # Plugins pre-downloaded
 [cscope_maps.vim](http://cscope.sourceforge.net/cscope_vim_tutorial.html)  
 
-# Plugins need to be ":PluginInstall" using Vundle
+# Plugins need to be ":PlugInstall" using vim-plug 
 [fugitive](http://www.vim.org/scripts/script.php?script_id=2975)  
 [nerdtree](http://www.vim.org/scripts/script.php?script_id=1658)  
 [srcexpl](http://www.vim.org/scripts/script.php?script_id=217)  
@@ -98,17 +98,17 @@ Or use wget (for most UNIX platforms):
 ```sh
   wget "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install_dotvim.sh" -O "auto_install_dotvim.sh" 
 ```
-Then run below scripts to install both .vimrc and its plugins via Vundle:  
+Then run below scripts to install both .vimrc and its plugins via vim-plug:  
 ```sh
   chmod +x auto_install_dotvim.sh
   ./auto_install_dotvim.sh
-  vim +PluginInstall +qall
+  vim +PlugInstall +qall
 ```
 Or force remove ~/.vim, ~/.vimrc and ~/.gvimrc:  
 ```sh
   chmod +x auto_install_dotvim.sh
   ./auto_install_dotvim.sh force
-  vim +PluginInstall +qall
+  vim +PlugInstall +qall
 ```
 
 # Manually install steps:  
@@ -130,7 +130,7 @@ cd ~/.vim
 ./scripts/update_plugin_manager.sh
 ./scripts/update_pre_downloaded_plugins.sh
 ./scripts/cscope_maps_patch.sh
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 ```
 
 # Some useful scripts

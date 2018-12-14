@@ -10,7 +10,7 @@ set nocompatible              " be iMproved, required
 " Section for Vim plugin manage
 " ==============================================================================
 
-" Automatic installation for plug.vim
+" Automatic installation for vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
