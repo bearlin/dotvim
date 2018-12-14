@@ -56,9 +56,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'brafales/vim-desert256'
 Plug 'cseelus/vim-colors-lucid'
 Plug 'vim-scripts/wombat256.vim'
-" vim-airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+
 " Syntax
 " Plug 'lilydjwg/colorizer' " colorizer: Highlight #rrggbb or #rgb color (http://vimawesome.com/plugin/colorizer-sparks-fly)
 " CSV file
@@ -434,28 +433,9 @@ endfunction
 
 " ==============================================================================
 
-" For vim-airline
+" For lightline.vim
 " ==============================================================================
-" The default setting of 'laststatus' is for the statusline to not appear until a split is created.
-" If you want it to appear all the time, add the following to your vimrc:
 set laststatus=2
-
-let g:airline#extensions#tabline#enabled = 1        " Enable tabline
-let g:airline#extensions#tabline#left_sep = ' '     " Set left separator
-let g:airline#extensions#tabline#left_alt_sep = '|' " Set left separator which are not editting
-let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer number
-let g:airline#extensions#tabline#fnamemod = ':t'    " Configure the formatting of filenames
-
-" Enable/Disable automatic population of the `g:airline_symbols` dictionary with powerline symbols.
-" How to install powerline patched fonts : https://github.com/powerline/fonts
-let g:airline_powerline_fonts=0
-
-" Themes are automatically selected based on the matching colorscheme. this can be overridden by defining a value.
-" Note: Only the dark theme is distributed with vim-airline. For more themes, checkout (https://github.com/vim-airline/vim-airline-themes)
-" Change the vim-airline theme : https://github.com/vim-airline/vim-airline/wiki/Screenshots
-" let g:airline_theme='dark'
-" let g:airline_theme='light'
-let g:airline_theme='jellybeans'
 " ==============================================================================
 
 " vim-indent-guides
