@@ -5,111 +5,63 @@
 " More info : https://github.com/bearlin/dotvim/blob/master/README.md
 " ==============================================================================
 
-" Section for Vundle Vim plugin manage
-" ==============================================================================
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Section for Vim plugin manage
+" ==============================================================================
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Automatic installation for vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" plugin on GitHub repo
-" ------------------------------------------------------------------------------
+" Vim help
+" ----------------------------------
+Plug 'junegunn/vim-plug' "If you need Vim help for vim-plug itself (e.g. :help plug-options), register vim-plug as a plugin
+" ----------------------------------
+
 " Source code browsing
 " ----------------------------------
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-" Plugin 'easymotion/vim-easymotion'
-" Plugin 'kien/ctrlp.vim'
-
-" Text alignment
-" Plugin 'vim-scripts/matchit.zip' " Disable because it has bug while matching simple (), [] in large html file.
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
-" Plugin 'godlygeek/tabular'
-Plugin 'nathanaelkane/vim-indent-guides'
-
-" Text objects
-Plugin 'michaeljsmith/vim-indent-object'
-
-" PHP
-" Plugin 'stanangeloff/php.vim'       " http://vimawesome.com/plugin/php-vim-shouldve-said-no
-" Plugin 'shawncplus/phpcomplete.vim' " http://vimawesome.com/plugin/phpcomplete-vim
-
-" Git
-Plugin 'tpope/vim-fugitive'
-" Diff
-Plugin 'will133/vim-dirdiff'
-" Ack
-Plugin 'mileszs/ack.vim'            " Need to install Ack before use this plugin
-" C++
-Plugin 'octol/vim-cpp-enhanced-highlight'
-" Python
-Plugin 'vim-scripts/indentpython.vim'
-" golang
-" Plugin 'fatih/vim-go'
-" Yocto bitbake
-" Plugin 'kergoth/vim-bitbake'
-" ----------------------------------
-
-" Debugging
-" ----------------------------------
-" Plugin 'vim-scripts/Conque-GDB'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'tpope/vim-fugitive'
+Plug 'will133/vim-dirdiff'
+Plug 'mileszs/ack.vim'            " Need to install Ack before use this plugin
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-scripts/indentpython.vim'
 " ----------------------------------
 
 " Code completion
 " ----------------------------------
-" YouCompleteMe obsoletes the following Vim plugins because it has all of their features plus extra
-" clang_complete
-" AutoComplPop
-" Supertab
-" neocomplcache
-"
-" Plugin 'ervandew/supertab'        " Replaced by YouCompleteMe
-" Plugin 'othree/vim-autocomplpop'  " Replaced by YouCompleteMe
-" Plugin 'Rip-Rip/clang_complete'   " Replaced by YouCompleteMe
-
-" Plugin 'Valloric/YouCompleteMe'     " A code-completion engine for Vim. To enable, follow instructions in http://valloric.github.io/YouCompleteMe/#full-installation-guide
-" Plugin 'rdnetto/YCM-Generator'      " Generates config files '.ycm_extra_conf.py' for YouCompleteMe (Usage : ./config_gen.py PROJECT_DIRECTORY)
-" ----------------------------------
-
-" Snipmate engine
-" ----------------------------------
-" From github.com/garbas/vim-snipmate
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'honza/vim-snippets'
 " ----------------------------------
 
 " Colorful vim
 " ----------------------------------
 " vim colorschemes
-Plugin 'romainl/Apprentice'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'https://sanctum.geek.nz/code/sahara.git'
-Plugin 'cseelus/vim-colors-lucid'
-Plugin 'vim-scripts/wombat256.vim'
-
-" vim-airline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'romainl/Apprentice'
+Plug 'nanotech/jellybeans.vim'
+Plug 'altercation/vim-colors-solarized'
+"Plug 'https://sanctum.geek.nz/code/vim-sahara.git'
+Plug 'brafales/vim-desert256'
+Plug 'cseelus/vim-colors-lucid'
+Plug 'vim-scripts/wombat256.vim'
+Plug 'itchyny/lightline.vim'
 
 " Syntax
-Plugin 'lilydjwg/colorizer' " colorizer: Highlight #rrggbb or #rgb color (http://vimawesome.com/plugin/colorizer-sparks-fly)
-
+" Plug 'lilydjwg/colorizer' " colorizer: Highlight #rrggbb or #rgb color (http://vimawesome.com/plugin/colorizer-sparks-fly)
 " CSV file
-Plugin 'mechatroner/rainbow_csv'
+" Plug 'mechatroner/rainbow_csv'
 " ----------------------------------
 
 " Powerline (not for vim, only for my tmux/bash, see below [Note] for more details)
@@ -117,64 +69,16 @@ Plugin 'mechatroner/rainbow_csv'
 " [Note]
 " Althought my vim changes to vim-airline, my tmux/bash still need powerline binding scripts 
 " in ~/.vim/bundle/powerline/powerline/bindings/*, so still need to install powerline plugin here.
-
-" Plugin 'Lokaltog/vim-powerline'
-" Plugin 'Lokaltog/powerline'
-Plugin 'powerline/powerline'
+Plug 'powerline/powerline'
 " ----------------------------------
-" ------------------------------------------------------------------------------
 
-" plugin from http://vim-scripts.org/vim/scripts.html
-" ------------------------------------------------------------------------------
 " Vim-script library
 " ----------------------------------
-Plugin 'L9'
+Plug 'vim-scripts/L9'
 " ----------------------------------
-" ------------------------------------------------------------------------------
 
-" Git plugin not hosted on GitHub
-" ------------------------------------------------------------------------------
-" Plugin 'git://git.wincent.com/command-t.git'
-" ------------------------------------------------------------------------------
-"
-" git repos on your local machine (i.e. when working on your own plugin)
-" ------------------------------------------------------------------------------
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" ------------------------------------------------------------------------------
-"
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
-" Install Plugins:
-" Launch vim and run :PluginInstall
-" To install from command line: vim +PluginInstall +qall
-
-" References:
-" http://easwy.com/blog/archives/advanced-vim-skills-filetype-on/
-" https://github.com/VundleVim/Vundle.Vim
-" http://lepture.com/en/2012/vundle-vs-pathogen
-" http://mvnllife.blogspot.tw/2013/11/vim-to-ide1-vundlesnipmateautocomplpop.html
-" http://blog.chh.tw/posts/vim-vundle/
+" Initialize plugin system
+call plug#end()
 " ==============================================================================
 
 " ************************************
@@ -190,56 +94,20 @@ filetype plugin indent on    " required
  set fileencodings=utf-8,cp950,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
  set termencoding=utf-8
  " Editing settings
- syntax on         " This command switches on syntax highlighting, let Vim to overrule your settings with the defaults
  set nocompatible  " Make VIM not vi-compatible
  set t_Co=256      " Make terminal VIM support 256 colors, not just 16 colors
 
-  " Default indentation/fileformat settings
-  " ----------------
-  set tabstop=4     " Number of spaces that a <Tab> in the file counts for
-  set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
-  set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
-  set textwidth=79  " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
-  set formatoptions=tcroq " Auto-wrap text using textwidth
-  set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
-  set autoindent    " Copy indent from current line when starting a new line
-  set fileformat=unix
-  " ----------------
-  " C/C++ indentation/fileformat settings
-  " ----------------
-  " autocmd BufNewFile,BufRead *.c *.h *.cpp *.cxx *.cc *.hpp *.inl *.mm
-  " \ setlocal
-  " \ tabstop=4
-  " \ softtabstop=4
-  " \ shiftwidth=4
-  " \ textwidth=79
-  " \ expandtab
-  " \ autoindent
-  " \ fileformat=unix
-  " ----------------
-  " Python indentation/fileformat settings
-  " ----------------
-  " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-  " autocmd BufNewFile,BufRead *.py
-  " \ setlocal
-  " \ tabstop=4
-  " \ softtabstop=4
-  " \ shiftwidth=4
-  " \ textwidth=79
-  " \ expandtab
-  " \ autoindent
-  " \ fileformat=unix
-  " ----------------
-  " JavaScript/HTML/CSS indentation settings
-  " ----------------
-  " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
-  " autocmd BufNewFile,BufRead *.js, *.html, *.css
-  " \ setlocal
-  " \ tabstop=2
-  " \ softtabstop=2
-  " \ shiftwidth=2
-  " ----------------
+ " Default indentation/fileformat settings
+ set tabstop=4     " Number of spaces that a <Tab> in the file counts for
+ set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
+ set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
+ set textwidth=79  " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
+ set formatoptions=tcroq " Auto-wrap text using textwidth
+ set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
+ set autoindent    " Copy indent from current line when starting a new line
+ set fileformat=unix
  " set noexpandtab
+
  set ruler         " Show the line and column number of the cursor position, separated by a comma
  set backspace=2   " Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode. 在 insert 也可用 backspace
  set ignorecase    " Ignore case in search patterns
@@ -266,9 +134,6 @@ filetype plugin indent on    " required
 
 " Enable mouse and line numbering
 " -----------------------------------
-" http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm
-" http://usevim.com/2012/05/16/mouse/
-" http://vimdoc.sourceforge.net/htmldoc/options.html#'mouse' 
 " How to copy text when mouse=a: http://stackoverflow.com/questions/4608161/copy-text-out-of-vim-with-set-mouse-a-enabled
  set number        " Print the line number in front of each line
 " set ttyfast       " Indicates a fast terminal connection, More characters will be sent to the screen for redrawing
@@ -283,17 +148,11 @@ filetype plugin indent on    " required
 
 " Change mapleader to ','
 " -----------------------------------
-" Learn Vimscript the Hard Way - Leaders http://learnvimscriptthehardway.stevelosh.com/chapters/06.html
-" http://stackoverflow.com/questions/1764263/what-is-the-leader-in-a-vimrc-file
-" https://github.com/yangyangwithgnu/use_vim_as_ide/blob/master/README.md
-" http://stackoverflow.com/questions/11122866/vim-default-leader-key-on-a-macbook
  let mapleader=","
 " -----------------------------------
 
 " Easier split window navigations 
 " -----------------------------------
-" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
-"
 " Easier split navigations 
 " We can use different key mappings for easy navigation between splits to save a keystroke. So instead of ctrl-w then j, it’s just ctrl-j:
 " About nmap and nnoremap: http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
@@ -301,22 +160,7 @@ filetype plugin indent on    " required
   nnoremap <C-K> <C-W><C-K>
   nnoremap <C-L> <C-W><C-L>
   nnoremap <C-H> <C-W><C-H>
-  " nnoremap - <C-W>-
-  " nnoremap + <C-W>+
-  " if has("autocmd")
-  "   function! SetWindowHOperation()
-  "     if winnr() == 1
-  "       nnoremap < <C-W><
-  "       nnoremap > <C-W>>
-  "     else
-  "       nnoremap < <C-W>>
-  "       nnoremap > <C-W><
-  "     endif
-  "   endfunction
-  "   autocmd BufEnter,BufLeave /* call SetWindowHOperation()
-  " endif
-" More natural split opening
-" Open new split panes to right and bottom, which feels more natural than Vim’s default:
+" More natural split opening. Open new split panes to right and bottom, which feels more natural than Vim’s default:
  set splitbelow       " When on, splitting a window will put the new window below the current one
  set splitright       " When on, splitting a window will put the new window right of the current one
 " -----------------------------------
@@ -379,7 +223,8 @@ set background=dark
 " http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
 " :colo[rscheme] {name} : Load color scheme {name}
 ":silent! colorscheme lucid
-:silent! colorscheme sahara
+:silent! colorscheme desert256
+":silent! colorscheme sahara
 ":silent! colorscheme apprentice
 ":silent! colorscheme solarized
 ":silent! colorscheme wombat
@@ -392,13 +237,6 @@ set background=dark
 " http://nion.modprobe.de/blog/archives/628-vim-as-hex-editor.html
  nnoremap <Leader>hexon :%!xxd<CR>
  nnoremap <Leader>hexof :%!xxd -r<CR>
-
-" Considering adding advanced hex editing plugins in the future:
-" http://usevim.com/2012/06/20/vim-binary-files/
-" http://vim.wikia.com/wiki/Hex_dump
-" http://vim.wikia.com/wiki/Improved_hex_editing
-" http://www.vim.org/scripts/script.php?script_id=666
-" https://github.com/fidian/hexmode
 " -----------------------------------
 
 " Insert current file/directory name/path
@@ -487,37 +325,6 @@ nnoremap j gj
 nnoremap k gk
 " -----------------------------------
 
-" Compile single file with gcc/g++ in vim
-" -----------------------------------
-" [20160308]
-" Disable this section because I am learning how to write Makefile now, so
-" current I prefer just add a Makefile and compile your project with :make
-"
-" [:make with makeprg]
-" autocmd FileType c set makeprg=gcc\ -g\ -Wall\ %
-" autocmd FileType cpp set makeprg=g++\ -g\ -Wall\ %
-" " autocmd FileType cpp set makeprg=cd\ ~/ws/geo/\ &&\ ./build_navkit.sh\ geo\ debug\ &&\ cd\ ~/ws/geo/navkit_geo/
-" nnoremap <leader><leader>make :make<CR> <bar> :cwindow<CR>
-" nnoremap <leader><leader>run :!./a.out<CR>
-" nnoremap <leader><leader>cln :!rm -r a.out*<CR>
-" [:make without makeprg]
-" nnoremap <leader><leader>make :!g++ -g -Wall % -o %:r.out<CR>
-" nnoremap <leader><leader>run :!./%:r.out<CR>
-" nnoremap <leader><leader>cln :!rm -r %:r.out*<CR>
-"
-" References:
-" http://unix.stackexchange.com/questions/52559/how-to-compile-a-c-program-without-leaving-the-editor
-" http://stackoverflow.com/questions/2627886/how-do-i-run-a-c-program-from-vim
-" https://www.reddit.com/r/vim/comments/3fdd7l/compile_simple_programs_with_vim_in_c/
-" -----------------------------------
-
-" Press <F2> to insert timestamp
-" -----------------------------------
-inoremap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
-" References:
-" man strftime
-" -----------------------------------
-
 " ************************************
 " ****** Plugins settings start ******
 " ************************************
@@ -544,20 +351,6 @@ inoremap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
  let g:tagbar_ctags_bin = 'ctags'
  let g:tagbar_width = 30
  let g:tagbar_left = 1
-" References:
-" http://blog.jasonding.top/2015/04/29/Developer%20Kits/%E3%80%90Vim%E3%80%91%E4%BD%BF%E7%94%A8Vundle%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AEVim%E5%9F%BA%E6%9C%AC%E6%8F%92%E4%BB%B6/
-" http://www.vimer.cn/2011/03/%E6%9B%B4%E9%80%82%E5%90%88%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%BE%E7%A4%BA%E5%87%BD%E6%95%B0%E5%88%97%E8%A1%A8%E6%8F%92%E4%BB%B6-tagbar-vim.html
-" ==============================================================================
-
-" colorizer
-" ==============================================================================
-" Examples:
-" #ff0000 or #f00 will be display with red color
-" #00ff00 or #0f0 will be display with green color
-" #0000ff or #00f will be display with blue color
-" By default, <leader>tc is mapped to ColorToggle. If you want to use another key map, do like this:
-"  nnoremap <leader><leader>colort <Plug>Colorizer
-" References : http://www.vim.org/scripts/script.php?script_id=3567
 " ==============================================================================
 
 " vim-cpp-enhanced-highlight
@@ -597,24 +390,24 @@ inoremap <F2> <C-R>=strftime("%Y/%m/%d %A %H:%M:%S")<CR>
 " For auto loading ctags and cscope files
 " ==============================================================================
 " See :help rtp
-  set rtp+=~/.vim/bundle/cscope_maps
+"  set rtp+=~/.vim/bundle/cscope_maps
 
 " Vim will look for tags file everywhere starting from the current directory up
 " to the root. Ref : http://vim.wikia.com/wiki/Autoloading_Cscope_Database
-  set tags=tags;/
+"  set tags=tags;/
 
-  function! LoadCscope()
+"  function! LoadCscope()
     " Searches from the directory of the current file upwards until it finds
     " the file "cscope.out", see :h file-searching for ".;".
-    let db = findfile("cscope.out", ".;")
-    if (!empty(db))
-      let path = strpart(db, 0, match(db, "/cscope.out$"))
-      set nocscopeverbose " suppress 'duplicate connection' error
-      exe "cs add " . db . " " . path
-      set cscopeverbose
-    endif
-  endfunction
-  autocmd BufEnter /* call LoadCscope()
+"    let db = findfile("cscope.out", ".;")
+"    if (!empty(db))
+"      let path = strpart(db, 0, match(db, "/cscope.out$"))
+"      set nocscopeverbose " suppress 'duplicate connection' error
+"      exe "cs add " . db . " " . path
+"      set cscopeverbose
+"    endif
+"  endfunction
+"  autocmd BufEnter /* call LoadCscope()
 " ==============================================================================
 
 " For GNU GLOBAL (gtags) files
@@ -660,168 +453,13 @@ endfunction
 
 " ==============================================================================
 
-"" Enable powerline for vim
-"" ==============================================================================
-"" References:
-"" https://powerline.readthedocs.org/en/latest/installation.html
-"" https://pip.pypa.io/en/stable/installing/
-"" https://github.com/powerline/fonts
-"" https://powerline.readthedocs.org/en/latest/usage/other.html#vim-statusline
-"" https://github.com/Lokaltog/vim-powerline
-"" https://coderwall.com/p/yiot4q/setup-vim-powerline-and-iterm2-on-mac-os-x
-"" http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
-""
-"" Powerline installation directory also can be retrieved via "vim's plugin 'powerline/powerline'"
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-"" set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim/
-"set guifont=Inconsolata\ for\ Powerline:h15
-"let g:Powerline_symbols = 'fancy'
-"set encoding=utf-8
-"set laststatus=2
-"set t_Co=256
-"set fillchars+=stl:\ ,stlnc:\
-"set term=xterm-256color
-"set termencoding=utf-8
-"if has("gui_running")
-"   let s:uname = system("uname")
-"   if s:uname == "Darwin\n"
-"      set guifont=Inconsolata\ for\ Powerline:h15
-"   endif
-"endif
-"" TODO : Maybe migrate to vim Airline because Powerline is too heavy and its dependency in Python, details see http://jchain.github.io/blog/2013/07/17/fly-with-vim-airline/
-"" ==============================================================================
-
-" For vim-airline
+" For lightline.vim
 " ==============================================================================
-" The default setting of 'laststatus' is for the statusline to not appear until a split is created.
-" If you want it to appear all the time, add the following to your vimrc:
 set laststatus=2
-
-let g:airline#extensions#tabline#enabled = 1        " Enable tabline
-let g:airline#extensions#tabline#left_sep = ' '     " Set left separator
-let g:airline#extensions#tabline#left_alt_sep = '|' " Set left separator which are not editting
-let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer number
-let g:airline#extensions#tabline#fnamemod = ':t'    " Configure the formatting of filenames
-
-" Enable/Disable automatic population of the `g:airline_symbols` dictionary with powerline symbols.
-" How to install powerline patched fonts : https://github.com/powerline/fonts
-let g:airline_powerline_fonts=0
-
-" Themes are automatically selected based on the matching colorscheme. this can be overridden by defining a value.
-" Note: Only the dark theme is distributed with vim-airline. For more themes, checkout (https://github.com/vim-airline/vim-airline-themes)
-" Change the vim-airline theme : https://github.com/vim-airline/vim-airline/wiki/Screenshots
-" let g:airline_theme='dark'
-" let g:airline_theme='light'
-let g:airline_theme='jellybeans'
-" ==============================================================================
-
-" For clang_complete
-" ==============================================================================
-" References:
-" http://www.vim.org/scripts/script.php?script_id=3302
-" https://github.com/Rip-Rip/clang_complete
-" http://blog.csdn.net/logicworldzju/article/details/8738407
-" http://aknow-work.blogspot.tw/2013/04/vim-clangcomplete.html
-" https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt
-" http://stackoverflow.com/questions/20645920/adding-clang-complete-to-homebrew-installed-vim-on-mac
-
-" let g:clang_complete_copen=0                  "If equal to 1, open quickfix window on error. Default: 0
-" let g:clang_hl_errors=1                       "If equal to 1, it will highlight the warnings and errors the same way clang does it. Default: 1
-" let g:clang_periodic_quickfix=0               "If equal to 1, it will periodically update the quickfix window. Default: 0
-" let g:clang_snippets=1                        "If equal to 1, it will do some snippets magic on code placeholders like function argument, template parameters, etc. Default: 0
-" let g:clang_snippets_engine='clang_complete'  "The snippets engine (clang_complete, ultisnips... see the snippets subdirectory). Default: 'clang_complete'
-" let g:clang_close_preview=1                   "If equal to 1, the preview window will be close automatically after a completion. Default: 0
-" let g:clang_use_library=1                     "Instead of calling the clang/clang++ tool use libclang directly. This gives
-                                              "access to many more clang features. Furthermore it automatically caches all
-                                              "includes in memory. Updates after changes in the same file will therefore be a
-                                              "lot faster.
-                                              "Note: This version doesn't support calling clang binary for completion. If you
-                                              "cannot use libclang, you should download clang_complete from vim.org website.
-                                              "Default: 1
-
-                                              " g:clang_user_options : 
-                                              "Additionnal compilation argument passed to libclang.
-                                              "Example: >
-                                              " " compile all sources as c++11 (just for example, use .clang_complete for
-                                              " " setting version of the language per project)
-                                              " let g:clang_user_options = '-std=c++11'
-                                              "<
-                                              "Default: ""
-" let g:clang_user_options = '-std=c++11' "Compile all sources as c++11 (just for example, use .clang_complete for setting version of the language per project)
-" " let g:clang_user_options='-stdlib=libc++ -std=c++11 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
-" if has('win32unix') " Cygwin
-  " let s:clang_library_path='/lib/'
-" elseif has('win32') || has('win64') " Windows
-  " let s:clang_library_path='D:\Sourcen\LLVM\build\bin\Debug'
-" elseif has('mac') " MacOS 
-  " let s:clang_library_path='/Applications/Xcode.app//Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
-" elseif has('unix') " Ubuntu
-  " let s:clang_library_path='/usr/lib/llvm-3.6/lib/'
-" else
-  " let s:clang_library_path='/usr/lib/'
-" endif
-" if isdirectory(s:clang_library_path)
-  " let g:clang_library_path=s:clang_library_path   "If libclang is not in your library search path->set this to the absolute path
-                                                  " "where libclang is available. This should either be a directory containing a
-                                                  " "file named libclang.[dll/so/dylib] or the clang shared library file itself.
-                                                  " "Default: ""
-" endif
-
-" Completion is started with CTRL-X CTRL-U |i_CTRL-X_CTRL-U|, or automatically depending on the value of |clang_complete-auto|.
-"  inoremap <Leader><Leader><Tab> <C-X><C-U>
-" ==============================================================================
-
-" For easymotion
-" ==============================================================================
-" Below info from :h easymotion-default-mappings
-  " map <Leader><Leader>em <Plug>(easymotion-prefix)
-  " noremap <Leader><Leader>em <Plug>(easymotion-prefix) " Non-recursive mapping won't working here
-
-"   Default Mapping      | Details
-"   ---------------------|----------------------------------------------
-"   <Leader>f{char}      | Find {char} to the right. See |f|.
-"   <Leader>F{char}      | Find {char} to the left. See |F|.
-"   <Leader>t{char}      | Till before the {char} to the right. See |t|.
-"   <Leader>T{char}      | Till after the {char} to the left. See |T|.
-"   <Leader>w            | Beginning of word forward. See |w|.
-"   <Leader>W            | Beginning of WORD forward. See |W|.
-"   <Leader>b            | Beginning of word backward. See |b|.
-"   <Leader>B            | Beginning of WORD backward. See |B|.
-"   <Leader>e            | End of word forward. See |e|.
-"   <Leader>E            | End of WORD forward. See |E|.
-"   <Leader>ge           | End of word backward. See |ge|.
-"   <Leader>gE           | End of WORD backward. See |gE|.
-"   <Leader>j            | Line downward. See |j|.
-"   <Leader>k            | Line upward. See |k|.
-"   <Leader>n            | Jump to latest "/" or "?" forward. See |n|.
-"   <Leader>N            | Jump to latest "/" or "?" backward. See |N|.
-"   <Leader>s            | Find(Search) {char} forward and backward.
-"                        | See |f| and |F|.
-" ==============================================================================
-
-" For vim-fugitive
-" ==============================================================================
-" | git             | fugitive  | action
-" |-----------------|-----------|-----------------------------------------------
-" | :Git add %      | :Gwrite   | Stage the current file to the index
-" | :Git checkout % | :Gread    | Revert current file to last checked in version
-" | :Git rm %       | :Gremove  | Delete the current file and the corresponding Vim buffer
-" | :Git mv %       | :Gmove    | Rename the current file and the corresponding Vim buffer
-" | :Git commit     | :Gcommit  | Open commit window, can use Vim’s keyword autocompletion when composing commit message
-" | :Git blame      | :Gblame   | Open blame window, each line with: the last commit, author and timestamp
-" |-----------------|-----------|-----------------------------------------------
-"   NOTE : More commands please use :h fugitive-commands
-"
-" References:
-" http://www.d0u9.xyz/vimcha-jian-jie-shao-fugitive/
-" http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/
-" http://quickteckiteasy.blogspot.tw/2013/11/vim-plugin-fugative-vim-git.html
 " ==============================================================================
 
 " NERD Commenter
 " ==============================================================================
-" Specifies whether to add extra spaces around delimiters when commenting, and
-" whether to remove them when uncommenting.
 let g:NERDSpaceDelims=1
 
 " Functionality summary:
@@ -845,73 +483,6 @@ let g:NERDSpaceDelims=1
 " https://github.com/scrooloose/nerdcommenter
 " http://www.wklken.me/posts/2015/06/07/vim-plugin-nerdcommenter.html
 " http://www.dutor.net/index.php/2010/05/vim-the-nerd-commenter/
-" ==============================================================================
-
-" tabular
-" ==============================================================================
-"" if exists(":Tabularize") " Disable according to http://stackoverflow.com/questions/8540232/why-doesnt-my-vim-mapping-work
-"  nmap <Leader><Leader>tabu= :Tabularize /=<CR>
-"  vmap <Leader><Leader>tabu= :Tabularize /=<CR>
-"  nmap <Leader><Leader>tabu: :Tabularize /:\zs<CR>
-"  vmap <Leader><Leader>tabu: :Tabularize /:\zs<CR>
-"" endif
-"
-"inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-"function! s:align()
-"    let p = '^\s*|\s.*\s|\s*$'
-"    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-"        let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-"        let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-"        Tabularize/|/l1
-"        normal! 0
-"        call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-"    endif
-"endfunction
-"
-"" References:
-"" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
-" ==============================================================================
-
-" Conque-GDB
-" ==============================================================================
-" let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
-" let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
-" let g:ConqueTerm_StartMessages = 1 " display warning messages if conqueTerm is configured incorrectly
-" let g:ConqueTerm_ReadUnfocused = 1 " conque buffers will continue to update after you've switched to another buffer.
-" Set the leader key mapping:
-" We may not use ConqueGDB quite often, and the same leader character may conflict with
-" other options of vim or other plugins. So use '\' instead of '<Leader>'
-" References: https://jianfengwang.wordpress.com/2015/11/06/tips-of-gdb-with-vim/
-" let g:ConqueGdb_Leader = '\'
-
-" Key mappings
-" let g:ConqueGdb_Run         = g:ConqueGdb_Leader . 'r'
-" let g:ConqueGdb_Continue    = g:ConqueGdb_Leader . 'c'
-" let g:ConqueGdb_Next        = g:ConqueGdb_Leader . 'n'
-" let g:ConqueGdb_Step        = g:ConqueGdb_Leader . 's'
-" let g:ConqueGdb_Print       = g:ConqueGdb_Leader . 'p'
-" let g:ConqueGdb_ToggleBreak = g:ConqueGdb_Leader . 'b'
-" let g:ConqueGdb_DeleteBreak = g:ConqueGdb_Leader . 'd'
-" let g:ConqueGdb_Finish      = g:ConqueGdb_Leader . 'f'
-" let g:ConqueGdb_Backtrace   = g:ConqueGdb_Leader . 't'
-" Start the ConqueGdb
-"Type :ConqueGdb <gdb-arguments> to launch GDB in the current window. E.g.:
-"    :ConqueGdb
-"    :ConqueGdb program
-"    :ConqueGdb -d dir --args program [arguments]
-"Open GDB in a new horizontal:
-"    :ConqueGdbSplit
-"    :ConqueGdbVSplit
-" nmap <leader><Leader>dbs :ConqueGdbSplit<CR>
-" nmap <leader><Leader>dbv :ConqueGdbVSplit<CR>
-" nmap <leader><Leader>dbt :ConqueGdbTab<CR>
-
-"
-" References:
-" http://vi.stackexchange.com/questions/2046/how-can-i-integrate-gdb-with-vim
-" https://jianfengwang.wordpress.com/2015/11/06/tips-of-gdb-with-vim/
-" :h conque_gdb.txt
-" :h conque_term.txt
 " ==============================================================================
 
 " vim-indent-guides
@@ -979,204 +550,5 @@ nnoremap <Leader><Leader>al :LAck! -i<Space><C-R><C-W>
 " References:
 " https://github.com/mileszs/ack.vim
 " http://harttle.com/2015/12/21/vim-search.html
-" ==============================================================================
-
-" PATCH(s)
-" ==============================================================================
-  " PATCH 'formatoptions' at end of vimrc file to makesure its value won't be
-  " chaged by plugins to unwanted value (maybe bundle/tlib_vim/ or
-  " bundle/vim-autocomplpop)
-  " set formatoptions=tcroq " Auto-wrap text using textwidth
-" ==============================================================================
-
-" Plugin 'Valloric/YouCompleteMe'
-" ==============================================================================
-" let g:ycm_error_symbol = '>>'
-" let g:ycm_warning_symbol = '>*'
-" nnoremap <Leader><Leader>gl :YcmCompleter GoToDeclaration<CR>
-" nnoremap <Leader><Leader>gf :YcmCompleter GoToDefinition<CR>
-" nnoremap <Leader><Leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" nmap <F6> :YcmDiags<CR>
-" References:
-" http://blog.jobbole.com/58978/
-" ==============================================================================
-
-" Plugin 'fatih/vim-go'
-" ==============================================================================
-" Below settings are copy-n-paste from :
-" https://github.com/fatih/vim-go-tutorial/blob/master/vimrc
-
-" vim-go
-" let g:go_fmt_command = "goimports"
-" let g:go_autodetect_gopath = 1
-" let g:go_list_type = "quickfix"
-" let g:go_highlight_types = 1
-" let g:go_highlight_fields = 1
-" let g:go_highlight_functions = 1
-" let g:go_highlight_methods = 1
-" let g:go_highlight_extra_types = 1
-" let g:go_highlight_generate_tags = 1
-
-" Open :GoDeclsDir with ctrl-g
-" nmap <C-g> :GoDeclsDir<cr>
-" imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
-
-" augroup go
-  " autocmd!
-  " " Show by default 4 spaces for a tab
-  " autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-  " " :GoBuild and :GoTestCompile
-  " autocmd FileType go nmap <Leader><Leader>gb :<C-u>call <SID>build_go_files()<CR>
-  " " :GoTest
-  " autocmd FileType go nmap <Leader><Leader>gt  <Plug>(go-test)
-  " " :GoRun
-  " autocmd FileType go nmap <Leader><Leader>gr  <Plug>(go-run)
-  " " :GoDoc
-  " autocmd FileType go nmap <Leader><Leader>gd <Plug>(go-doc)
-  " " :GoCoverageToggle
-  " autocmd FileType go nmap <Leader><Leader>gc <Plug>(go-coverage-toggle)
-  " " :GoInfo
-  " autocmd FileType go nmap <Leader><Leader>gi <Plug>(go-info)
-  " " :GoMetaLinter
-  " autocmd FileType go nmap <Leader><Leader>gl <Plug>(go-metalinter)
-  " " :GoDef but opens in a vertical split
-  " autocmd FileType go nmap <Leader><Leader>gv <Plug>(go-def-vertical)
-  " " :GoDef but opens in a horizontal split
-  " autocmd FileType go nmap <Leader><Leader>gs <Plug>(go-def-split)
-  " " :GoAlternate  commands :A, :AV, :AS and :AT
-  " autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-  " autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  " autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-  " autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-" augroup END
-
-" build_go_files is a custom function that builds or compiles the test file.
-" It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
-" function! s:build_go_files()
-  " let l:file = expand('%')
-  " if l:file =~# '^\f\+_test\.go$'
-    " call go#cmd#Test(0, 1)
-  " elseif l:file =~# '^\f\+\.go$'
-    " call go#cmd#Build(0)
-  " endif
-" endfunction
-
-" References:
-" https://github.com/fatih/vim-go
-" https://github.com/fatih/vim-go-tutorial
-" ==============================================================================
-
-" Handy functions
-" ==============================================================================
-" Load my favorite colorscheme
-" ------------------------------------------------------------------------
-function! FavoriteColorSchemeLoad()
-  let l:colorscheme = "sahara"
-  exe "colorscheme ". l:colorscheme
-endfunction
-" ------------------------------------------------------------------------
-
-" session/viminfo managements
-" ------------------------------------------------------------------------
-" [Session]
-" A Session keeps the Views for all windows, plus the global settings.  You can
-" save a Session and when you restore it later the window layout looks the same.
-" You can use a Session to quickly switch between different projects,
-" automatically loading the files you were last working on in that project.
-" Views and Sessions are a nice addition to viminfo-files, which are used to
-" remember information for all Views and Sessions together |viminfo-file|.
-"
-" [viminfo]
-" If you exit Vim and later start it again, you would normally lose a lot of
-" information.  The viminfo file can be used to remember that information, which
-" enables you to continue where you left off. The viminfo file is used to store:
-" - The command line history.
-" - The search string history.
-" - The input-line history.
-" - Contents of non-empty registers.
-" - Marks for several files.
-" - File marks, pointing to locations in files.
-" - Last search/substitute pattern (for 'n' and '&').
-" - The buffer list.
-" - Global variables.
-"
-" [References]
-" :h session
-" :h viminfo
-" :h internal-variables
-" https://nixtricks.wordpress.com/2009/11/02/vim-save-and-use-vim-sessions/
-" http://easwy.com/blog/archives/advanced-vim-skills-session-file-and-viminfo/
-" http://vim.wikia.com/wiki/Go_away_and_come_back
-"
-function! SessionSave()
-  "let l:sessiondir = $HOME . "/.vim/vimsessions" . getcwd()
-  let l:sessiondir = "./.vimsession"
-  if (filewritable(l:sessiondir) != 2)
-    exe 'silent !mkdir -p ' l:sessiondir
-    redraw!
-  endif
-  let l:sessionfile = l:sessiondir . '/session.vim'
-  exe "mksession! " . l:sessionfile
-  echom "Session \"" . l:sessionfile . "\" Saved!"
-endfunction
-function! SessionLoad()
-  "let l:sessiondir = $HOME . "/.vim/vimsessions" . getcwd()
-  let l:sessiondir = "./.vimsession"
-  let l:sessionfile = l:sessiondir . "/session.vim"
-  if (filereadable(l:sessionfile))
-    exe 'source ' l:sessionfile
-  else
-    echo "No session loaded."
-  endif
-  echom "Session \"" . l:sessionfile . "\" Loaded!"
-endfunction
-
-function! ViminfoSave()
-  "let l:sessiondir = $HOME . "/.vim/vimsessions" . getcwd()
-  let l:sessiondir = "./.vimsession"
-  if (filewritable(l:sessiondir) != 2)
-    exe 'silent !mkdir -p ' l:sessiondir
-    redraw!
-  endif
-  let l:viminfofile = l:sessiondir . '/viminfo.vim'
-  exe "wviminfo! " . l:viminfofile
-  echom "viminfo \"" . l:viminfofile . "\" Saved!"
-endfunction
-function! ViminfoLoad()
-  "let l:sessiondir = $HOME . "/.vim/vimsessions" . getcwd()
-  let l:sessiondir = "./.vimsession"
-  let l:viminfofile = l:sessiondir . '/viminfo.vim'
-  if (filereadable(l:viminfofile))
-    exe "rviminfo! " . l:viminfofile
-  else
-    echo "No viminfo loaded."
-  endif
-  echom "viminfo \"" . l:viminfofile . "\" Loaded!"
-endfunction
-
-function! VimSave()
-  call SessionSave()
-  call ViminfoSave()
-  echom "VimSave() done!"
-endfunction
-function! VimLoad()
-  call SessionLoad()
-  call ViminfoLoad()
-  call FavoriteColorSchemeLoad()
-  echom "VimLoad() done!"
-endfunction
-" autocmd VimEnter * nested :call VimLoad()
-" autocmd VimLeave * :call VimSave()
-" ------------------------------------------------------------------------
-
-" Add C language logger macros
-" http://stackoverflow.com/questions/690386/writing-a-vim-function-to-insert-a-block-of-static-text
-" ------------------------------------------------------------------------
-function! ReadCMacros()
-    r ~/.vim/scripts/handy_text/c_logger_macro.txt
-endfunction
-nnoremap <Leader><Leader>rcm :call ReadCMacros()<CR>
-nnoremap <Leader><Leader>acm :%s/^{/{BEGIN_FUNC("@@@")/gc<CR>
-" ------------------------------------------------------------------------
 " ==============================================================================
 
