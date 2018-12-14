@@ -589,18 +589,24 @@ nnoremap <Leader><Leader>al :LAck! -i<Space><C-R><C-W>
 " https://phpactor.github.io/phpactor/vim-plugin.html
 " Include use statement
 nmap <Leader><Leader>pua :call phpactor#UseAdd()<CR>
+
 " Invoke the context menu
 nmap <Leader><Leader>pcm :call phpactor#ContextMenu()<CR>
 " Invoke the navigation menu
 nmap <Leader><Leader>pnv :call phpactor#Navigate()<CR>
+
 " Goto definition of class or class member under the cursor
 nmap <Leader><Leader>pgd :call phpactor#GotoDefinition()<CR>
+" Scan for all references to a class member in the project
+nmap <Leader><Leader>pgr :call phpactor#FindReferences()<CR>
 " Show brief information about the symbol under the cursor
 nmap <Leader><Leader>pii :call phpactor#Hover()<CR>
+
 " Transform the classes in the current file
 nmap <Leader><Leader>ptf :call phpactor#Transform()<CR>
 " Generate a new class (replacing the current file)
 nmap <Leader><Leader>pcn :call phpactor#ClassNew()<CR>
+
 " Extract expression (normal mode)
 nmap <silent><Leader><Leader>pee :call phpactor#ExtractExpression(v:false)<CR>
 " Extract expression from selection
