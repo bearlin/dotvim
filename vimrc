@@ -67,6 +67,10 @@ Plug 'roxma/nvim-yarp' " Yet Another Remote Plugin Framework for Neovim
     "neovim python client (pip3 install neovim)
 Plug 'roxma/vim-hug-neovim-rpc' " experimental project : a compatibility layer for neovim rpc client working on vim8
 Plug 'phpactor/ncm2-phpactor' " NCM2 Integration for Phpactor
+
+" ncm2-snippet plugins
+Plug 'ncm2/ncm2-ultisnips' " based on ultisnips
+Plug 'SirVer/ultisnips'
 " ----------------------------------
 
 " Colorful vim
@@ -403,15 +407,6 @@ nnoremap k gk
  let g:DirDiffAddArgs = "-w"
 " ==============================================================================
 
-" To resolve conflict between snipmate + autocomplpop
-" ==============================================================================
-" (Update) othree/vim-autocomplpop already support arbas/vim-snipmate, so this
-" blow can be removed, more details at https://github.com/othree/vim-autocomplpop
-"
-" http://mvnllife.blogspot.tw/2013/11/vim-to-ide1-vundlesnipmateautocomplpop.html
-" let g:acp_behaviorSnipmateLength = 1
-" ==============================================================================
-
 " For auto loading ctags and cscope files
 " ==============================================================================
 " See :help rtp
@@ -614,5 +609,18 @@ vmap <silent><Leader><Leader>pes :<C-U>call phpactor#ExtractExpression(v:true)<C
 " Extract method from selection
 vmap <silent><Leader><Leader>pem :<C-U>call phpactor#ExtractMethod()<CR>
 " ----------------------------------
+" ==============================================================================
 
+" ncm2-ultisnips settings
+" ==============================================================================
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+" c-j c-k for moving in snippet
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+" :help UltiSnips for more information on using UltiSnips.
 " ==============================================================================
