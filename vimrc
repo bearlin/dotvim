@@ -97,7 +97,7 @@ Plug 'itchyny/lightline.vim'
 " ----------------------------------
 " [Note]
 " Althought my vim changes to vim-airline, my tmux/bash still need powerline binding scripts 
-" in ~/.vim/bundle/powerline/powerline/bindings/*, so still need to install powerline plugin here.
+" in ~/.vim/plugged/powerline/powerline/bindings/*, so still need to install powerline plugin here.
 Plug 'powerline/powerline'
 " ----------------------------------
 
