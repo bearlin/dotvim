@@ -62,8 +62,8 @@ cd "$DOTVIMHOME"
 ./scripts/update_pre_downloaded_plugins.sh
 ./scripts/cscope_maps_patch.sh
 
-ln -s $DOTVIMHOME/vimrc $DOTVIMRC
-ln -s $DOTVIMHOME/gvimrc $DOTGVIMRC
+ln -s $DOTVIMHOME/huge.vimrc $DOTVIMRC
+ln -s $DOTVIMHOME/huge.vimrc $DOTGVIMRC
 # ------------------------ 
 
 cd -
