@@ -554,14 +554,10 @@ let g:indent_guides_guide_size=1
 "     follows the convention of Vim's built-in |:grep| and |:make| commands.
 "
 " ack pattern to 'quickfix-window'
-nnoremap <Leader><Leader>aq :Ack! -i<Space><C-R><C-W>
-" nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/G1/Release<Space><C-R><C-W>
-" nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/Release<Space><C-R><C-W>
+nnoremap <Leader><Leader>aq :Ack! -i<Space>--ignore-dir=.git <C-R><C-W>
 
 " ack pattern to 'location-list-window'
-nnoremap <Leader><Leader>al :LAck! -i<Space><C-R><C-W>
-" nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/G1/Release<Space><C-R><C-W>
-" nnoremap <Leader><Leader>aq :Ack! --ignore-dir=firmware/Release<Space><C-R><C-W>
+nnoremap <Leader><Leader>al :LAck! -i<Space>--ignore-dir=.git <C-R><C-W>
 
 " References:
 " https://github.com/mileszs/ack.vim

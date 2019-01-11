@@ -111,8 +111,8 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 " mileszs/ack.vim
-nnoremap <Leader><Leader>aq :Ack! -i<Space><C-R><C-W>
-nnoremap <Leader><Leader>al :LAck! -i<Space><C-R><C-W>
+nnoremap <Leader><Leader>aq :Ack! -i<Space>--ignore-dir=.git <C-R><C-W>
+nnoremap <Leader><Leader>al :LAck! -i<Space>--ignore-dir=.git <C-R><C-W>
 
 " PHP Autocompletion plugins
   autocmd BufEnter * call ncm2#enable_for_buffer()
