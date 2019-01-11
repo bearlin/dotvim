@@ -221,18 +221,14 @@ endif
 " About vmap and vnoremap: http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
 "
 " <Leader>x are Cut in visual mode
-" vnoremap <S-X>  "+x
- " vnoremap <Leader>x "+x
+ vnoremap <Leader>x "*x
 
 " <Leader>y are Copy in visual mode
-" vnoremap <S-C>  "+y
- " vnoremap <Leader>y "+y
+ vnoremap <Leader>y "*y
 
 " <Leader>p are Paste in normal mode and command line mode
-" noremap <S-V>   "+gp
-" cnoremap <S-V>  <C-R>+
- " nnoremap <Leader>p "+p
- " cnoremap <Leader>p <C-R>+
+ nnoremap <Leader>p "*p
+ cnoremap <Leader>p <C-R>*
 " -----------------------------------
 
 " Statusline and background color
