@@ -130,7 +130,7 @@ call plug#end()
  set tabstop=4     " Number of spaces that a <Tab> in the file counts for
  set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
  set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
- set textwidth=79  " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
+ set textwidth=120  " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
  set formatoptions=tcroq " Auto-wrap text using textwidth
  set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
  set autoindent    " Copy indent from current line when starting a new line
@@ -264,8 +264,8 @@ set background=dark
 " Hex editing using xxd tool
 " -----------------------------------
 " http://nion.modprobe.de/blog/archives/628-vim-as-hex-editor.html
- nnoremap <Leader>hexon :%!xxd<CR>
- nnoremap <Leader>hexof :%!xxd -r<CR>
+ " nnoremap <Leader>hexon :%!xxd<CR>
+ " nnoremap <Leader>hexof :%!xxd -r<CR>
 " -----------------------------------
 
 " Insert current file/directory name/path
@@ -305,20 +305,20 @@ set background=dark
 "                                               that with :h (/abc/def), then get the tail of that with :t (def)
 "
 " To insert the current directory name of current file:
-:inoremap <Leader><Leader>dnt <C-R>=expand("%:p:h:t")<CR>
+" :inoremap <Leader><Leader>dnt <C-R>=expand("%:p:h:t")<CR>
 " Inserts the current filename with the extension
-:inoremap <Leader><Leader>fnt <C-R>=expand("%:t")<CR>
+" :inoremap <Leader><Leader>fnt <C-R>=expand("%:t")<CR>
 " Inserts the current filename without the extension
-:inoremap <Leader><Leader>fne <C-R>=expand("%:t:r")<CR>
+" :inoremap <Leader><Leader>fne <C-R>=expand("%:t:r")<CR>
 
 " To insert the relative file path of current file:
-:inoremap <Leader><Leader>fnr <C-R>=expand("%")<CR>
+" :inoremap <Leader><Leader>fnr <C-R>=expand("%")<CR>
 " To insert the absolute file path of current file:
-:inoremap <Leader><Leader>fna <C-R>=expand("%:p")<CR>
+" :inoremap <Leader><Leader>fna <C-R>=expand("%:p")<CR>
 " To insert the relative directory path of current file:
-:inoremap <Leader><Leader>dnr <C-R>=expand("%:h")<CR>
+" :inoremap <Leader><Leader>dnr <C-R>=expand("%:h")<CR>
 " To insert the absolute directory path of current file:
-:inoremap <Leader><Leader>dna <C-R>=expand("%:p:h")<CR>
+" :inoremap <Leader><Leader>dna <C-R>=expand("%:p:h")<CR>
 " -----------------------------------
 
 " Buffers operations
