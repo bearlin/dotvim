@@ -48,5 +48,7 @@ git clone https://github.com/bearlin/dotvim.git "$DOTVIMHOME"
 cd "$DOTVIMHOME" 
 ln -s $DOTVIMHOME/php.vimrc $DOTVIMRC
 
+vim +PlugInstall +qall
+
 cd -
 byebye "$@" "bearlin's dotvim is installed!"

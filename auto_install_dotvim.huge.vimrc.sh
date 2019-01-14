@@ -66,6 +66,9 @@ ln -s $DOTVIMHOME/huge.vimrc $DOTVIMRC
 # ln -s $DOTVIMHOME/huge.vimrc $DOTGVIMRC
 # ------------------------ 
 
+# Install all vim plugins
+vim +PlugInstall +qall
+
 cd -
 byebye "$@" "bearlin's dotvim is installed!"
 

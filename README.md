@@ -102,13 +102,11 @@ Then run below scripts to install both .vimrc and its plugins via vim-plug:
 ```sh
   chmod +x auto_install_dotvim.huge.vimrc.sh
   ./auto_install_dotvim.huge.vimrc.sh
-  vim +PlugInstall +qall
 ```
 Or force remove ~/.vim, ~/.vimrc and ~/.gvimrc:  
 ```sh
   chmod +x auto_install_dotvim.huge.vimrc.sh
   ./auto_install_dotvim.huge.vimrc.sh force
-  vim +PlugInstall +qall
 ```
 
 # Manually install steps:  
