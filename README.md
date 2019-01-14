@@ -92,22 +92,22 @@ sudo dpkg -r vim
 Reference from [vgod's vim install steps](https://github.com/vgod/vimrc)  
 Get auto_install_dotvim.sh use curl (for Mac OS X):  
 ```sh
-  curl -LSo "auto_install_dotvim.sh" "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install_dotvim.sh"
+  curl -LSo "auto_install_dotvim.huge.vimrc.sh" "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install_dotvim.huge.vimrc.sh"
 ```
 Or use wget (for most UNIX platforms):  
 ```sh
-  wget "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install_dotvim.sh" -O "auto_install_dotvim.sh" 
+  wget "https://raw.githubusercontent.com/bearlin/dotvim/master/auto_install_dotvim.huge.vimrc.sh" -O "auto_install_dotvim.huge.vimrc.sh" 
 ```
 Then run below scripts to install both .vimrc and its plugins via vim-plug:  
 ```sh
-  chmod +x auto_install_dotvim.sh
-  ./auto_install_dotvim.sh
+  chmod +x auto_install_dotvim.huge.vimrc.sh
+  ./auto_install_dotvim.huge.vimrc.sh
   vim +PlugInstall +qall
 ```
 Or force remove ~/.vim, ~/.vimrc and ~/.gvimrc:  
 ```sh
-  chmod +x auto_install_dotvim.sh
-  ./auto_install_dotvim.sh force
+  chmod +x auto_install_dotvim.huge.vimrc.sh
+  ./auto_install_dotvim.huge.vimrc.sh force
   vim +PlugInstall +qall
 ```
 
