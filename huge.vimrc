@@ -553,11 +553,21 @@ let g:indent_guides_guide_size=1
 "     Most of the `:[L]Ack*` commands support this. Note that this behavior
 "     follows the convention of Vim's built-in |:grep| and |:make| commands.
 "
-" ack pattern to 'quickfix-window'
-nnoremap <Leader><Leader>aq :Ack! -i<Space>--ignore-dir=.git <C-R><C-W>
-
-" ack pattern to 'location-list-window'
-nnoremap <Leader><Leader>al :LAck! -i<Space>--ignore-dir=.git <C-R><C-W>
+if executable('ag') "Ag
+  let g:ackprg = 'ag --vimgrep'
+  let g:ack_default_options = '--ignore=.git --ignore=.idea --ignore=tags'
+  nnoremap <Leader><Leader>aq :Ack! <C-R><C-W> -iw
+  nnoremap <Leader><Leader>al :LAck! <C-R><C-W> -iw
+elseif executable('ack') "Ack
+  let g:ackprg = 'ack'
+  nnoremap <Leader><Leader>aq :Ack! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
+  nnoremap <Leader><Leader>al :LAck! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
+else "Normal grep
+  " ack pattern to 'quickfix-window'
+  nnoremap <Leader><Leader>aq :Ack! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
+  " ack pattern to 'location-list-window'
+  nnoremap <Leader><Leader>al :LAck! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
+endif
 
 " References:
 " https://github.com/mileszs/ack.vim
