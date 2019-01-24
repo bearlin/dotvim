@@ -15,6 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mileszs/ack.vim'
+"Plug 'terryma/vim-multiple-cursors'
 
 Plug 'StanAngeloff/php.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
@@ -24,10 +25,13 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'phpactor/ncm2-phpactor'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'SirVer/ultisnips'
+Plug 'vim-syntastic/syntastic'
 
 Plug 'brafales/vim-desert256'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/L9'
+
+"Plug 'ludovicchabant/vim-gutentags' " depends on universal-ctags
 call plug#end()
 
 set encoding=utf-8
@@ -121,6 +125,7 @@ elseif executable('ack') "Ack
   nnoremap <Leader><Leader>aq :Ack! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
   nnoremap <Leader><Leader>al :LAck! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
 else "Normal grep
+  let g:ackprg = 'grep'
   " ack pattern to 'quickfix-window'
   nnoremap <Leader><Leader>aq :Ack! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
   " ack pattern to 'location-list-window'
@@ -151,3 +156,23 @@ let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
 let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
+
+" Check for PHP syntax errors after saving a file
+" augroup PHP
+    " "Clear all autocmd's in this group be fore running them again
+    " autocmd!
+    " autocmd BufWritePost {*.php} echom system("php -l ".expand('%'))
+" augroup END
+
+" vim-syntastic/syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" syntastic for PHP : To install phpcs/phpmd: composer require --dev phpmd/phpmd and composer require --dev squizlabs/php_codesniffer
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_php_phpcs_exec = './vendor/bin/phpcs'
+let g:syntastic_php_phpcs_args = '--standard=psr2'
+let g:syntastic_php_phpmd_exec = './vendor/bin/phpmd'
+let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
+

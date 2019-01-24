@@ -40,6 +40,7 @@ Plug 'will133/vim-dirdiff'
 Plug 'mileszs/ack.vim'            " Need to install Ack before use this plugin
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/indentpython.vim'
+"Plug 'terryma/vim-multiple-cursors'
 Plug 'StanAngeloff/php.vim'
 " ----------------------------------
 
@@ -71,6 +72,11 @@ Plug 'phpactor/ncm2-phpactor' " NCM2 Integration for Phpactor
 " ncm2-snippet plugins
 Plug 'ncm2/ncm2-ultisnips' " based on ultisnips
 Plug 'SirVer/ultisnips'
+" ----------------------------------
+
+" Syntax checker
+" ----------------------------------
+Plug 'vim-syntastic/syntastic'
 " ----------------------------------
 
 " Colorful vim
@@ -175,25 +181,6 @@ call plug#end()
 " set ttymouse=xterm " Name of the terminal type for which mouse codes are to be recognized. Currently use xterm-like mouse handling
 " -----------------------------------
 
-" Change mapleader to ','
-" -----------------------------------
- let mapleader=","
-" -----------------------------------
-
-" Easier split window navigations 
-" -----------------------------------
-" Easier split navigations 
-" We can use different key mappings for easy navigation between splits to save a keystroke. So instead of ctrl-w then j, it’s just ctrl-j:
-" About nmap and nnoremap: http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
-  nnoremap <C-J> <C-W><C-J>
-  nnoremap <C-K> <C-W><C-K>
-  nnoremap <C-L> <C-W><C-L>
-  nnoremap <C-H> <C-W><C-H>
-" More natural split opening. Open new split panes to right and bottom, which feels more natural than Vim’s default:
- set splitbelow       " When on, splitting a window will put the new window below the current one
- set splitright       " When on, splitting a window will put the new window right of the current one
-" -----------------------------------
-
 " Show special characters
 " -----------------------------------
 " http://danawoodman.com/posts/vim-show-whitespace/
@@ -213,24 +200,6 @@ else
 endif
 " -----------------------------------
 
-" Easier Cut/Copy/Paste
-" -----------------------------------
-" http://vim.wikia.com/wiki/Accessing_the_system_clipboard
-" http://serverfault.com/questions/27917/configure-vim-for-text-selection-with-shift-and-copy-paste-via-ctrlc-ctrlv
-" http://vim.cybermirror.org/runtime/mswin.vim
-" About vmap and vnoremap: http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
-"
-" <Leader>x are Cut in visual mode
- vnoremap <Leader>x "*x
-
-" <Leader>y are Copy in visual mode
- vnoremap <Leader>y "*y
-
-" <Leader>p are Paste in normal mode and command line mode
- nnoremap <Leader>p "*p
- cnoremap <Leader>p <C-R>*
-" -----------------------------------
-
 " Statusline and background color
 " -----------------------------------
 " sachet.com
@@ -243,18 +212,41 @@ set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set background=dark
 " -----------------------------------
 
-" Color schemes
+" Change mapleader to ','
 " -----------------------------------
-" http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
-" :colo[rscheme] {name} : Load color scheme {name}
-":silent! colorscheme lucid
-:silent! colorscheme desert256
-":silent! colorscheme sahara
-":silent! colorscheme apprentice
-":silent! colorscheme solarized
-":silent! colorscheme wombat
-":silent! colorscheme grb256
-":silent! colorscheme jellybeans
+let mapleader=","
+" -----------------------------------
+
+" Easier split window navigations 
+" -----------------------------------
+" Easier split navigations 
+" We can use different key mappings for easy navigation between splits to save a keystroke. So instead of ctrl-w then j, it’s just ctrl-j:
+" About nmap and nnoremap: http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" More natural split opening. Open new split panes to right and bottom, which feels more natural than Vim’s default:
+ set splitbelow       " When on, splitting a window will put the new window below the current one
+ set splitright       " When on, splitting a window will put the new window right of the current one
+" -----------------------------------
+
+" Easier Cut/Copy/Paste
+" -----------------------------------
+" http://vim.wikia.com/wiki/Accessing_the_system_clipboard
+" http://serverfault.com/questions/27917/configure-vim-for-text-selection-with-shift-and-copy-paste-via-ctrlc-ctrlv
+" http://vim.cybermirror.org/runtime/mswin.vim
+" About vmap and vnoremap: http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
+"
+" <Leader>x are Cut in visual mode
+vnoremap <Leader>x "*x
+
+" <Leader>y are Copy in visual mode
+vnoremap <Leader>y "*y
+
+" <Leader>p are Paste in normal mode and command line mode
+nnoremap <Leader>p "*p
+cnoremap <Leader>p <C-R>*
 " -----------------------------------
 
 " Hex editing using xxd tool
@@ -350,32 +342,46 @@ nnoremap j gj
 nnoremap k gk
 " -----------------------------------
 
+" Color schemes
+" -----------------------------------
+" http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
+" :colo[rscheme] {name} : Load color scheme {name}
+":silent! colorscheme lucid
+:silent! colorscheme desert256
+":silent! colorscheme sahara
+":silent! colorscheme apprentice
+":silent! colorscheme solarized
+":silent! colorscheme wombat
+":silent! colorscheme grb256
+":silent! colorscheme jellybeans
+" -----------------------------------
+
 " ************************************
 " ****** Plugins settings start ******
 " ************************************
 " NERD_tree
 " ==============================================================================
 " Open and close the NERD_tree.vim separately                                  " 
- nnoremap <F8> :NERDTreeToggle<CR>
- nnoremap <Leader><leader>nf :NERDTreeFind<CR>
+nnoremap <F8> :NERDTreeToggle<CR>
+nnoremap <Leader><leader>nf :NERDTreeFind<CR>
 "                                                                              " 
 " This option tells vim whether to display hidden files by default             ".
- let NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
 "                                                                              " 
 " Tells the script where to put the NERD tree window                           " 
- let NERDTreeWinPos="right"
+let NERDTreeWinPos="right"
 "                                                                              " 
 " Sets the window size when the NERD tree is opened                            " 
- let NERDTreeWinSize=35
+let NERDTreeWinSize=35
 " ==============================================================================
 
 " tagbar
 " ==============================================================================
 " Open and close the taglist.vim separately                                    " 
- nnoremap <silent> <F9> :TagbarToggle<CR>
- let g:tagbar_ctags_bin = 'ctags'
- let g:tagbar_width = 30
- let g:tagbar_left = 1
+nnoremap <silent> <F9> :TagbarToggle<CR>
+let g:tagbar_ctags_bin = 'ctags'
+let g:tagbar_width = 30
+let g:tagbar_left = 1
 " ==============================================================================
 
 " vim-cpp-enhanced-highlight
@@ -469,7 +475,7 @@ endfunction
 
 " ==============================================================================
 
-" For lightline.vim
+" lightline.vim
 " ==============================================================================
 set laststatus=2
 " ==============================================================================
@@ -563,6 +569,7 @@ elseif executable('ack') "Ack
   nnoremap <Leader><Leader>aq :Ack! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
   nnoremap <Leader><Leader>al :LAck! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
 else "Normal grep
+  let g:ackprg = 'grep'
   " ack pattern to 'quickfix-window'
   nnoremap <Leader><Leader>aq :Ack! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
   " ack pattern to 'location-list-window'
@@ -626,3 +633,25 @@ let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 " :help UltiSnips for more information on using UltiSnips.
 " ==============================================================================
+
+" Check for PHP syntax errors after saving a file
+" augroup PHP
+    " "Clear all autocmd's in this group be fore running them again
+    " autocmd!
+    " autocmd BufWritePost {*.php} echom system("php -l ".expand('%'))
+" augroup END
+
+" vim-syntastic/syntastic
+" ==============================================================================
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" syntastic for PHP : To install phpcs/phpmd: composer require --dev phpmd/phpmd and composer require --dev squizlabs/php_codesniffer
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_php_phpcs_exec = './vendor/bin/phpcs'
+let g:syntastic_php_phpcs_args = '--standard=psr2'
+let g:syntastic_php_phpmd_exec = './vendor/bin/phpmd'
+let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
+" ==============================================================================
+
