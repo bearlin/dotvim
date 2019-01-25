@@ -40,6 +40,7 @@ Plug 'will133/vim-dirdiff'
 Plug 'mileszs/ack.vim'            " Need to install Ack before use this plugin
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/indentpython.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'terryma/vim-multiple-cursors'
 Plug 'StanAngeloff/php.vim'
 " ----------------------------------
@@ -124,37 +125,37 @@ call plug#end()
 " -----------------------------------
 " http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/
 " http://www.cnblogs.com/soli/archive/2008/03/17/1109931.html
- " Encoding settings
- set encoding=utf-8
- set fileencodings=utf-8,cp950,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
- set termencoding=utf-8
- " Editing settings
- set nocompatible  " Make VIM not vi-compatible
- set t_Co=256      " Make terminal VIM support 256 colors, not just 16 colors
+" Encoding settings
+set encoding=utf-8
+set fileencodings=utf-8,cp950,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set termencoding=utf-8
+" Editing settings
+set nocompatible  " Make VIM not vi-compatible
+set t_Co=256      " Make terminal VIM support 256 colors, not just 16 colors
 
- " Default indentation/fileformat settings
- set tabstop=4     " Number of spaces that a <Tab> in the file counts for
- set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
- set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
- set textwidth=120  " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
- set formatoptions=tcroq " Auto-wrap text using textwidth
- set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
- set autoindent    " Copy indent from current line when starting a new line
- set fileformat=unix
- " set noexpandtab
+" Default indentation/fileformat settings
+set tabstop=4     " Number of spaces that a <Tab> in the file counts for
+set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
+set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
+set textwidth=120  " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
+set formatoptions=tcroq " Auto-wrap text using textwidth
+set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
+set autoindent    " Copy indent from current line when starting a new line
+set fileformat=unix
+" set noexpandtab
 
- set ruler         " Show the line and column number of the cursor position, separated by a comma
- set backspace=2   " Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode. 在 insert 也可用 backspace
- set ignorecase    " Ignore case in search patterns
- set smartcase     " Override the 'ignorecase' option if the search pattern contains upper case characters
- set hlsearch      " When there is a previous search pattern, highlight all its matches
- set incsearch     " While typing a search command, show where the pattern, as it was typed so far, matches
- set smartindent   " Do smart autoindenting when starting a new line
- set confirm       " When unsaved changes to a buffer, e.g. ":q" and ":e", raise a |dialog| asking if you wish to save the current file(s)
- set history=200   " A history of ":" commands, and a history of previous search patterns, how many will be remembered
- set cursorline    " Highlight the screen line of the cursor with CursorLine
- " set cursorcolumn  " WARNING : VERY SLOW in vim-fugitive. Highlight the screen column of the cursor with CursorColumn
- set laststatus=2  " The value of this option influences when the last window will have a status line: 0:never 1:if there are 2 windows 2:always
+set ruler         " Show the line and column number of the cursor position, separated by a comma
+set backspace=2   " Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode. 在 insert 也可用 backspace
+set ignorecase    " Ignore case in search patterns
+set smartcase     " Override the 'ignorecase' option if the search pattern contains upper case characters
+set hlsearch      " When there is a previous search pattern, highlight all its matches
+set incsearch     " While typing a search command, show where the pattern, as it was typed so far, matches
+set smartindent   " Do smart autoindenting when starting a new line
+set confirm       " When unsaved changes to a buffer, e.g. ":q" and ":e", raise a |dialog| asking if you wish to save the current file(s)
+set history=200   " A history of ":" commands, and a history of previous search patterns, how many will be remembered
+set cursorline    " Highlight the screen line of the cursor with CursorLine
+set laststatus=2  " The value of this option influences when the last window will have a status line: 0:never 1:if there are 2 windows 2:always
+" set cursorcolumn  " WARNING : VERY SLOW in vim-fugitive. Highlight the screen column of the cursor with CursorColumn
 " set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
 
 " zsh Command-line completion style
@@ -170,15 +171,14 @@ call plug#end()
 " Enable mouse and line numbering
 " -----------------------------------
 " How to copy text when mouse=a: http://stackoverflow.com/questions/4608161/copy-text-out-of-vim-with-set-mouse-a-enabled
- set number        " Print the line number in front of each line
+set number        " Print the line number in front of each line
 " set ttyfast       " Indicates a fast terminal connection, More characters will be sent to the screen for redrawing
-
- set mouse=a       " Enable the use of the mouse in all modes
-" set mouse=n       " Enable the use of the mouse only in normal modes
 
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-" set ttymouse=xterm " Name of the terminal type for which mouse codes are to be recognized. Currently use xterm-like mouse handling
+set ttymouse=xterm2 " Name of the terminal type for which mouse codes are to be recognized.
+set mouse=a       " Enable the use of the mouse in all modes
+" set mouse=n       " Enable the use of the mouse only in normal modes
 " -----------------------------------
 
 " Show special characters
@@ -652,3 +652,23 @@ let g:syntastic_php_phpcs_args = '--standard=psr2'
 let g:syntastic_php_phpmd_exec = './vendor/bin/phpmd'
 let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
 " ==============================================================================
+
+" ctrlpvim/ctrlp.vim
+" ==============================================================================
+let g:ctrlp_map = '<c-p>' "<Leader><Leader>p'
+let g:ctrlp_cmd = 'CtrlP'
+" map <Leader><Leader>b :CtrlPBuffer<CR>
+" map <Leader><Leader>f :CtrlPMRU<CR>
+" map <Leader><Leader>m :CtrlPMixed<CR>
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+    \ }
+let g:ctrlp_working_path_mode=0 "'ra'
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+" ==============================================================================
+

@@ -15,6 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mileszs/ack.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'terryma/vim-multiple-cursors'
 
 Plug 'StanAngeloff/php.vim'
@@ -62,6 +63,7 @@ set wildmenu
 set wildmode=full
 set diffopt=filler,vertical
 set number
+set ttymouse=xterm2
 set mouse=a
 set splitbelow
 set splitright
@@ -175,3 +177,21 @@ let g:syntastic_php_phpcs_args = '--standard=psr2'
 let g:syntastic_php_phpmd_exec = './vendor/bin/phpmd'
 let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
 " --------------------------------------------
+
+" ctrlpvim/ctrlp.vim
+let g:ctrlp_map = '<c-p>' "<Leader><Leader>p'
+let g:ctrlp_cmd = 'CtrlP'
+" map <Leader><Leader>b :CtrlPBuffer<CR>
+" map <Leader><Leader>f :CtrlPMRU<CR>
+" map <Leader><Leader>m :CtrlPMixed<CR>
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+    \ }
+let g:ctrlp_working_path_mode=0 "'ra'
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+
