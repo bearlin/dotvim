@@ -1,5 +1,11 @@
-set nocompatible
+" ==============================================================================
+" bearlin's vimrc
+" Email : <bear.lin.001@gmail.com>
+" Repo : https://github.com/bearlin/dotvim
+" More info : https://github.com/bearlin/dotvim/blob/master/README.md
+" ==============================================================================
 
+set nocompatible
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -17,7 +23,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'terryma/vim-multiple-cursors'
-
 Plug 'StanAngeloff/php.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'ncm2/ncm2'
@@ -38,6 +43,7 @@ call plug#end()
 set encoding=utf-8
 set fileencodings=utf-8,cp950,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 set termencoding=utf-8
+set fileformat=unix
 set nocompatible
 set t_Co=256
 set tabstop=4
@@ -47,7 +53,6 @@ set textwidth=120
 set formatoptions=tcroq
 set expandtab
 set autoindent
-set fileformat=unix
 set ruler
 set backspace=2
 set ignorecase
@@ -135,9 +140,9 @@ else "Normal grep
 endif
 
 " PHP Autocompletion plugins
-  autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd BufEnter * call ncm2#enable_for_buffer()
 " IMPORTANTE: :help Ncm2PopupOpen for more information
-  set completeopt=noinsert,menuone,noselect
+set completeopt=noinsert,menuone,noselect
 
 " Phpactor : Keyboard Mappings
 nmap <Leader><Leader>pua :call phpactor#UseAdd()<CR>

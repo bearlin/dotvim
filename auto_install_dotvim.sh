@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# References:
+# https://github.com/vgod/vimrc/blob/master/auto-install.sh
+# http://stackoverflow.com/questions/59838/check-if-a-directory-exists-in-a-shell-script
+
 DOTVIMHOME=~/.vim
 warn() {
   echo "$1" >&2
@@ -32,11 +36,20 @@ usage() {
 }
 
 DOTVIMRC=~/.vimrc
+#echo "DOTVIMHOME=$DOTVIMHOME"
+#echo "DOTVIMRC=$DOTVIMRC"
 
 if [ "$1" == "force" ]; then
   echo "Force remove $DOTVIMHOME $DOTVIMRC"
   rm -rf $DOTVIMHOME $DOTVIMRC
 fi
+
+VIMRC_SRC=default.vimrc
+if [ "$2" == "php" ]; then
+  VIMRC_SRC=php.vimrc
+fi
+echo "Use $VIMRC_SRC"
+
 
 [ -e "$DOTVIMHOME/vimrc" ] && warn "$DOTVIMHOME/vimrc already exists." && usage && die "exit!"
 [ -e "$DOTVIMHOME/gvimrc" ] && warn "$DOTVIMHOME/gvimrc already exists." && usage && die "exit!"
@@ -46,9 +59,19 @@ fi
 git clone https://github.com/bearlin/dotvim.git "$DOTVIMHOME" 
 
 cd "$DOTVIMHOME" 
-ln -s $DOTVIMHOME/php.vimrc $DOTVIMRC
+# ------------------------ 
+# Disabled because migrated plugin manager from Vundle to vim-plug
+# ./scripts/update_plugin_manager.sh #// Repleced by vim-plug
 
+./scripts/update_pre_downloaded_plugins.sh
+./scripts/cscope_maps_patch.sh
+
+ln -s $DOTVIMHOME/$VIMRC_SRC $DOTVIMRC
+# ------------------------ 
+
+# Install all vim plugins
 vim +PlugInstall +qall
 
 cd -
 byebye "$@" "bearlin's dotvim is installed!"
+

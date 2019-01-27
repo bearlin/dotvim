@@ -5,11 +5,10 @@
 " More info : https://github.com/bearlin/dotvim/blob/master/README.md
 " ==============================================================================
 
-set nocompatible              " be iMproved, required
+set nocompatible
 
-" Section for Vim plugin manage
+" Plugin manager settings
 " ==============================================================================
-
 " Automatic installation for vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -17,15 +16,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-
-" Vim help
-" ----------------------------------
-Plug 'junegunn/vim-plug' "If you need Vim help for vim-plug itself (e.g. :help plug-options), register vim-plug as a plugin
-" ----------------------------------
+Plug 'junegunn/vim-plug'
 
 " Source code browsing
 " ----------------------------------
@@ -34,10 +26,10 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'mileszs/ack.vim' " Need to install Ag or Ack for this plugin
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
 Plug 'will133/vim-dirdiff'
-Plug 'mileszs/ack.vim'            " Need to install Ack before use this plugin
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -90,10 +82,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'brafales/vim-desert256'
 Plug 'cseelus/vim-colors-lucid'
 Plug 'vim-scripts/wombat256.vim'
-
 " Status line
 Plug 'itchyny/lightline.vim'
-
 " Syntax
 " Plug 'lilydjwg/colorizer' " colorizer: Highlight #rrggbb or #rgb color (http://vimawesome.com/plugin/colorizer-sparks-fly)
 " CSV file
@@ -113,35 +103,29 @@ Plug 'powerline/powerline'
 Plug 'vim-scripts/L9'
 " ----------------------------------
 
-" Initialize plugin system
+"Plug 'ludovicchabant/vim-gutentags' " depends on universal-ctags
 call plug#end()
 " ==============================================================================
 
-" ************************************
-" ********* General Settings *********
-" ************************************
-" ====================================
 " Basic settings
-" -----------------------------------
-" http://blog.roga.tw/2010/01/%E6%88%91%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84-vimrc-%E8%A8%AD%E5%AE%9A%E6%AA%94/
-" http://www.cnblogs.com/soli/archive/2008/03/17/1109931.html
+" ==============================================================================
 " Encoding settings
 set encoding=utf-8
 set fileencodings=utf-8,cp950,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 set termencoding=utf-8
-" Editing settings
-set nocompatible  " Make VIM not vi-compatible
+set fileformat=unix
+
+set nocompatible
 set t_Co=256      " Make terminal VIM support 256 colors, not just 16 colors
 
-" Default indentation/fileformat settings
-set tabstop=4     " Number of spaces that a <Tab> in the file counts for
-set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing operations, like inserting a <Tab> or using <BS>
-set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
-set textwidth=120  " Maximum width of text that is being inserted. A longer line will be broken after white space to get this width.
+" Default indentation settings
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=120
 set formatoptions=tcroq " Auto-wrap text using textwidth
 set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
-set autoindent    " Copy indent from current line when starting a new line
-set fileformat=unix
+set autoindent
 " set noexpandtab
 
 set ruler         " Show the line and column number of the cursor position, separated by a comma
@@ -156,16 +140,14 @@ set history=200   " A history of ":" commands, and a history of previous search 
 set cursorline    " Highlight the screen line of the cursor with CursorLine
 set laststatus=2  " The value of this option influences when the last window will have a status line: 0:never 1:if there are 2 windows 2:always
 " set cursorcolumn  " WARNING : VERY SLOW in vim-fugitive. Highlight the screen column of the cursor with CursorColumn
-" set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
 
 " zsh Command-line completion style
- set wildmenu      " When 'wildmenu' is on, command-line completion operates in an enhanced mode
- set wildmode=full
+set wildmenu      " When 'wildmenu' is on, command-line completion operates in an enhanced mode
+set wildmode=full
 " bash Command-line completion style
- " set wildmode=longest,list
-
+" set wildmode=longest,list
 " Set diffsplit/diffthis/diffpatch to vertical style
- set diffopt=filler,vertical
+set diffopt=filler,vertical
 " -----------------------------------
 
 " Enable mouse and line numbering
@@ -181,16 +163,13 @@ set mouse=a       " Enable the use of the mouse in all modes
 " set mouse=n       " Enable the use of the mouse only in normal modes
 " -----------------------------------
 
+" More natural split opening. Open new split panes to right and bottom, which feels more natural than Vim’s default:
+set splitbelow
+set splitright
+
 " Show special characters
 " -----------------------------------
-" http://danawoodman.com/posts/vim-show-whitespace/
-" http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-characters
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-"
-" Show extra whitespace
-" 'list' : List mode: Show tabs as CTRL-I is displayed, display $ after end of line
-" 'listchars' 'lcs' : Strings to use in 'list' mode and for the |:list| command.  It is a comma separated list of string settings
- set list
+set list
 if has('win32unix') " Cygwin
   set listchars=eol:$,tab:>-,trail:.,extends:>,precedes:<
 else
@@ -201,21 +180,11 @@ endif
 " -----------------------------------
 
 " Statusline and background color
-" -----------------------------------
-" sachet.com
-" 'statusline' 'stl' : When nonempty, this option determines the content of the status line
-" 'background' 'bg' : When set to "dark", Vim will try to use colors that look good on a dark background
-"                     When set to "light", Vim will try to use colors that look good on a light background
-"                     Any other value is illegal
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
-"set background=light
 set background=dark
-" -----------------------------------
 
 " Change mapleader to ','
-" -----------------------------------
 let mapleader=","
-" -----------------------------------
 
 " Easier split window navigations 
 " -----------------------------------
@@ -226,24 +195,14 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" More natural split opening. Open new split panes to right and bottom, which feels more natural than Vim’s default:
- set splitbelow       " When on, splitting a window will put the new window below the current one
- set splitright       " When on, splitting a window will put the new window right of the current one
 " -----------------------------------
 
 " Easier Cut/Copy/Paste
 " -----------------------------------
-" http://vim.wikia.com/wiki/Accessing_the_system_clipboard
-" http://serverfault.com/questions/27917/configure-vim-for-text-selection-with-shift-and-copy-paste-via-ctrlc-ctrlv
-" http://vim.cybermirror.org/runtime/mswin.vim
-" About vmap and vnoremap: http://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
-"
 " <Leader>x are Cut in visual mode
 vnoremap <Leader>x "*x
-
 " <Leader>y are Copy in visual mode
 vnoremap <Leader>y "*y
-
 " <Leader>p are Paste in normal mode and command line mode
 nnoremap <Leader>p "*p
 cnoremap <Leader>p <C-R>*
@@ -252,46 +211,12 @@ cnoremap <Leader>p <C-R>*
 " Hex editing using xxd tool
 " -----------------------------------
 " http://nion.modprobe.de/blog/archives/628-vim-as-hex-editor.html
- " nnoremap <Leader>hexon :%!xxd<CR>
- " nnoremap <Leader>hexof :%!xxd -r<CR>
+" nnoremap <Leader>hexon :%!xxd<CR>
+" nnoremap <Leader>hexof :%!xxd -r<CR>
 " -----------------------------------
 
 " Insert current file/directory name/path
 " -----------------------------------
-" http://vim.wikia.com/wiki/Get_the_name_of_the_current_file
-" http://vim.wikia.com/wiki/VimTip193
-" :h expand
-"
-" expand() conecpts:
-" When {expr} starts with '%', '#' or '<', the expansion is done
-" like for the |cmdline-special| variables with their associated
-" modifiers.  Here is a short overview:
-"        %             current file name
-"        #             alternate file name
-"        #n            alternate file name n
-"        <cfile>       file name under the cursor
-"        <afile>       autocmd file name
-"        <abuf>        autocmd buffer number (as a String!)
-"        <amatch>      autocmd matched name
-"        <sfile>       sourced script file or function name
-"        <slnum>       sourced script file line number
-"        <cword>       word under the cursor
-"        <cWORD>       WORD under the cursor
-"        <client>      the {clientid} of the last received
-" Modifiers:
-"        :p            expand to full path
-"        :h            head (last path component removed)
-"        :t            tail (last path component only)
-"        :r            root (one extension removed)
-"        :e            extension only
-" For example a file /abc/def/my.txt:
-" :echo @%                    def/my.txt        directory/name of file (relative to the current working directory of /abc)
-" :echo expand('%:t')         my.txt            name of file ('tail')
-" :echo expand('%:p')         /abc/def/my.txt   full path
-" :echo expand('%:p:h')       /abc/def          directory containing file ('head')
-" :echo expand('%:p:h:t')     def               First get the full path with :p (/abc/def/my.txt), then get the head of 
-"                                               that with :h (/abc/def), then get the tail of that with :t (def)
-"
 " To insert the current directory name of current file:
 " :inoremap <Leader><Leader>dnt <C-R>=expand("%:p:h:t")<CR>
 " Inserts the current filename with the extension
@@ -314,11 +239,9 @@ cnoremap <Leader>p <C-R>*
 " http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
 " This allows buffers to be hidden if you've modified a buffer. This is almost a must if you wish to use buffers in this way.
 " set hidden
-" To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
+" To open a new empty buffer.
 nnoremap <leader><Leader>bB :enew<CR>
-" Move to the next buffer
 nnoremap <leader><Leader>bn :bnext<CR>
-" Move to the previous buffer
 nnoremap <leader><Leader>bp :bprevious<CR>
 " Close the current buffer and move to the previous one. This replicates the idea of closing a tab
 nnoremap <leader><Leader>bq :bprevious <BAR> bdelete #<CR>
@@ -344,8 +267,6 @@ nnoremap k gk
 
 " Color schemes
 " -----------------------------------
-" http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
-" :colo[rscheme] {name} : Load color scheme {name}
 ":silent! colorscheme lucid
 :silent! colorscheme desert256
 ":silent! colorscheme sahara
@@ -355,37 +276,30 @@ nnoremap k gk
 ":silent! colorscheme grb256
 ":silent! colorscheme jellybeans
 " -----------------------------------
+" ==============================================================================
 
 " ************************************
 " ****** Plugins settings start ******
 " ************************************
 " NERD_tree
-" ==============================================================================
-" Open and close the NERD_tree.vim separately                                  " 
+" ------------------------------------------------------------------------------
 nnoremap <F8> :NERDTreeToggle<CR>
 nnoremap <Leader><leader>nf :NERDTreeFind<CR>
-"                                                                              " 
-" This option tells vim whether to display hidden files by default             ".
 let NERDTreeShowHidden=1
-"                                                                              " 
-" Tells the script where to put the NERD tree window                           " 
 let NERDTreeWinPos="right"
-"                                                                              " 
-" Sets the window size when the NERD tree is opened                            " 
 let NERDTreeWinSize=35
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " tagbar
-" ==============================================================================
-" Open and close the taglist.vim separately                                    " 
+" ------------------------------------------------------------------------------
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'
 let g:tagbar_width = 30
 let g:tagbar_left = 1
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " vim-cpp-enhanced-highlight
-" ==============================================================================
+" ------------------------------------------------------------------------------
 " Optional features
 " Highlighting of class scope if disabled by default. To enable set
 " let g:cpp_class_scope_highlight = 1
@@ -393,47 +307,41 @@ let g:tagbar_left = 1
 " Highlighting of template functions is enabled by setting
 " let g:cpp_experimental_template_highlight = 1
 " Note: C++ template syntax is notoriously difficult to parse, so don't expect this feature to be perfect."
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " DirDiff
-" ==============================================================================
-" http://myvicommandhelp.blogspot.tw/2010/10/dirdiff-compare-two-folders.html
-" http://minimul.com/compare-and-merge-directories-with-dirdiff.html
-" #Don't compare directories or filenames that match conditions like CVS,*.swp
- let g:DirDiffExcludes = "system,CVS,*.class,*.exe,.*.swp" 
-"
+" ------------------------------------------------------------------------------
+let g:DirDiffExcludes = "system,CVS,*.class,*.exe,.*.swp" 
 " #Ignore lines that Id:,Revision: etc.
 " let g:DirDiffIgnore = "Id:,Revision:,Date:"
-"
 " #Don't flag files as different based on whitespace
- let g:DirDiffAddArgs = "-w"
-" ==============================================================================
+let g:DirDiffAddArgs = "-w"
+" ------------------------------------------------------------------------------
 
 " For auto loading ctags and cscope files
-" ==============================================================================
+" ------------------------------------------------------------------------------
 " See :help rtp
-"  set rtp+=~/.vim/bundle/cscope_maps
-
+" set rtp+=~/.vim/bundle/cscope_maps
 " Vim will look for tags file everywhere starting from the current directory up
 " to the root. Ref : http://vim.wikia.com/wiki/Autoloading_Cscope_Database
-"  set tags=tags;/
+" set tags=tags;/
 
-"  function! LoadCscope()
-    " Searches from the directory of the current file upwards until it finds
-    " the file "cscope.out", see :h file-searching for ".;".
-"    let db = findfile("cscope.out", ".;")
-"    if (!empty(db))
-"      let path = strpart(db, 0, match(db, "/cscope.out$"))
-"      set nocscopeverbose " suppress 'duplicate connection' error
-"      exe "cs add " . db . " " . path
-"      set cscopeverbose
-"    endif
-"  endfunction
-"  autocmd BufEnter /* call LoadCscope()
-" ==============================================================================
+" function! LoadCscope()
+  " " Searches from the directory of the current file upwards until it finds
+  " " the file "cscope.out", see :h file-searching for ".;".
+  " let db = findfile("cscope.out", ".;")
+  " if (!empty(db))
+    " let path = strpart(db, 0, match(db, "/cscope.out$"))
+    " set nocscopeverbose " suppress 'duplicate connection' error
+    " exe "cs add " . db . " " . path
+    " set cscopeverbose
+  " endif
+" endfunction
+" autocmd BufEnter /* call LoadCscope()
+" ------------------------------------------------------------------------------
 
 " For GNU GLOBAL (gtags) files
-" ==============================================================================
+" ------------------------------------------------------------------------------
 " References:
 " Gtags-cscope : 
 "   https://www.gnu.org/software/global/globaldoc_toc.html#gtags_002dcscope
@@ -472,16 +380,13 @@ function! UseCscope()
 
   echom "UseCscope!"
 endfunction
-
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " lightline.vim
-" ==============================================================================
 set laststatus=2
-" ==============================================================================
 
 " NERD Commenter
-" ==============================================================================
+" ------------------------------------------------------------------------------
 let g:NERDSpaceDelims=1
 
 " Functionality summary:
@@ -499,66 +404,18 @@ let g:NERDSpaceDelims=1
 "<Leader>ci       "Toggles the comment state of the selected line(s) individually.
 "<Leader>cy       "Same as <Leader>cc except that the commented line(s) are yanked first.
 "<Leader>c$       "Comments the current line from the cursor to the end of line.
-"
-" References:
-" :h NERDComFunctionalitySummary
-" https://github.com/scrooloose/nerdcommenter
-" http://www.wklken.me/posts/2015/06/07/vim-plugin-nerdcommenter.html
-" http://www.dutor.net/index.php/2010/05/vim-the-nerd-commenter/
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " vim-indent-guides
-" ==============================================================================
-" 随 vim 自启动
+" ------------------------------------------------------------------------------
 let g:indent_guides_enable_on_vim_startup=1
-" 从第二层开始可视化显示缩进
 let g:indent_guides_start_level=2
-" 色块宽度
 let g:indent_guides_guide_size=1
-" 快捷键 i 开/关缩进可视化
 " :nmap <silent> <Leader><Leader>ii <Plug>IndentGuidesToggle
-" References:
-" https://github.com/yangyangwithgnu/use_vim_as_ide#4.2
-" http://foocoder.com/blog/mei-ri-vimcha-jian-suo-jin-xian-shi-vim-indent-guides.html/
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " mileszs/ack.vim
-" ==============================================================================
-" Just like where you use :grep, :grepadd, :lgrep, and :lgrepadd, you can use
-" :Ack, :AckAdd, :LAck, and :LAckAdd respectively. (See :help Ack after
-" installing, or doc/ack.txt in the repo, for more information.)
-"
-" Keyboard Shortcuts
-" The quickfix results window is augmented with these convenience mappings:
-" ?    a quick summary of these keys, repeat to close
-" o    to open (same as Enter)
-" O    to open and close the quickfix window
-" go   to preview file, open but maintain focus on ack.vim results
-" t    to open in new tab
-" T    to open in new tab without moving to it
-" h    to open in horizontal split
-" H    to open in horizontal split, keeping focus on the results
-" v    to open in vertical split
-" gv   to open in vertical split, keeping focus on the results
-" q    to close the quickfix window
-
-" let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" The default behavior of :Ack will jump to first result, see below if you
-" don't want this.
-" nnoremap <Leader><Leader>a :Ack<Space>
-
-" I don't want to jump to the first result automatically.~
-"     Use `:Ack!`, with bang. If you want this behavior most of the time, you
-"     might like an abbreviation or mapping in your personal config, something
-"     like these:
-" >
-"         cnoreabbrev Ack Ack!
-"         nnoremap <Leader>a :Ack!<Space>
-" <
-"     Most of the `:[L]Ack*` commands support this. Note that this behavior
-"     follows the convention of Vim's built-in |:grep| and |:make| commands.
-"
+" ------------------------------------------------------------------------------
 if executable('ag') "Ag
   let g:ackprg = 'ag --vimgrep'
   let g:ack_default_options = '--ignore=.git --ignore=.idea --ignore=tags'
@@ -575,67 +432,42 @@ else "Normal grep
   " ack pattern to 'location-list-window'
   nnoremap <Leader><Leader>al :LAck! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
 endif
-
-" References:
-" https://github.com/mileszs/ack.vim
-" http://harttle.com/2015/12/21/vim-search.html
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " PHP Autocompletion plugins
-" ==============================================================================
+" ------------------------------------------------------------------------------
 " enable ncm2 for all buffers
-  autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd BufEnter * call ncm2#enable_for_buffer()
 " IMPORTANTE: :help Ncm2PopupOpen for more information
-  set completeopt=noinsert,menuone,noselect
+set completeopt=noinsert,menuone,noselect
 
 " Phpactor : Keyboard Mappings
-" ----------------------------------
-" https://phpactor.github.io/phpactor/vim-plugin.html
-" Include use statement
 nmap <Leader><Leader>pua :call phpactor#UseAdd()<CR>
-
-" Invoke the context menu
 nmap <Leader><Leader>pcm :call phpactor#ContextMenu()<CR>
-" Invoke the navigation menu
 nmap <Leader><Leader>pnv :call phpactor#Navigate()<CR>
-
-" Goto definition of class or class member under the cursor
 nmap <Leader><Leader>pgd :call phpactor#GotoDefinition()<CR>
-" Scan for all references to a class member in the project
 nmap <Leader><Leader>pgr :call phpactor#FindReferences()<CR>
-" Show brief information about the symbol under the cursor
 nmap <Leader><Leader>pii :call phpactor#Hover()<CR>
-
-" Transform the classes in the current file
 nmap <Leader><Leader>ptf :call phpactor#Transform()<CR>
-" Generate a new class (replacing the current file)
 nmap <Leader><Leader>pcn :call phpactor#ClassNew()<CR>
-
-" Extract expression (normal mode)
 nmap <silent><Leader><Leader>pee :call phpactor#ExtractExpression(v:false)<CR>
-" Extract expression from selection
 vmap <silent><Leader><Leader>pes :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-" Extract method from selection
 vmap <silent><Leader><Leader>pem :<C-U>call phpactor#ExtractMethod()<CR>
-" ----------------------------------
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " ncm2-ultisnips settings
-" ==============================================================================
-" Press enter key to trigger snippet expansion
-" The parameters are the same as `:help feedkeys()`
+" ------------------------------------------------------------------------------
+" Press enter key to trigger snippet expansion. The parameters are the same as `:help feedkeys()`
 inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
 " c-j c-k for moving in snippet
 let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
 let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
-" :help UltiSnips for more information on using UltiSnips.
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " vim-syntastic/syntastic
-" ==============================================================================
+" ------------------------------------------------------------------------------
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -651,10 +483,10 @@ let g:syntastic_php_phpcs_args = '--standard=psr2'
 " phpmd
 let g:syntastic_php_phpmd_exec = './vendor/bin/phpmd'
 let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
 " ctrlpvim/ctrlp.vim
-" ==============================================================================
+" ------------------------------------------------------------------------------
 let g:ctrlp_map = '<c-p>' "<Leader><Leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 " map <Leader><Leader>b :CtrlPBuffer<CR>
@@ -670,5 +502,5 @@ let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
-" ==============================================================================
+" ------------------------------------------------------------------------------
 
