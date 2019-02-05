@@ -82,6 +82,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'brafales/vim-desert256'
 Plug 'cseelus/vim-colors-lucid'
 Plug 'vim-scripts/wombat256.vim'
+Plug 'vim-scripts/xoria256.vim'
 " Status line
 Plug 'itchyny/lightline.vim'
 " Syntax
@@ -268,13 +269,14 @@ nnoremap k gk
 " Color schemes
 " -----------------------------------
 ":silent! colorscheme lucid
-:silent! colorscheme desert256
+":silent! colorscheme desert256
 ":silent! colorscheme sahara
 ":silent! colorscheme apprentice
 ":silent! colorscheme solarized
 ":silent! colorscheme wombat
 ":silent! colorscheme grb256
 ":silent! colorscheme jellybeans
+:silent! colorscheme xoria256
 " -----------------------------------
 " ==============================================================================
 
