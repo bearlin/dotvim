@@ -485,6 +485,8 @@ let g:syntastic_php_phpcs_args = '--standard=psr2'
 " phpmd
 let g:syntastic_php_phpmd_exec = './vendor/bin/phpmd'
 let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
+
+let g:syntastic_javascript_checkers = ['jshint']
 " ------------------------------------------------------------------------------
 
 " ctrlpvim/ctrlp.vim
