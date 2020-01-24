@@ -63,8 +63,8 @@ cd "$DOTVIMHOME"
 # Disabled because migrated plugin manager from Vundle to vim-plug
 # ./scripts/update_plugin_manager.sh #// Repleced by vim-plug
 
-./scripts/update_pre_downloaded_plugins.sh
-./scripts/cscope_maps_patch.sh
+#./scripts/update_pre_downloaded_plugins.sh
+#./scripts/cscope_maps_patch.sh
 
 ln -s $DOTVIMHOME/$VIMRC_SRC $DOTVIMRC
 # ------------------------ 
