@@ -32,7 +32,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'will133/vim-dirdiff'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'terryma/vim-multiple-cursors'
 Plug 'StanAngeloff/php.vim'
 " ----------------------------------
@@ -124,7 +124,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set textwidth=120
-set formatoptions=tcroq " Auto-wrap text using textwidth
+set formatoptions=crql " Auto-wrap text // https://www.cnblogs.com/ayanmw/p/3432005.html
 set expandtab     " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
 set autoindent
 " set noexpandtab
@@ -491,20 +491,20 @@ let g:syntastic_javascript_checkers = ['jshint']
 
 " ctrlpvim/ctrlp.vim
 " ------------------------------------------------------------------------------
-let g:ctrlp_map = '<c-p>' "<Leader><Leader>p'
-let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_map = '<c-p>' "<Leader><Leader>p'
+"let g:ctrlp_cmd = 'CtrlP'
 " map <Leader><Leader>b :CtrlPBuffer<CR>
 " map <Leader><Leader>f :CtrlPMRU<CR>
 " map <Leader><Leader>m :CtrlPMixed<CR>
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
-    \ }
-let g:ctrlp_working_path_mode=0 "'ra'
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
+"let g:ctrlp_custom_ignore = {
+"    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+"    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+"    \ }
+"let g:ctrlp_working_path_mode=0 "'ra'
+"let g:ctrlp_match_window_bottom=1
+"let g:ctrlp_max_height=15
+"let g:ctrlp_match_window_reversed=0
+"let g:ctrlp_mruf_max=500
+"let g:ctrlp_follow_symlinks=1
 " ------------------------------------------------------------------------------
 
