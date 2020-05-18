@@ -42,29 +42,29 @@ Plug 'StanAngeloff/php.vim'
 " PHP Autocompletion plugins
     "Requirements
     "Vim 8
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'} " PHP completion, refactoring and introspection tool.
+"Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'} " PHP completion, refactoring and introspection tool.
     "Requirements
     "PHP 7.1+
     "Composer
-Plug 'ncm2/ncm2' " Slim, Fast and Hackable Completion Framework for Neovim
+"Plug 'ncm2/ncm2' " Slim, Fast and Hackable Completion Framework for Neovim
     "Requirements
     ":echo has("nvim-0.2.2") prints 1. Older versions has not been tested
     ":echo has("python3") prints 1
     "Plugin nvim-yarp
     "For vim8 user, read the nvim-yarp README. Note that vim8 support is simply a bonus. It's not the goal of NCM2.
-Plug 'roxma/nvim-yarp' " Yet Another Remote Plugin Framework for Neovim
+"Plug 'roxma/nvim-yarp' " Yet Another Remote Plugin Framework for Neovim
     "Requirements
     "has('python3')
     "For Vim 8:
     "roxma/vim-hug-neovim-rpc
     "g:python3_host_prog pointed to your python3 executable, or echo exepath('python3') is not empty.
     "neovim python client (pip3 install neovim)
-Plug 'roxma/vim-hug-neovim-rpc' " experimental project : a compatibility layer for neovim rpc client working on vim8
-Plug 'phpactor/ncm2-phpactor' " NCM2 Integration for Phpactor
+"Plug 'roxma/vim-hug-neovim-rpc' " experimental project : a compatibility layer for neovim rpc client working on vim8
+"Plug 'phpactor/ncm2-phpactor' " NCM2 Integration for Phpactor
 
 " ncm2-snippet plugins
-Plug 'ncm2/ncm2-ultisnips' " based on ultisnips
-Plug 'SirVer/ultisnips'
+"Plug 'ncm2/ncm2-ultisnips' " based on ultisnips
+"Plug 'SirVer/ultisnips'
 " ----------------------------------
 
 " Syntax checker
@@ -439,33 +439,33 @@ endif
 " PHP Autocompletion plugins
 " ------------------------------------------------------------------------------
 " enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" autocmd BufEnter * call ncm2#enable_for_buffer()
 " IMPORTANTE: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
+" set completeopt=noinsert,menuone,noselect
 
 " Phpactor : Keyboard Mappings
-nmap <Leader><Leader>pua :call phpactor#UseAdd()<CR>
-nmap <Leader><Leader>pcm :call phpactor#ContextMenu()<CR>
-nmap <Leader><Leader>pnv :call phpactor#Navigate()<CR>
-nmap <Leader><Leader>pgd :call phpactor#GotoDefinition()<CR>
-nmap <Leader><Leader>pgr :call phpactor#FindReferences()<CR>
-nmap <Leader><Leader>pii :call phpactor#Hover()<CR>
-nmap <Leader><Leader>ptf :call phpactor#Transform()<CR>
-nmap <Leader><Leader>pcn :call phpactor#ClassNew()<CR>
-nmap <silent><Leader><Leader>pee :call phpactor#ExtractExpression(v:false)<CR>
-vmap <silent><Leader><Leader>pes :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-vmap <silent><Leader><Leader>pem :<C-U>call phpactor#ExtractMethod()<CR>
+" nmap <Leader><Leader>pua :call phpactor#UseAdd()<CR>
+" nmap <Leader><Leader>pcm :call phpactor#ContextMenu()<CR>
+" nmap <Leader><Leader>pnv :call phpactor#Navigate()<CR>
+" nmap <Leader><Leader>pgd :call phpactor#GotoDefinition()<CR>
+" nmap <Leader><Leader>pgr :call phpactor#FindReferences()<CR>
+" nmap <Leader><Leader>pii :call phpactor#Hover()<CR>
+" nmap <Leader><Leader>ptf :call phpactor#Transform()<CR>
+" nmap <Leader><Leader>pcn :call phpactor#ClassNew()<CR>
+" nmap <silent><Leader><Leader>pee :call phpactor#ExtractExpression(v:false)<CR>
+" vmap <silent><Leader><Leader>pes :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+" vmap <silent><Leader><Leader>pem :<C-U>call phpactor#ExtractMethod()<CR>
 " ------------------------------------------------------------------------------
 
 " ncm2-ultisnips settings
 " ------------------------------------------------------------------------------
 " Press enter key to trigger snippet expansion. The parameters are the same as `:help feedkeys()`
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+" inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 " c-j c-k for moving in snippet
-let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
+" let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+" let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+" let g:UltiSnipsRemoveSelectModeMappings = 0
 " ------------------------------------------------------------------------------
 
 " vim-syntastic/syntastic
