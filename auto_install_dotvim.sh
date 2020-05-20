@@ -36,12 +36,13 @@ usage() {
 }
 
 DOTVIMRC=~/.vimrc
+DOTIDEAVIMRC=~/.ideavimrc
 #echo "DOTVIMHOME=$DOTVIMHOME"
 #echo "DOTVIMRC=$DOTVIMRC"
 
 if [ "$1" == "force" ]; then
-  echo "Force remove $DOTVIMHOME $DOTVIMRC"
-  rm -rf $DOTVIMHOME $DOTVIMRC
+  echo "Force remove $DOTVIMHOME $DOTVIMRC $DOTIDEAVIMRC"
+  rm -rf $DOTVIMHOME $DOTVIMRC $DOTIDEAVIMRC
 fi
 
 VIMRC_SRC=default.vimrc
@@ -55,6 +56,7 @@ echo "Use $VIMRC_SRC"
 [ -e "$DOTVIMHOME/gvimrc" ] && warn "$DOTVIMHOME/gvimrc already exists." && usage && die "exit!"
 [ -d "$DOTVIMHOME" ] && warn "$DOTVIMHOME already exists." && usage && die "exit!"
 [ -L "$DOTVIMRC" ] && warn "$DOTVIMRC already exists." && usage && die "exit!"
+[ -L "$DOTIDEAVIMRC" ] && warn "$DOTIDEAVIMRC already exists." && usage && die "exit!"
 
 git clone https://github.com/bearlin/dotvim.git "$DOTVIMHOME" 
 
@@ -67,6 +69,7 @@ cd "$DOTVIMHOME"
 #./scripts/cscope_maps_patch.sh
 
 ln -s $DOTVIMHOME/$VIMRC_SRC $DOTVIMRC
+ln -s $DOTVIMHOME/ideavimrc $DOTIDEAVIMRC
 # ------------------------ 
 
 # Install all vim plugins
