@@ -69,7 +69,7 @@ Plug 'StanAngeloff/php.vim'
 
 " Syntax checker
 " ----------------------------------
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 " ----------------------------------
 
 " Colorful vim
@@ -470,23 +470,23 @@ endif
 
 " vim-syntastic/syntastic
 " ------------------------------------------------------------------------------
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
-" syntastic for PHP : To install phpcs/phpmd: composer require --dev phpmd/phpmd and composer require --dev squizlabs/php_codesniffer
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+" " syntastic for PHP : To install phpcs/phpmd: composer require --dev phpmd/phpmd and composer require --dev squizlabs/php_codesniffer
+" let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
-" phpcs: Normal
-let g:syntastic_php_phpcs_exec = './vendor/bin/phpcs'
-let g:syntastic_php_phpcs_args = '--standard=psr2'
+" " phpcs: Normal
+" let g:syntastic_php_phpcs_exec = './vendor/bin/phpcs'
+" let g:syntastic_php_phpcs_args = '--standard=psr2'
 
-" phpmd
-let g:syntastic_php_phpmd_exec = './vendor/bin/phpmd'
-let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
+" " phpmd
+" let g:syntastic_php_phpmd_exec = './vendor/bin/phpmd'
+" let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
 
-let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = ['jshint']
 " ------------------------------------------------------------------------------
 
 " ctrlpvim/ctrlp.vim
