@@ -125,8 +125,8 @@ let g:indent_guides_guide_size=1
 if executable('ag') "Ag
   let g:ackprg = 'ag --vimgrep'
   let g:ack_default_options = '--ignore=.git --ignore=.idea --ignore=tags'
-  nnoremap <Leader><Leader>aq :Ack! <C-R><C-W> -iw
-  nnoremap <Leader><Leader>al :LAck! <C-R><C-W> -iw
+  nnoremap <Leader><Leader>aq :Ack! --hidden <C-R><C-W> -iw
+  nnoremap <Leader><Leader>al :LAck! --hidden <C-R><C-W> -iw
 elseif executable('ack') "Ack
   let g:ackprg = 'ack'
   nnoremap <Leader><Leader>aq :Ack! --ignore-dir=.git --ignore-dir=.idea --ignore-file=match:/tags$/ <C-R><C-W> -iw
