@@ -508,3 +508,10 @@ endif
 "let g:ctrlp_follow_symlinks=1
 " ------------------------------------------------------------------------------
 
+" Shortcuts to format XML and JSON in place in Vim
+" ------------------------------------------------------------------------------
+" https://coderwall.com/p/_ezvkq/shortcuts-to-format-xml-and-json-in-place-in-vim
+nnoremap <Leader><Leader>fj :%!python -m json.tool<CR>
+nnoremap <Leader><Leader>fx :%!xmllint --format %<CR>
+" ------------------------------------------------------------------------------
+

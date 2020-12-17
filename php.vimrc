@@ -200,3 +200,10 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
+" Shortcuts to format XML and JSON in place in Vim
+" ------------------------------------------------------------------------------
+" https://coderwall.com/p/_ezvkq/shortcuts-to-format-xml-and-json-in-place-in-vim
+nnoremap <Leader><Leader>fj :%!python -m json.tool<CR>
+nnoremap <Leader><Leader>fx :%!xmllint --format %<CR>
+" ------------------------------------------------------------------------------
+
