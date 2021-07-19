@@ -30,7 +30,7 @@ Plug 'mileszs/ack.vim' " Need to install Ag or Ack for this plugin
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
 Plug 'will133/vim-dirdiff'
-Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-scripts/indentpython.vim'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'terryma/vim-multiple-cursors'
