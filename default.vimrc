@@ -351,37 +351,37 @@ let g:DirDiffAddArgs = "-w"
 "   http://learnvimscriptthehardway.stevelosh.com/chapters/23.html
 
 " Switch VIM's cscope interface to use 'gtags-cscope' (cscope port for GNU GLOBAL) as search engine
-function! UseGtags()
-  " cscope settings
-  set cscopetag                  " Use cscope as tags command
-  set cscopeprg='gtags-cscope'   " Use gtags-cscope instead of cscope
-  cs kill 0
-  cs add GTAGS
+"function! UseGtags()
+"  " cscope settings
+"  set cscopetag                  " Use cscope as tags command
+"  set cscopeprg='gtags-cscope'   " Use gtags-cscope instead of cscope
+"  cs kill 0
+"  cs add GTAGS
+"
+"  " gtags settings
+"  let GtagsCscope_Auto_Load = 1
+"  let CtagsCscope_Auto_Map = 1
+"  let GtagsCscope_Quiet = 1
+"
+"  echom "UseGtags!"
+"endfunction
 
-  " gtags settings
-  let GtagsCscope_Auto_Load = 1
-  let CtagsCscope_Auto_Map = 1
-  let GtagsCscope_Quiet = 1
-
-  echom "UseGtags!"
-endfunction
-
-function! UpdateGtags()
-  !global -u
-
-  echom "UpdateGtags!"
-endfunction
+"function! UpdateGtags()
+"  !global -u
+"
+"  echom "UpdateGtags!"
+"endfunction
 
 " Switch cscope interface to use original cscope search engine
-function! UseCscope()
-  " cscope settings
-  set cscopetag           " Use cscope as tags command
-  set cscopeprg='cscope'  " Use cscope
-  cs kill 0
-  call LoadCscope()
-
-  echom "UseCscope!"
-endfunction
+"function! UseCscope()
+"  " cscope settings
+"  set cscopetag           " Use cscope as tags command
+"  set cscopeprg='cscope'  " Use cscope
+"  cs kill 0
+"  call LoadCscope()
+"
+"  echom "UseCscope!"
+"endfunction
 " ------------------------------------------------------------------------------
 
 " lightline.vim
