@@ -58,7 +58,7 @@ echo "Use $VIMRC_SRC"
 [ -L "$DOTVIMRC" ] && warn "$DOTVIMRC already exists." && usage && die "exit!"
 [ -L "$DOTIDEAVIMRC" ] && warn "$DOTIDEAVIMRC already exists." && usage && die "exit!"
 
-git clone git@github.com:bearlin/dotvim.git "$DOTVIMHOME" 
+git clone https://github.com/bearlin/dotvim.git "$DOTVIMHOME" 
 
 cd "$DOTVIMHOME" 
 # ------------------------ 

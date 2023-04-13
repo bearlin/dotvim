@@ -130,6 +130,12 @@ cd ~/.vim
 ./scripts/cscope_maps_patch.sh
 vim +PlugInstall +qall
 ```
+# To manually uninstall one vim-plug plugin:
+```sh
+# 1. Comment out that plugin from ~/.vimrc, e.g.
+# 2. Uninstall using vim-plug command:
+vim +PlugClean +qall
+```
 
 # Some useful scripts
 ```sh
